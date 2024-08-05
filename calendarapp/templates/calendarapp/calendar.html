@@ -6,10 +6,6 @@
         table {
             width: 100%;
         }
-        caption {
-            font-size: 30px;
-            font-weight: bold;
-        }
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
@@ -22,7 +18,6 @@
 </head>
 <body>
     <h1>カレンダー</h1>
-    
     <div>
         <a href="{% url 'calendar' prev_year prev_month %}">&lt; 前月</a>
         <a href="{% url 'calendar' next_year next_month %}">次月 &gt;</a>
@@ -33,7 +28,7 @@
     <h2>イベント一覧</h2>
     <ul>
         {% for event in events %}
-            <li>{{ event.start_time }} - {{ event.title }}</li>
+            <li>{{ event.start_time }} - {{ event.end_time }}: {{ event.title }}</li>
         {% endfor %}
     </ul>
 </body>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ start_of_week|date:"Y年m月d日" }} から {{ end_of_week|date:"Y年m月d日" }} のイベント</title>
+</head>
+<body>
+    <h1>{{ start_of_week|date:"Y年m月d日" }} から {{ end_of_week|date:"Y年m月d日" }} のイベント</h1>
+    <ul>
+        {% for event in events %}
+            <li>{{ event.start_time|date:"Y年m月d日 H:i" }} - {{ event.end_time|date:"H:i" }}: {{ event.title }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'calendar' start_of_week.year start_of_week.month %}">カレンダーに戻る</a>
+</body>
+</html>

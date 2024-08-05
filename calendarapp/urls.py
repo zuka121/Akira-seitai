@@ -4,5 +4,5 @@ from . import views
 urlpatterns = [
     path('', views.calendar_view, name='calendar'),
     path('<int:year>/<int:month>/', views.calendar_view, name='calendar'),
-    path('<int:year>/<int:month>/<int:day>/', views.day_view, name='day_view'),
+    path('week/<int:year>/<int:month>/<int:day>/', views.week_view, name='week_view'),
 ]
