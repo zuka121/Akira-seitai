@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>カレンダー</title>
+    <style>
+        table {
+            width: 100%;
+        }
+        caption {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>カレンダー</h1>
+    
+    <div>
+        <a href="{% url 'calendar' prev_year prev_month %}">&lt; 前月</a>
+        <a href="{% url 'calendar' next_year next_month %}">次月 &gt;</a>
+    </div>
+    <div>
+        {{ calendar|safe }}
+    </div>
+    <h2>イベント一覧</h2>
+    <ul>
+        {% for event in events %}
+            <li>{{ event.start_time }} - {{ event.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

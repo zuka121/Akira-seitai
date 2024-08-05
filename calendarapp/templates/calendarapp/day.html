@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ date|date:"Y年m月d日" }}のイベント</title>
+</head>
+<body>
+    <h1>{{ date|date:"Y年m月d日" }}のイベント</h1>
+    <ul>
+        {% for event in events %}
+            <li>{{ event.start_time|date:"H:i" }} - {{ event.end_time|date:"H:i" }} : {{ event.title }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'calendar' date.year date.month %}">カレンダーに戻る</a>
+</body>
+</html>
