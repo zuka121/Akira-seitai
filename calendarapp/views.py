@@ -3,6 +3,12 @@ from .models import Event
 import calendar
 from datetime import datetime, timedelta
 
+import matplotlib.pyplot as plt
+import numpy as np
+import japanize_matplotlib
+import io
+import urllib, base64
+
 def calendar_view(request, year=None, month=None):
     if year is None or month is None:
         today = datetime.today()
@@ -59,9 +65,62 @@ def week_view(request, year, month, day):
         start_time__lte=end_of_week
     )
 
+    # イベント情報を一つのリストにまとめる
+    event_data = []
+    
+
+    for event in events:
+        day_number = 6 - event.start_time.weekday()  # 月曜を6、日曜を0に変換
+        event_info = {
+            'title': event.title,
+            'start_time': event.start_time.hour,
+            'weekday': day_number,
+            'time':event.end_time.hour - event.start_time.hour,
+            
+        }
+        event_data.append(event_info)
+
+
+    def draw_grid(data):
+       fig, ax = plt.subplots(figsize=(10, 6))
+    
+       # 方眼を描画
+       ax.set_xticks([0,1,2,3,4,5,6,7,8,9,10,11])
+       ax.set_xticklabels(["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"])
+
+       ax.set_yticks(np.arange(0, 7, 1))
+    
+       ax.grid(True)
+
+       # 各イベントの四角形を描画
+       for event in data:
+            rect = plt.Rectangle((event['start_time'], event['weekday'] + 0.2), event['time'], 0.6, color='skyblue')
+            ax.add_patch(rect)
+            ax.text(event['start_time'] + 0.2, event['weekday'] + 0.5, event['title'], ha='left', va='center', fontsize=10)
+
+       # グラフの表示範囲を設定
+       ax.set_xlim(0,11) 
+       ax.set_ylim(0, 7)
+    
+       plt.tick_params(labelleft=False, left=False, bottom=False)
+       
+    #グラフを作成
+    draw_grid(event_data)
+
+
+    # 画像をバッファに保存
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    image_png = buf.getvalue()
+    graph = base64.b64encode(image_png)
+    graph = graph.decode('utf-8')
+    buf.close()
+
     context = {
-        'events': events,
+        'events': event_data,
         'start_of_week': start_of_week,
         'end_of_week': end_of_week,
+        'table_image': graph,  # 画像データをコンテキストに追加
     }
+
     return render(request, 'calendarapp/week.html', context)
