@@ -16,6 +16,7 @@ def calendar_view(request, year=None, month=None):
     month_days = cal.monthdayscalendar(year, month)
 
     cal_html = '<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n'
+    cal_html +='<caption>{}年{}月</caption>\n'.format(year, month)
     cal_html += '<tr>' + ''.join('<th>{}</th>'.format(day) for day in calendar.day_name[:7]) + '</tr>\n'
 
     for week in month_days:
