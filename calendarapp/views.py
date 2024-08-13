@@ -82,7 +82,7 @@ def week_view(request, year, month, day):
 
 
     def draw_grid(data):
-       fig, ax = plt.subplots(figsize=(10, 6))
+       fig, ax = plt.subplots(figsize=(10, 5))
     
        # 方眼を描画
        ax.set_xticks([0,1,2,3,4,5,6,7,8,9,10,11])
@@ -92,6 +92,21 @@ def week_view(request, year, month, day):
     
        ax.grid(True)
 
+
+       # 一週間の月と日付情報を格納する配列
+       week_dates = []
+ 
+       # start_of_weekからend_of_weekまでの日付をループ
+       current_date = start_of_week
+       while current_date <= end_of_week:
+          # 月と日付を配列に追加
+          month_day = current_date.strftime("%m/%d")
+          week_dates.insert(0, month_day)
+          # 次の日に進む
+          current_date += timedelta(days=1)
+              
+        
+
        # y軸ラベルに日付を追加
        positions = [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5]
        labels = ["(日)", "(土)", "(金)", "(木)", "(水)", "(火)", "(月)"]
@@ -99,12 +114,15 @@ def week_view(request, year, month, day):
        for pos, label in zip(positions, labels):
           ax.text(-0.1, pos, label, ha='right', va='center', fontsize=12)
 
+       for pos, label in zip(positions, week_dates):
+          ax.text(-0.5, pos, label, ha='right', va='center', fontsize=12)
+
 
 
 
        # 各イベントの四角形を描画
        for event in data:
-            rect = plt.Rectangle((event['start_time'], event['weekday'] + 0.2), event['time'], 0.6, color='skyblue')
+            rect = plt.Rectangle((event['start_time']+0.02, event['weekday'] + 0.2), event['time']-0.04, 0.6, edgecolor='black', facecolor='skyblue', linewidth=1)
             ax.add_patch(rect)
             ax.text(event['start_time'] + 0.2, event['weekday'] + 0.5, event['title'], ha='left', va='center', fontsize=10)
 
