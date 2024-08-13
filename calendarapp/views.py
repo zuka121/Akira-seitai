@@ -92,6 +92,16 @@ def week_view(request, year, month, day):
     
        ax.grid(True)
 
+       # y軸ラベルに日付を追加
+       positions = [0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5]
+       labels = ["(日)", "(土)", "(金)", "(木)", "(水)", "(火)", "(月)"]
+
+       for pos, label in zip(positions, labels):
+          ax.text(-0.1, pos, label, ha='right', va='center', fontsize=12)
+
+
+
+
        # 各イベントの四角形を描画
        for event in data:
             rect = plt.Rectangle((event['start_time'], event['weekday'] + 0.2), event['time'], 0.6, color='skyblue')

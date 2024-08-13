@@ -5,12 +5,14 @@
 </head>
 <body>
     <h1>{{ start_of_week|date:"Y年m月d日" }} から {{ end_of_week|date:"Y年m月d日" }}</h1>
+    <!--
     <ul>
         {% for event in events %}
             <li>{{ event }}</li>
         {% endfor %}
     </ul>
-
+    -->
+    
     <h2>予約状況</h2>
     <img src="data:image/png;base64,{{ table_image | safe }}" alt="">
     <a href="{% url 'calendar' start_of_week.year start_of_week.month %}">カレンダーに戻る</a>
