@@ -73,9 +73,9 @@ def week_view(request, year, month, day):
         day_number = 6 - event.start_time.weekday()  # 月曜を6、日曜を0に変換
         event_info = {
             'title': event.title,
-            'start_time': event.start_time.hour,
+            'start_time': event.start_time.hour + event.start_time.minute / 60,
             'weekday': day_number,
-            'time':event.end_time.hour - event.start_time.hour,
+            'time':event.end_time.hour + event.end_time.minute / 60 - event.start_time.hour + event.start_time.minute / 60,
             
         }
         event_data.append(event_info)
