@@ -9,6 +9,12 @@ import japanize_matplotlib
 import io
 import urllib, base64
 
+
+def home_view(request):
+    return render(request, 'calendarapp/home.html')
+
+
+
 def calendar_view(request, year=None, month=None):
     if year is None or month is None:
         today = datetime.today()
