@@ -5,6 +5,29 @@
     <meta charset="UTF-8">
     <title>{% block title %}カレンダー{% endblock %}</title>
     <style>
+        /* メニューを固定するためのCSS */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000;  /* 他の要素より前面に表示されるようにする */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+
+
+
         /* 基本的なスタイル */
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +37,7 @@
 
         /* メニューのスタイル */
         nav {
-            background-color: #333;
+            background-color: white;
             padding: 10px 0;
         }
 
@@ -31,20 +54,22 @@
         }
 
         nav ul li a {
-            color: white;
+            color: black;
+            font-weight: 500;
+            font-size: 20px;
             text-decoration: none;
             padding: 14px 20px;
             display: inline-block;
         }
 
         nav ul li a:hover {
-            background-color: #575757;
+            background-color: #FFAB2D;
             color: white;
         }
 
         /* ページのコンテンツ */
         .content {
-            padding: 20px;
+            padding-top: 52px;  /* メニューの高さ分を確保 */
         }
 
         caption {
