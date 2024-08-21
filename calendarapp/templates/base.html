@@ -1,4 +1,3 @@
-<!-- base.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,46 +10,35 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            z-index: 1000;  /* 他の要素より前面に表示されるようにする */
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-
-
-
-
-        /* 基本的なスタイル */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* メニューのスタイル */
-        nav {
             background-color: white;
-            padding: 10px 0;
+            color: black;
+            text-align: center;
+            padding: 10px 0px 0px 0px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1.5px solid rgb(169, 169, 169);
         }
 
+
+        /* ロゴのスタイル */
+        nav img {
+            height: 60px;
+            margin-left: 30px;
+        }
+
+        /* メニューのリンクスタイル */
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex;
+            align-items: center;
         }
 
         nav ul li {
-            display: inline;
-            margin-right: 20px;
+            margin-right: 10px;
         }
 
         nav ul li a {
@@ -59,31 +47,34 @@
             font-size: 20px;
             text-decoration: none;
             padding: 14px 20px;
-            display: inline-block;
         }
 
         nav ul li a:hover {
-            background-color: #FFAB2D;
+            background-color: #ffc368;
             color: white;
         }
 
         /* ページのコンテンツ */
         .content {
-            padding-top: 52px;  /* メニューの高さ分を確保 */
+            padding-top: 65px;  /* メニューの高さ分を確保 */
         }
 
+        /* テーブルスタイル */
         caption {
             font-weight: bold;
             font-size: 25px;
         }
+
         table {
             width: 100%;
         }
+
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
         }
+
         th {
             background-color: #f2f2f2;
         }
@@ -92,6 +83,9 @@
 <body>
     <!-- ナビゲーションメニュー -->
     <nav>
+        {% load static %}
+        <a href="/"><img src="{% static 'calendarapp/images/logo.jpeg' %}" alt="サイトロゴ"></a>
+        <!-- メニューリンク -->
         <ul>
             <li><a href="{% url 'home' %}">ホーム</a></li>
             <li><a href="{% url 'calendar' %}">カレンダー</a></li>
@@ -99,6 +93,7 @@
             <li><a href="#">Contact</a></li>
             <li><a href="#">Help</a></li>
         </ul>
+        <a><img src="{% static 'calendarapp/images/denwa.png' %}" alt="サイトロゴ"></a>
     </nav>
 
     <!-- コンテンツ -->
