@@ -5,6 +5,7 @@
 
 {% block content %}
     <h1>カレンダー</h1>
+    <p>日付を押すと予約状況が確認できます</p>
     <div>
         <a href="{% url 'calendar' prev_year prev_month %}">&lt; 前月</a>
         <a href="{% url 'calendar' next_year next_month %}">次月 &gt;</a>
