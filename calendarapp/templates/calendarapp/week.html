@@ -16,6 +16,7 @@
     -->
     
     <h2>予約状況</h2>
+    <p>青色で表示されていない部分が予約可能です</p>
     <img src="data:image/png;base64,{{ table_image | safe }}" alt="">
     
     <a href="{% url 'calendar' start_of_week.year start_of_week.month %}">カレンダーに戻る</a>

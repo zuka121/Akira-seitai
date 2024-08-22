@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import Event
 import calendar
 from datetime import datetime, timedelta
+from django.utils import timezone
+
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -9,6 +11,8 @@ import japanize_matplotlib
 import io
 import urllib, base64
 
+import matplotlib
+matplotlib.use('Agg')
 
 def home_view(request):
     return render(request, 'calendarapp/home.html')
@@ -63,6 +67,8 @@ def calendar_view(request, year=None, month=None):
 
 def week_view(request, year, month, day):
     selected_date = datetime(year, month, day)
+    selected_date = timezone.make_aware(selected_date)
+
     start_of_week = selected_date - timedelta(days=selected_date.weekday())
     end_of_week = start_of_week + timedelta(days=6)
 
