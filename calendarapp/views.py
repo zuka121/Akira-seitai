@@ -3,6 +3,8 @@ from .models import Event
 import calendar
 from datetime import datetime, timedelta
 from django.utils import timezone
+from django.shortcuts import render, redirect
+from .forms import RequestForm
 
 
 import matplotlib.pyplot as plt
@@ -164,3 +166,22 @@ def week_view(request, year, month, day):
     }
 
     return render(request, 'calendarapp/week.html', context)
+
+
+
+def request_create_view(request):
+    if request.method == 'POST':
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('request_success')  # 保存後のリダイレクト先を設定
+    else:
+        form = RequestForm()
+
+    return render(request, 'calendarapp/request_form.html', {'form': form})
+
+
+
+def request_success_view(request):
+    return render(request, 'calendarapp/request_success.html')
+

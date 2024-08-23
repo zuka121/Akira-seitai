@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}予約の申請{% endblock %}
+
+{% block content %}
+    <h1>ご予約の申請を受け付けしました</h1>
+    <p>後日、確認の連絡をさせていただきます</p>
+    <a href="{% url 'request_create' %}">ほかの申請を行う</a>
+
+{% endblock %}

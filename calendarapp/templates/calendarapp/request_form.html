@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}予約フォーム{% endblock %}
+
+
+{% block content %}
+    <h1>予約フォーム</h1>
+    <p id="text1">※電話番号、メールアドレスどちらかの入力は必須です</p>
+    <form method="POST">
+        {% csrf_token %}
+        {% csrf_token %}
+        <p id="text3">{{ form.name.label_tag }} {{ form.name }}</p>
+        <p id="text3">{{ form.start_time.label_tag }} {{ form.start_time }}</p>
+        <p id="text3">{{ form.end_time.label_tag }} {{ form.end_time }}</p>
+        <p id="text3">{{ form.treatment_location.label_tag }} {{ form.treatment_location }}</p>
+        <p id="text3">{{ form.phone_number.label_tag }} {{ form.phone_number }}</p>
+        <p id="text3">{{ form.email.label_tag }} {{ form.email }}</p>
+        <p id="text2">確認のため、もう一度入力してください</p>
+        <p id="text3">{{ form.email_confirm.label_tag }} {{ form.email_confirm }}</p>
+
+       
+        <button type="submit">送信</button>
+    </form>
+
+{% endblock %}

@@ -78,6 +78,19 @@
         th {
             background-color: #f2f2f2;
         }
+
+        #text1{
+            color:red;
+            font-size: 18px;
+        }
+
+        #text2{
+            font-size: 14px;
+        }
+
+        #text3{
+            font-weight:bold;
+        }
     </style>
 </head>
 <body>
@@ -88,9 +101,9 @@
         <!-- メニューリンク -->
         <ul>
             <li><a href="{% url 'home' %}">ホーム</a></li>
-            <li><a href="{% url 'calendar' %}">カレンダー</a></li>
+            <li><a href="{% url 'calendar' %}">予約状況</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'request_create' %}">ご予約の申請</a></li>
             <li><a href="#">Help</a></li>
         </ul>
         <a><img src="{% static 'calendarapp/images/denwa.png' %}" alt="サイトロゴ"></a>

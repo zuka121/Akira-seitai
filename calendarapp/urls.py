@@ -7,4 +7,7 @@ urlpatterns = [
     path('calendar/', views.calendar_view, name='calendar'),  
     path('<int:year>/<int:month>/', views.calendar_view, name='calendar'),
     path('week/<int:year>/<int:month>/<int:day>/', views.week_view, name='week_view'),
+    path('request/new/', views.request_create_view, name='request_create'),
+    path('request/success/', views.request_success_view, name='request_success'),
+
 ]
