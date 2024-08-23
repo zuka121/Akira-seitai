@@ -21,6 +21,16 @@ def home_view(request):
 
 
 
+def detail_view(request):
+    return render(request, 'calendarapp/detail.html')
+
+
+
+def treatment_view(request):
+    return render(request, 'calendarapp/treatment.html')
+
+
+
 def calendar_view(request, year=None, month=None):
     if year is None or month is None:
         today = datetime.today()
@@ -185,3 +195,7 @@ def request_create_view(request):
 def request_success_view(request):
     return render(request, 'calendarapp/request_success.html')
 
+
+
+def profile_view(request):
+    return render(request, 'calendarapp/profile.html')
