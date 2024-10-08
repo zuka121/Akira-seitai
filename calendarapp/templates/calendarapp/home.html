@@ -180,6 +180,13 @@
         margin: 20px 15px;
         border-radius: 12px;
         background-color: rgb(240, 240, 240);
+        position: relative;
+     }
+
+     .notice-section img{
+        width: 100%;
+        border-radius: 10px;
+        opacity: 0.7;
      }
 
      .notice-section1{
@@ -188,6 +195,47 @@
         border: solid 1.5px gray;
         margin: 10px;
      }
+
+     .moca-content{
+        position: absolute;
+        top: 39%;
+        left: 60%;
+        background-color: white;
+        opacity: 0.7;
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 2px 10px;
+     }
+
+     .moca-content1{
+        display: flex;
+        font-size: 16px;
+        margin-left: 5px;
+     }
+
+     .moca-content1-text{
+        font-size: 16px;
+        margin-left: 5px;
+        margin-top: 30px;
+     }
+
+     .moca-content1 img{
+        width: 12%;
+        margin-top: 20px;
+     }
+
+     .moca-content2{
+        text-align: right;
+        margin-right: 10px;
+     }
+
+
+     .moca-content2 img{
+        width: 12%;
+        border-radius: 6px;
+     }
+
+     
 
 
 
@@ -225,7 +273,23 @@
 
   <div class="active-schedule-container">
      <div class="notice-section">
-        整体カフェMOCAのご案内
+         <img src="{% static 'calendarapp/images/moca_image.jpeg' %}" alt="カフェモカ">
+         <div class="moca-content">
+            ご案内
+         </div>
+         <div class="moca-content1">〒649-0101</div>
+         <div class="moca-content1">和歌山県海南市下津町下津3066</div>
+         <div class="moca-content1">
+             <img src="{% static 'calendarapp/images/train.svg' %}" alt="電車">
+             <div class="moca-content1-text">JR下津駅から徒歩1分</div>
+         </div>
+         <div class="moca-content2">
+             <a href="https://www.instagram.com/seitaicafe_moca/" target="_blank">
+                 <img src="{% static 'calendarapp/images/insta_logo.jpg' %}" alt="電車">
+             </a>
+         </div>
+         
+
 
      </div>
      <div class="active-schedule-box">
@@ -233,16 +297,16 @@
             整体カフェMOCA
         </div>
         <div class="title1">
-            受付時間
+            営業時間
         </div>
         <div class="title2">
-            08:00 ~ 18:00
+            10:00 ~ 16:00
         </div>
         <div class="title1">
-            受付日
+            営業日
         </div>
         <div class="title3">
-            月、火、水
+            火、木、土
         </div>
 
      </div>
@@ -251,16 +315,16 @@
             出張診療
         </div>
         <div class="title1">
-            受付時間
+            営業時間
         </div>
         <div class="title2">
-            08:00 ~ 18:00
+            要望に合わせて
         </div>
         <div class="title1">
-            受付日
+            営業日
         </div>
         <div class="title3">
-            月、火、水
+            月、水、金、日
         </div>
         
      </div>
