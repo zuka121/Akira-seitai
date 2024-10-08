@@ -3,7 +3,118 @@
 {% block title %}ホーム{% endblock %}
 
 {% block content %}
-   <h1>ホーム</h1>
+{% load static %}
+
+   <style>
+      body {
+          margin: 0; /* マージンをリセット */
+          padding: 0; /* パディングをリセット */
+      }
+
+      .osirase{
+         position: absolute;
+         font-weight: bold;
+         padding: 0px 10px;
+      }
+
+      .container {
+          display: flex; /* 横並びにするためにフレックスボックスを使用 */
+          justify-content: center;
+          align-items: center; /* 中央に揃える */
+          background-color: #4dba52; /* 背景色 */
+          padding: 20px 60px 10px 0px; /* 内側のパディング */
+          position: relative; /* 相対位置 */
+          
+      }
+
+      .notice-box {
+          width: 120px; /* お知らせボックスの幅 */
+          height: 20px; /* お知らせボックスの高さ */
+          background-color: white;
+          padding: 10px; /* 内側のパディング */
+          position: relative;
+          margin-right: 20px;
+          border-radius: 10px;
+          
+      }
+
+      .scrolling-container {
+          display: flex;
+          width: 600px; /* テキストボックスの幅 */
+          height: 40px; /* テキストボックスの高さ */
+          overflow: hidden; /* はみ出した部分を隠す */
+          position: relative; /* 相対位置 */
+          background-color: #ffffff; /* 背景色 */
+          padding: 0px;          
+      }
+
+      .scrolling-content {
+          white-space: nowrap; /* テキストを改行しない */
+          position: absolute; /* 絶対位置 */
+          animation: scroll 10s linear infinite; /* アニメーション */
+          display: flex;
+          padding: 0px;
+      }
+
+      .scrolling-content img {
+            height: 35px; /* 画像の高さを設定 */
+            margin-right: 10px; /* テキストとの間にマージン */
+            padding-top: 2px;
+        }
+
+      .newstext {
+          padding-top: 10px;
+          font-size: 17px;
+      }
+
+
+      @keyframes scroll {
+          0% {
+              transform: translateX(200%); /* 右端から開始 */
+          }
+          100% {
+              transform: translateX(-100%); /* 左端へ */
+          }
+      }
+
+      .background-block {
+          position: absolute; /* 絶対位置 */
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #44a549; /* 色付きの背景 */
+          z-index: -1; /* 背景として配置 */
+      }
+
+      .toppage img{
+         width: 100%;
+         position: relative;
+      }
+
+      
+
+      
+  </style>
+
+ <body>
+  <div class="container">
+      <div class="notice-box">
+          <div class="osirase">お知らせ一覧</div>
+      </div>
+      <div class="scrolling-container">
+          <div class="scrolling-content">
+                <img src="{% static 'calendarapp/images/newslogo.png' %}" alt="新着">
+                <div class="newstext">ここに新着のお知らせを入れる</div>
+          </div>
+      </div>
+      <div class="background-block"></div> <!-- 色付きのブロック -->
+  </div>
+  <div class="toppage">
+     <img src="{% static 'calendarapp/images/TopPagePhoto.jpeg' %}" alt="トップ画像">
+     
+  </div>
+</body>
 
 {% endblock %}
 
