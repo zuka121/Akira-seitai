@@ -13,4 +13,5 @@ urlpatterns = [
     path('request/success/', views.request_success_view, name='request_success'),
     path('profile/', views.profile_view, name='profile'),
     path('notices/<int:pk>/', views.notice_detail, name='notice_detail'),
+    path('faq/', views.faq_view, name='faq'),
 ]

@@ -202,6 +202,10 @@ def profile_view(request):
     return render(request, 'calendarapp/profile.html')
 
 
+def faq_view(request):
+    return render(request, 'calendarapp/faq.html')
+
+
 
 def notice_detail(request, pk):
     notice = get_object_or_404(Notice, pk=pk)  # 特定のお知らせを取得

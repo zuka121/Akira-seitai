@@ -3,16 +3,55 @@
 {% block title %}ホーム{% endblock %}
 
 {% block content %}
+{% load static %}
+<style>
+    .notice-image img{
+        width: 100%;
+    }
+
+    .notice-title{
+        font-size: 32px;
+        font-weight: bold;
+        border-left: solid 6px #44a549;
+        padding-left: 10px;
+        margin: 10px 10px;
+    }
+
+    .notice-title1{
+        font-size: 26px;
+        font-weight: bold;
+        margin: 30px 30px 0px 30px;
+    }
+
+    .notice-box{
+        width: 70%;
+        background-color: rgb(240, 240, 240);
+    }
+    .notice-date{
+        font-size: 16px;
+        color: gray;
+        margin-left: 30px;
+    }
+
+    .notice-contents{
+        font-size: 18px;
+        margin: 20px 30px;
+    }
+</style>
     
 <body>
-
-    <h1>{{ notice.title }}</h1>
-    <p><strong>日付:</strong> {{ notice.date|date:"Y/m/d" }}</p>
-    <div>
-        <p>{{ notice.content }}</p>
+    <div class="notice-image">
+        <img src="{% static 'calendarapp/images/TopPagePhoto1.jpeg' %}" alt="お知らせ背景">
     </div>
+    <div class="notice-title">お知らせ</div>
 
-    <a href="{% url 'home' %}">お知らせ一覧に戻る</a>
+    <div class="notice-box">
+    <div class="notice-title1">{{ notice.title }}</div>
+    <div class="notice-date"> {{ notice.date|date:"Y/m/d" }}</div>
+    <div class="notice-contents">{{ notice.content }}</div>
+
+    <a href="{% url 'home' %}" ><div class="notice-contents">お知らせ一覧に戻る</div></a>
+    </div>
 
 </body>
 
