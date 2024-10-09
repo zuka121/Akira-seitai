@@ -130,9 +130,19 @@
      }
 
      .intro-active{
+        display: flex;
         font-size: 25px;
-        text-align: center;
-        margin-top: 20px;
+        justify-content: center;
+        color: black;
+        margin: 50px auto 10px auto;
+     }
+
+     .intro-active1{
+        font-size: 29px;        
+        color: #44a549;
+        font-weight: bold;
+        margin: 0px 5px 0px 5px;
+
      }
 
      .title{
@@ -235,6 +245,54 @@
         border-radius: 6px;
      }
 
+     .osirase-title{
+        top: 0%;
+        left: -70%;
+        white-space: nowrap;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        margin: 70px 0px 0px 0px
+     }
+
+     .osirase-title-box{
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        border-bottom:solid 2px #51c257;
+        margin: 10px 600px;
+     }
+
+     .notice-list {
+            width: 80%;
+            background-color: rgb(240, 240, 240);
+            padding: 20px; 
+            margin: auto;
+            justify-content: left;
+            margin-bottom: 100px;
+        }
+     .notice-item {
+            margin-bottom: 20px;
+            padding-left: 100px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: left;
+            border-bottom: dashed 1.5px gray;
+
+        }
+     .notice-date {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 30px;
+        }
+     .notice-title {
+            font-size: 18px;
+        }
+     .notice-content {
+        font-size: 18px; 
+        }
+
      
 
 
@@ -268,7 +326,11 @@
   </div>
 
   <div class="intro-active">
-    当院では、「整体カフェMOCA」での施術と「出張」での施術をご用意しています
+     当院では、
+     <div class="intro-active1">整体カフェMOCA</div>
+     での施術と
+     <div class="intro-active1">出張</div>
+     での施術をご用意しています
   </div>
 
   <div class="active-schedule-container">
@@ -318,7 +380,7 @@
             営業時間
         </div>
         <div class="title2">
-            要望に合わせて
+            ご要望に合わせて
         </div>
         <div class="title1">
             営業日
@@ -330,14 +392,22 @@
      </div>
   </div>
 
+  <div id="notice" class="osirase-title">お知らせ</div>
+  <div class="osirase-title-box"></div>
 
-  <div class="active-schedule-container">
-        <div id="notice" class="notice-section1">
-          <h2>お知らせ一覧</h2>
-          <p>ここにお知らせの内容を記載します。</p>
-          <!-- その他のお知らせ内容 -->
-       </div>
-  </div>
+
+    <div class="notice-list">
+        {% for notice in notices %}
+        <div class="notice-item">
+            <div class="notice-date">{{ notice.date|date:"Y/m/d" }}</div>
+            <a href="{% url 'notice_detail' notice.pk %}">
+                <div class="notice-title">{{ notice.title }}</div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+  
 </body>
 
 {% endblock %}

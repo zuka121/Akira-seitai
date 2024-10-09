@@ -41,3 +41,12 @@ class Request(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Notice(models.Model):
+    title = models.CharField(max_length=200)  # お知らせのタイトル
+    content = models.TextField()  # お知らせの内容
+    date = models.DateField()  # お知らせの日付、自動的に現在の日付が保存される
+
+    def __str__(self):
+        return self.title

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}ホーム{% endblock %}
+
+{% block content %}
+    
+<body>
+
+    <h1>{{ notice.title }}</h1>
+    <p><strong>日付:</strong> {{ notice.date|date:"Y/m/d" }}</p>
+    <div>
+        <p>{{ notice.content }}</p>
+    </div>
+
+    <a href="{% url 'home' %}">お知らせ一覧に戻る</a>
+
+</body>
+
+{% endblock %}

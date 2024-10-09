@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import Event
+from .models import Event, Notice
 import calendar
 from datetime import datetime, timedelta
 from django.utils import timezone
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RequestForm
 
 
@@ -17,7 +17,8 @@ import matplotlib
 matplotlib.use('Agg')
 
 def home_view(request):
-    return render(request, 'calendarapp/home.html')
+    notices = Notice.objects.all().order_by('-date')
+    return render(request, 'calendarapp/home.html', {'notices': notices})
 
 
 
@@ -199,3 +200,11 @@ def request_success_view(request):
 
 def profile_view(request):
     return render(request, 'calendarapp/profile.html')
+
+
+
+def notice_detail(request, pk):
+    notice = get_object_or_404(Notice, pk=pk)  # 特定のお知らせを取得
+    return render(request, 'calendarapp/notice_detail.html', {'notice': notice})
+
+
