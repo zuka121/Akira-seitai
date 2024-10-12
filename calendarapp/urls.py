@@ -14,4 +14,6 @@ urlpatterns = [
     path('profile/', views.profile_view, name='profile'),
     path('notices/<int:pk>/', views.notice_detail, name='notice_detail'),
     path('faq/', views.faq_view, name='faq'),
+    path('contact/', views.contact, name='contact'),
+    path('moca/', views.moca, name='moca'),    
 ]

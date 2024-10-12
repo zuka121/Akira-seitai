@@ -205,6 +205,10 @@
         opacity: 0.7;
      }
 
+     .notice-section:hover{
+        opacity:0.7; 
+     }
+
      .notice-section1{
         width: 500px;
         height: 300px;
@@ -376,6 +380,10 @@
         margin: 30px auto;
      }
 
+     .end-item1:hover{
+      text-decoration: underline;
+     }
+
      
 
 
@@ -417,6 +425,7 @@
   </div>
 
   <div class="active-schedule-container">
+     <a href="{% url 'moca' %}">
      <div class="notice-section">
          <img src="{% static 'calendarapp/images/moca_image.jpeg' %}" alt="カフェモカ">
          <div class="moca-content">
@@ -432,11 +441,9 @@
              <a href="https://www.instagram.com/seitaicafe_moca/" target="_blank">
                  <img src="{% static 'calendarapp/images/insta_logo.jpg' %}" alt="電車">
              </a>
-         </div>
-         
-
-
+         </div>     
      </div>
+     </a>
      <div class="active-schedule-box">
         <div class="title">
             整体カフェMOCA
@@ -509,21 +516,36 @@
 
      <div class="end-container1">
         <div class="end-item">
+            <a href="{% url 'detail' %}">
             <div class="end-item1">当院について</div>
+            </a>
+            <a href="{% url 'profile' %}">
             <div class="end-item1">プロフィール</div>
+            </a>
         </div>
         <div class="end-item">
+            <a href="{% url 'treatment' %}">
             <div class="end-item1">症状と施術内容</div>
+            </a>            
             <div class="end-item1">お知らせ一覧</div>
         </div>
         <div class="end-item">
+            <a href="{% url 'calendar' %}">
             <div class="end-item1">現在の予約状況</div>
+            </a>
+            <a href="{% url 'moca' %}">
             <div class="end-item1">整体カフェMOCAについて</div>
+            </a>
         </div>
         <div class="end-item">
+            <a href="{% url 'request_create' %}">
             <div class="end-item1">予約の申請</div>
+            </a>
+            <a href="{% url 'contact' %}">
             <div class="end-item1">お問い合わせ</div>
+            </a>
         </div>
+
 
      </div>
 

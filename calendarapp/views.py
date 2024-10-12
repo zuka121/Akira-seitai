@@ -205,6 +205,12 @@ def profile_view(request):
 def faq_view(request):
     return render(request, 'calendarapp/faq.html')
 
+def contact(request):
+    return render(request, 'calendarapp/contact.html')
+
+def moca(request):
+    return render(request, 'calendarapp/moca.html')
+
 
 
 def notice_detail(request, pk):
