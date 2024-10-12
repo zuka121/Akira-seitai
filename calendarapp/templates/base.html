@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <title>{% block title %}カレンダー{% endblock %}</title>
     <style>
+
+     body {
+          margin: 0; /* マージンをリセット */
+          padding: 0; /* パディングをリセット */
+          scroll-behavior: smooth;
+        }  
+      
+       a{
+          text-decoration: none;
+          color: black;
+        }
         /* メニューを固定するためのCSS */
         nav {
             position: fixed;
@@ -99,6 +110,87 @@
             padding: 0px;
             border-radius: 8px;
         }
+
+        .faq-box{
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(to right, #3de445, #44a549); /* 左から右へのグラデーション */
+        position: relative;
+        margin-top: 200px;
+        
+
+     }
+
+     .faq-content-box{
+        position: absolute;
+        display: flex;
+        top: 15%;
+        left: 20%;
+        justify-content: center;
+     }
+
+     .faq-content-box img{
+
+        width: 25%;
+     }
+
+     .faq-content-title{
+
+        font-size: 35px;
+        margin-top: 40px;
+        margin-left: 40px;
+     }
+
+     .faq-content-title1{
+          font-size: 19px;
+          margin-top: 10px;
+          margin-left: 40px;
+        }
+
+     .faq-container{
+        justify-content: left;
+     }
+
+     .faq-container:hover{
+        color: gray; 
+     }
+
+        .end-container{
+        width: 100%;
+        height: 300px;
+        background-color: #1d471f;
+        margin: 0px;
+     }
+
+     .end-content {
+        justify-content: left;
+        padding: 5px 20px;
+     }
+
+     .end-content img{
+        width: 22%;
+
+     }
+
+     .end-container1{
+        display: flex;
+        padding-top: 20px;
+     }
+
+     .end-item{
+        text-align: left;
+        margin: auto;
+     }
+
+     .end-item1{
+        font-size: 20px;
+        color: white;
+        margin: 30px auto;
+     }
+
+     .end-item1:hover{
+      text-decoration: underline;
+     }
     </style>
 </head>
 <body>
@@ -126,5 +218,59 @@
         {% block content %}
         {% endblock %}
     </div>
+
+    <div class="faq-box">
+        <div class="faq-content-box">
+            <img src="{% static 'calendarapp/images/faq-image.svg' %}" alt="疑問">
+            <a href="{% url 'faq' %}">
+                <div class="faq-container">
+                    <div class="faq-content-title">よくあるご質問</div>
+                    <div class="faq-content-title1">質問を探す&nbsp;▶</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="end-container">
+        <div class="end-content">
+            <img src="{% static 'calendarapp/images/logo1.png' %}" alt="ロゴ２">
+        </div>
+   
+        <div class="end-container1">
+           <div class="end-item">
+               <a href="{% url 'detail' %}">
+               <div class="end-item1">当院について</div>
+               </a>
+               <a href="{% url 'profile' %}">
+               <div class="end-item1">プロフィール</div>
+               </a>
+           </div>
+           <div class="end-item">
+               <a href="{% url 'treatment' %}">
+               <div class="end-item1">症状と施術内容</div>
+               </a>   
+               <a href="{% url 'notice_all' %}">         
+               <div class="end-item1">お知らせ一覧</div>
+               </a>
+           </div>
+           <div class="end-item">
+               <a href="{% url 'calendar' %}">
+               <div class="end-item1">現在の予約状況</div>
+               </a>
+               <a href="{% url 'moca' %}">
+               <div class="end-item1">整体カフェMOCAについて</div>
+               </a>
+           </div>
+           <div class="end-item">
+               <a href="{% url 'request_create' %}">
+               <div class="end-item1">予約の申請</div>
+               </a>
+               <a href="{% url 'contact' %}">
+               <div class="end-item1">お問い合わせ</div>
+               </a>
+           </div>
+   
+   
+        </div>
 </body>
 </html>

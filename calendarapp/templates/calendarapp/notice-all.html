@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}プロフィール{% endblock %}
+
+
+
+{% block content %}
+{% load static %}
+<style>
+     .notice-list {
+            width: 80%;
+            background-color: rgb(240, 240, 240);
+            padding: 20px; 
+            margin: auto;
+            justify-content: left;
+            margin-bottom: 100px;
+        }
+     .notice-item {
+            margin-bottom: 20px;
+            padding-left: 100px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: left;
+            border-bottom: dashed 1.5px gray;
+
+        }
+
+        .notice-image img{
+        width: 100%;
+    }
+
+    .notice-title{
+        font-size: 32px;
+        font-weight: bold;
+        border-left: solid 6px #44a549;
+        padding-left: 10px;
+        margin: 10px 10px 30px 10px;
+
+    }
+
+    .notice-title1{
+        font-size: 18px;
+    }
+
+    .notice-box{
+        width: 70%;
+        background-color: rgb(240, 240, 240);
+    }
+    .notice-date {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 30px;
+        }
+
+</style>
+
+
+<body>
+   <div class="notice-image">
+       <img src="{% static 'calendarapp/images/TopPagePhoto1.jpeg' %}" alt="お知らせ背景">
+   </div>
+   <div class="notice-title">お知らせ一覧</div>
+
+
+   <div class="notice-list">
+    {% for notice in notices %}
+    <div class="notice-item">
+        <div class="notice-date">{{ notice.date|date:"Y/m/d" }}</div>
+        <a href="{% url 'notice_detail' notice.pk %}">
+            <div class="notice-title1">{{ notice.title }}</div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+
+{% endblock %}

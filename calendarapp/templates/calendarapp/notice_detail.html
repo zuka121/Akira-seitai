@@ -37,6 +37,7 @@
         font-size: 18px;
         margin: 20px 30px;
     }
+
 </style>
     
 <body>
@@ -50,7 +51,7 @@
     <div class="notice-date"> {{ notice.date|date:"Y/m/d" }}</div>
     <div class="notice-contents">{{ notice.content }}</div>
 
-    <a href="{% url 'home' %}" ><div class="notice-contents">お知らせ一覧に戻る</div></a>
+    <a href="{% url 'notice_all' %}" ><div class="notice-contents">お知らせ一覧に戻る</div></a>
     </div>
 
 </body>

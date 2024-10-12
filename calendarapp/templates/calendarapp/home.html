@@ -475,14 +475,14 @@
         <div class="title1">
             営業日
         </div>
-        <div class="title3">
+        <div id="notice" class="title3">
             月、水、金、日
         </div>
         
      </div>
   </div>
 
-  <div id="notice" class="osirase-title">お知らせ</div>
+  <div  class="osirase-title">お知らせ</div>
   <div class="osirase-title-box"></div>
 
 
@@ -496,64 +496,6 @@
         </div>
         {% endfor %}
     </div>
-
- <div class="faq-box">
-     <div class="faq-content-box">
-         <img src="{% static 'calendarapp/images/faq-image.svg' %}" alt="疑問">
-         <a href="{% url 'faq' %}">
-             <div class="faq-container">
-                 <div class="faq-content-title">よくあるご質問</div>
-                 <div class="faq-content-title1">質問を探す&nbsp;▶</div>
-             </div>
-         </a>
-     </div>
- </div>
-
- <div class="end-container">
-     <div class="end-content">
-         <img src="{% static 'calendarapp/images/logo1.png' %}" alt="ロゴ２">
-     </div>
-
-     <div class="end-container1">
-        <div class="end-item">
-            <a href="{% url 'detail' %}">
-            <div class="end-item1">当院について</div>
-            </a>
-            <a href="{% url 'profile' %}">
-            <div class="end-item1">プロフィール</div>
-            </a>
-        </div>
-        <div class="end-item">
-            <a href="{% url 'treatment' %}">
-            <div class="end-item1">症状と施術内容</div>
-            </a>            
-            <div class="end-item1">お知らせ一覧</div>
-        </div>
-        <div class="end-item">
-            <a href="{% url 'calendar' %}">
-            <div class="end-item1">現在の予約状況</div>
-            </a>
-            <a href="{% url 'moca' %}">
-            <div class="end-item1">整体カフェMOCAについて</div>
-            </a>
-        </div>
-        <div class="end-item">
-            <a href="{% url 'request_create' %}">
-            <div class="end-item1">予約の申請</div>
-            </a>
-            <a href="{% url 'contact' %}">
-            <div class="end-item1">お問い合わせ</div>
-            </a>
-        </div>
-
-
-     </div>
-
-     
- </div>
-
- 
-
   
 </body>
 
