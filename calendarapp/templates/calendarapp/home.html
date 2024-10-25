@@ -17,40 +17,43 @@
         color: black;
       }
 
-      .osirase{
-         position: absolute;
-         font-weight: bold;
-         padding-left: 5px;
-         text-decoration: none;
-         color: black;
-      }
-
-      .osirase:hover{
-        color: gray;
-
-      }
-
-      .container {
-          display: flex; /* 横並びにするためにフレックスボックスを使用 */
-          justify-content: center;
-          align-items: center; /* 中央に揃える */
-          background: linear-gradient(to right, #3de445, #44a549); /* 背景色 */
-          padding: 20px 60px 10px 0px; /* 内側のパディング */
-          position: relative; /* 相対位置 */
-          
-      }
 
       .notice-box {
-          width: 140px; /* お知らせボックスの幅 */
-          height: 20px; /* お知らせボックスの高さ */
-          background-color: white;
-          padding: 10px; /* 内側のパディング */
-          position: relative;
-          margin-right: 20px;
-          border-radius: 10px;
+          display: flex;
+          width: 100%; /* お知らせボックスの幅 */
+          height: 60px; /* お知らせボックスの高さ */
           justify-content: center;
-          
+          background: rgb(240, 240, 240);
+          margin: -7px auto 50px auto;
       }
+
+      .notice-image {
+         transition: transform 0.3s ease;
+         width: 30px;
+         height: 15px;
+         margin-top: 20px;
+         margin-right: 10px;
+      }
+
+      .notice-box:hover .notice-image{
+         transform: translateY(10px);
+      }
+
+
+      .osirase{
+         font-weight: bold;
+         text-decoration: none;
+         color: black;
+         padding: 15px 0px;
+         font-size: 18px;
+      }
+
+      .notice-box:hover .osirase {
+         color: #51c257; /* ホバー時の文字色 */
+      }
+
+      
+      
 
       .scrolling-container {
           display: flex;
@@ -89,16 +92,6 @@
           100% {
               transform: translateX(-100%); /* 左端へ */
           }
-      }
-
-      .background-block {
-          position: absolute; /* 絶対位置 */
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: #44a549; /* 色付きの背景 */
-          z-index: -1; /* 背景として配置 */
       }
 
       .toppage img{
@@ -350,7 +343,7 @@
      .end-container{
         width: 100%;
         height: 300px;
-        background-color: #1d471f;
+        background-color: #7bab7d;
         margin: 0px;
      }
 
@@ -394,27 +387,20 @@
   </style>
 
  <body>
-  <div class="container">
-      <div class="notice-box">
-          <a href="#notice">
-             <div class="osirase">その他のお知らせ</div>
-          </a>
-      </div>
-      <div class="scrolling-container">
-          <div class="scrolling-content">
-                <img src="{% static 'calendarapp/images/newslogo.png' %}" alt="新着">
-                <div class="newstext">ここに新着のお知らせを入れる</div>
-          </div>
-      </div>
-      <div class="background-block"></div> <!-- 色付きのブロック -->
-  </div>
+
   <div class="toppage">
-     <img src="{% static 'calendarapp/images/TopPagePhoto.jpeg' %}" alt="トップ画像">
+     <img src="{% static 'calendarapp/images/background1.jpeg' %}" alt="トップ画像">
       <div class="text-overlay">
          ここにインパクトのあるフレーズ(活動の信念)
       </div>
      
   </div>
+  <a href="#notice">
+     <div class="notice-box">
+         <img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="notice-image">
+            <div class="osirase">お知らせを確認する</div>
+      </div>
+  </a>
 
   <div class="intro-active">
      当院では、
