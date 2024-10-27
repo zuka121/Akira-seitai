@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}カレンダー{% endblock %}</title>
@@ -18,52 +19,61 @@
         /* メニューを固定するためのCSS */
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
+            height: 65px;
             background-color: white;
-            color: black;
-            text-align: center;
-            padding: 10px 0px 0px 0px;
             z-index: 1000;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
             border-bottom: 1.5px solid rgb(169, 169, 169);
+            justify-content: center;
         }
 
 
-        /* ロゴのスタイル */
-        nav img {
-            height: 60px;
-            margin-left: 10px;
+        .nav-image{
+            width: 200px;
+            height: auto;
+            background-color: white;
+            margin-right: auto;
+        }
+      
+        #menuImage {
+           width: 180px;   
+           height: auto; 
+           position: absolute; 
+           transition: transform 0.4s ease;
         }
 
-        /* メニューのリンクスタイル */
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
+        .scrolled-image {
+           transform: scale(1.3);
+           margin: 10px 10px 0px 30px;
         }
 
-        nav ul li {
-            margin-right: 0px;
-        }
-
-        nav ul li a {
-            color: black;
+        .nav-content{
+            width: 140px;
+            height: auto;
+            margin: 20px 0px 0px 30px;
             font-weight: bold;
-            font-size: 17px;
-            text-decoration: none;
-            padding: 14px 16px;
+            font-size: 18px;
         }
 
-        nav ul li a:hover {
-            background-color: #ffc368;
-            color: white;
+        .insta-logo {
+            width: 50px;
+            margin: 2px 10px 0px 70px;
         }
+
+        .line-logo{
+            width: 45px;
+            height: auto;
+            margin: 7px 10px 0px 10px;
+        }
+
+        .denwa-logo{
+            width: 50px;
+            height: auto;
+            margin: 5px 30px 0px 10px;
+        }
+
+
 
         /* ページのコンテンツ */
         .content {
@@ -103,13 +113,7 @@
             font-weight:bold;
         }
 
-        .insta-logo img{
-            width: 35px;
-            height: 35px;
-            margin: 0px;
-            padding: 0px;
-            border-radius: 8px;
-        }
+
 
         .faq-box{
         width: 100%;
@@ -191,26 +195,49 @@
      .end-item1:hover{
       text-decoration: underline;
      }
+
+
     </style>
 </head>
+
+
+<script>
+    
+    window.addEventListener("scroll", function() {
+        var scrollPosition = window.scrollY;
+        var menuImage = document.getElementById("menuImage");
+
+        if (scrollPosition > 50) {
+            menuImage.src = "{% static 'calendarapp/images/logo.png' %}";
+            menuImage.classList.add("scrolled-image");
+        } else {
+            menuImage.src = "{% static 'calendarapp/images/logo2.jpg' %}";
+            menuImage.classList.remove("scrolled-image");
+        }
+    });
+
+</script>
+
+
+
 <body>
     <!-- ナビゲーションメニュー -->
     <nav>
-        {% load static %}
-        <a href="/"><img src="{% static 'calendarapp/images/logo.png' %}" alt="サイトロゴ"></a>
-        <!-- メニューリンク -->
-        <ul>
-            <li><a href="{% url 'detail' %}">当院について</a></li>
-            <li><a href="{% url 'treatment' %}">症状と施術内容</a></li>
-            <li><a href="{% url 'calendar' %}">予約のご案内</a></li>
-            <li><a href="{% url 'profile' %}">お問い合わせ</a></li>
-        </ul>
+        <div class="nav-image">
+           <a href="/"><img id="menuImage" src="{% static 'calendarapp/images/logo2.jpg' %}" alt="サイトロゴ"></a>
+        </div>
+        
+        <a href="{% url 'detail' %}"><div class="nav-content">当院について</div></a>
+        <a href="{% url 'treatment' %}"><div class="nav-content">症状と施術内容</div></a>
+        <a href="{% url 'calendar' %}"><div class="nav-content">予約のご案内</div></a>
+        <a href="{% url 'profile' %}"><div class="nav-content">お問い合わせ</div></a>
+        
         <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">
-            <div class="insta-logo">
-            <img src="{% static 'calendarapp/images/insta_logo.jpg' %}" alt="インスタロゴ">
-            </div>
+              <img src="{% static 'calendarapp/images/insta-logo.png' %}" alt="インスタロゴ" class="insta-logo">
+            
         </a>
-        <a><img src="{% static 'calendarapp/images/denwa.png' %}" alt="サイトロゴ"></a>
+        <a><img src="{% static 'calendarapp/images/line-logo.jpg' %}" alt="サイトロゴ" class="line-logo"></a>
+        <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="サイトロゴ" class="denwa-logo"></a>
     </nav>
 
     <!-- コンテンツ -->
