@@ -51,9 +51,10 @@
         .nav-content{
             width: 140px;
             height: auto;
-            margin: 20px 0px 0px 30px;
+            margin: 20px auto 0px 30px;
             font-weight: bold;
             font-size: 18px;
+            padding: 0px auto;
         }
 
         .insta-logo {
@@ -148,18 +149,32 @@
 
     .end-item{
         text-align: left;
-        margin: auto;
+        margin: 10px auto;
      }
 
     .end-item1{
         font-size: 20px;
         color: black;
+        margin: 20px 0px 0px 0px;
+     }
+
+     .end-item2{
+        font-size: 24px;
+        color: black;
         margin: 30px auto;
+        font-weight: bold;
      }
 
     .end-item1:hover{
       text-decoration: underline;
      }
+
+    .end-image1{
+        width: 22%;
+        height: auto;
+        margin: 200px 100px auto auto;
+        display: block;
+    }
 
 
     </style>
@@ -194,7 +209,7 @@
         
         <a href="{% url 'detail' %}"><div class="nav-content">当院について</div></a>
         <a href="{% url 'treatment' %}"><div class="nav-content">症状と施術内容</div></a>
-        <a href="{% url 'calendar' %}"><div class="nav-content">予約のご案内</div></a>
+        <a href="{% url 'calendar' %}"><div class="nav-content">予約の案内</div></a>
         <a href="{% url 'profile' %}"><div class="nav-content">お問い合わせ</div></a>
         
         <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">
@@ -215,44 +230,53 @@
 
     <div class="end-container">
         <div class="end-content">
-            <img src="{% static 'calendarapp/images/logo1.png' %}" alt="ロゴ２">
+            <img src="{% static 'calendarapp/images/logo3.png' %}" alt="ロゴ2">
         </div>
    
         <div class="end-container1">
            <div class="end-item">
                <a href="{% url 'detail' %}">
-               <div class="end-item1">当院について</div>
+               <div class="end-item2">当院について</div>
                </a>
                <a href="{% url 'profile' %}">
-               <div class="end-item1">プロフィール</div>
+               <div class="end-item1">ー　プロフィール</div>
                </a>
-           </div>
-           <div class="end-item">
-               <a href="{% url 'treatment' %}">
-               <div class="end-item1">症状と施術内容</div>
-               </a>   
-               <a href="{% url 'notice_all' %}">         
-               <div class="end-item1">お知らせ一覧</div>
+               <a href="{% url 'profile' %}">
+                <div class="end-item1">ー　整体カフェMOCAについて</div>
+                </a>
+                <a href="{% url 'profile' %}">
+                    <div class="end-item1">ー　出張について</div>
+                    </a>
+               <a href="{% url 'contact' %}">
+               <div class="end-item1">ー　お問い合わせ</div>
                </a>
+               <a href="{% url 'contact' %}">
+                <div class="end-item1">ー　よくある質問</div>
+                </a>
+                <a href="{% url 'notice_all' %}">         
+                    <div class="end-item1">ー　お知らせ一覧</div>
+                    </a>
            </div>
            <div class="end-item">
                <a href="{% url 'calendar' %}">
-               <div class="end-item1">現在の予約状況</div>
+               <div class="end-item2">予約</div>
                </a>
-               <a href="{% url 'moca' %}">
-               <div class="end-item1">整体カフェMOCAについて</div>
+               <a href="{% url 'calendar' %}">
+               <div class="end-item1">ー　予約状況</div>
                </a>
-           </div>
-           <div class="end-item">
                <a href="{% url 'request_create' %}">
-               <div class="end-item1">予約の申請</div>
-               </a>
-               <a href="{% url 'contact' %}">
-               <div class="end-item1">お問い合わせ</div>
-               </a>
+                <div class="end-item1">ー　予約の申請</div>
+                </a>
+                <a href="{% url 'treatment' %}">
+                    <div class="end-item2">料金</div>
+                    </a> 
+                <a href="{% url 'treatment' %}">
+                    <div class="end-item2">症状と施術内容</div>
+                    </a> 
            </div>
-   
-   
+           <img src="{% static 'calendarapp/images/insta_induction.png' %}" alt="インスタ" class="end-image1">
+           
         </div>
+        
 </body>
 </html>
