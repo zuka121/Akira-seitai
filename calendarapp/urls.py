@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home_view, name='home'),  # トップページ
-    path('calendar/', views.calendar_view, name='calendar'),  
+    path('calendar/', views.events_for_next_ten_days, name='calendar'),  
     path('detail/', views.detail_view, name='detail'),
     path('treatment/', views.treatment_view, name='treatment'),
     path('<int:year>/<int:month>/', views.calendar_view, name='calendar'),

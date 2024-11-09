@@ -222,3 +222,18 @@ def notice_detail(request, pk):
     return render(request, 'calendarapp/notice_detail.html', {'notice': notice})
 
 
+
+def events_for_next_ten_days(request):
+    today = datetime.today().date()
+    ten_days_later = today + timedelta(days=10)
+    date_range = [today + timedelta(days=i) for i in range(10)]
+    
+    events = Event.objects.filter(start_time__date__range=[today, ten_days_later])
+    
+    return render(request, 'calendarapp/calendar.html', {
+        'events': events,
+        'date_range': date_range,
+        'today': today,
+        'ten_days_later': ten_days_later,
+    })
+

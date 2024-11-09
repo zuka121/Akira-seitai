@@ -4,15 +4,83 @@
 {% block title %}カレンダー{% endblock %}
 
 {% block content %}
-    <h1>カレンダー</h1>
-    <p>日付を押すと予約状況が確認できます</p>
-    <div>
-        <a href="{% url 'calendar' prev_year prev_month %}">&lt; 前月</a>
-        <a href="{% url 'calendar' next_year next_month %}">次月 &gt;</a>
+{% load static %}
+<style>
+
+      .toppage img{
+         width: 100%;
+         position: relative;
+         
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 40%; /* 上からの位置 */
+            left: 42%; /* 左からの位置 */
+            background-color: white;
+            opacity: 0.6; 
+            color: black; /* テキストの色 */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+
+        .heading{
+            font-size: 30px;
+            font-weight: bold;
+            border-left: solid 8px #51c257;
+            margin: 20px 0px 0px 20px;
+            padding: 0px 0px 0px 10px;
+
+        }
+
+</style>
+
+
+    <div class="toppage">
+      <img src="{% static 'calendarapp/images/background1.jpeg' %}" alt="トップ画像">
+       <div class="text-overlay">
+          予約案内
+       </div>
+    
     </div>
-    <div>
-        {{ calendar|safe }}
-    </div>
+    <div class="heading">予約状況</div>
+
+
+
+    <h1>今日から10日分のイベント ({{ today }} から {{ ten_days_later }} まで)</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>日付</th>
+                {% for hour in hour_range %}
+                    <th>{{ hour }}:00</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for day in date_range %}
+                <tr>
+                    <td>{{ day|date:"Y年m月d日" }}</td>
+                    {% for hour in hour_range %}
+                        <td>
+                            {% for event in events %}
+                                {% if event.start_time.date == day and event.start_time.hour == hour %}
+                                    <strong>{{ event.title }}</strong><br>
+                                    {{ event.start_time|date:"H:i" }} - {{ event.end_time|date:"H:i" }}<br>
+                                    {{ event.description }}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="heading">予約申請</div>
     <!--<h2>イベント一覧</h2>-->
     
     <!--<ul>

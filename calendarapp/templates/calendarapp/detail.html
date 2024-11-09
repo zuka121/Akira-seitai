@@ -5,7 +5,73 @@
 
 
 {% block content %}
+{% load static %}
+<style>
+   h1 {
+       margin-top: 100px;
+       padding-top: 0px;
+       border: solid 1px black;
+       
+   }
+
+   .toppage img{
+         width: 50%;
+         position: relative;
+         border: solid 1px black;
+   }
+
+   .toppage1 img{
+         width: 50%;
+         position: relative;
+         border: solid 1px black;
+   }
+
+   .container{
+      text-align: center;
+      justify-content: center;
+   }
+   .heading1{
+      font-size: 30px;
+      font-weight: bold;
+      border: solid 1px black;
+   }
+         
+        
+   .text-overlay {
+            position: absolute;
+            top: 40%; /* 上からの位置 */
+            left: 42%; /* 左からの位置 */
+            background-color: white;
+            opacity: 0.6; 
+            color: black; /* テキストの色 */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+
+
+</style>
+
+
+<body>
+   <div class="toppage">
+      <img src="{% static 'calendarapp/images/background1.jpeg' %}" alt="トップ画像">
+       <div class="text-overlay">
+          ここにインパクトのあるフレーズ(活動の信念)
+       </div>
+      
+   </div>
 
    <h1>当院について</h1>
+
+<div class="container">
+   <div class="toppage1">
+      <img src="{% static 'calendarapp/images/background1.jpeg' %}" alt="トップ画像">      
+   </div>
+   <div class="heading1">当院について</div>
+</div>
+</body>
 
 {% endblock %}
