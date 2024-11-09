@@ -36,26 +36,26 @@
 
         }
 
-        table {
-            width: 80%;
-            border-collapse: collapse;
-            margin: 0px auto;
-        }
-        th, td {
-            border: 1px solid #333;
-            padding: 8px;
-            text-align: center;
-            vertical-align: center;
-            width: 100px;
-            height: 60px;
+        .grid{
+            display: block;
+            margin: 0px auto 0px auto;
         }
 
-        td{
-            height: 40px;
+        .sentence1{
+            font-size: 20px;
+            display: flex;
+            margin: 20px 0px 0px 20px ;
         }
-        .occupied {
-            background-color: #add8e6;  /* イベントがあるセルを水色で表示 */
+        .sentence2{
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0px 4px;
         }
+
+ 
+        
+
+
 
 </style>
 
@@ -68,59 +68,12 @@
     
     </div>
     <div class="heading">予約状況</div>
+    <div class="sentence1"><div class="sentence2">{{ today|date:"m/d" }}</div>から<div class="sentence2">{{ endday|date:"m/d" }}</div>を表示しています</div>
+    <img src="data:image/png;base64,{{ schedule_image }}" alt="スケジュールグリッド" class="grid">
+   
 
 
-
-    <h1>今日から10日分のイベント</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>日付</th>
-                {% for hour in hour_range %}
-                    <th>{{ hour }}:00</th>
-                {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for day in date_range %}
-                <tr>
-                    <td>{{ day|date:"Y/m/d" }}</td>
-                    {% for hour in hour_range %}
-                        {% comment %}
-                        まずは該当セルにイベントがあるかチェック
-                        {% endcomment %}
-                        {% with cell_has_event=False %}
-                            {% for event in events %}
-                                {% if event.start_time.date == day and event.start_time.hour == hour %}
-                                    {% with cell_has_event=True %}
-                                    {% endwith %}
-                                {% endif %}
-                            {% endfor %}
-
-                            <td class="{% if cell_has_event %}occupied{% endif %}">
-                                {% if cell_has_event %}
-                                    {% for event in events %}
-                                        {% if event.start_time.date == day and event.start_time.hour == hour %}
-                                            <strong>{{ event.title }}</strong><br>
-                                            {{ event.start_time|date:"H:i" }} - {{ event.end_time|date:"H:i" }}<br>
-                                            {{ event.description }}
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endif %}
-                            </td>
-                        {% endwith %}
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 
     <div class="heading">予約申請</div>
-    <!--<h2>イベント一覧</h2>-->
-    
-    <!--<ul>
-        {% for event in events %}
-            <li>{{ event.start_time }} - {{ event.end_time }}: {{ event.title }}</li>
-        {% endfor %}
-    </ul>-->
+
 {% endblock %}

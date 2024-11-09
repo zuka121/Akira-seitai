@@ -10,7 +10,7 @@ from .forms import RequestForm
 import matplotlib.pyplot as plt
 import numpy as np
 import japanize_matplotlib
-import io
+from io import BytesIO
 import urllib, base64
 
 import matplotlib
@@ -236,4 +236,69 @@ def events_for_next_ten_days(request):
         'date_range': date_range,
         'hour_range': hour_range,
     })
+
+
+def schedule_grid(request):
+    # 今日の日付を取得
+    start_date = datetime.today().date()
+    endday = start_date + timedelta(days=9)
+    
+    # 今日から10日間の日付リストを作成
+    date_range = [start_date + timedelta(days=i) for i in range(10)]
+    
+    # 今日から10日間のイベントを取得
+    ten_days_later = start_date + timedelta(days=10)
+    events = Event.objects.filter(start_time__date__gte=start_date, start_time__date__lte=ten_days_later)
+
+    # グラフ作成
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    # 各日付と時間帯のセルをプロット
+    for i, day in enumerate(date_range):
+        for event in events:
+            if event.start_time.date() == day:
+                start_col = event.start_time.hour + event.start_time.minute / 60   # 開始時間を列に変換 (9時からスタート)
+                end_col = event.end_time.hour + event.end_time.minute / 60   # 終了時間を列に変換
+                width = end_col - start_col  # 幅を計算
+
+                # 長方形を描画
+                ax.add_patch(plt.Rectangle((start_col+0.02, i+0.15), width, 0.7, edgecolor='black', facecolor='#add8e6'))
+
+                
+
+    # 軸の設定
+    ax.set_xlim(0, 12)  # 9時から21時までの12時間分の範囲
+    ax.set_ylim(0, len(date_range))
+
+    # X軸の目盛り設定
+    ax.set_xticks(np.arange(12))  # 9時から21時まで
+    ax.set_xticklabels([f"{9 + hour}:00" for hour in range(12)])
+
+    # Y軸の目盛り設定
+    ax.set_yticks(np.arange(len(date_range)) + 0.5)  # 目盛りを少し下にずらす
+    ax.set_yticklabels([day.strftime("%Y-%m-%d") for day in date_range])
+
+    # Y軸線を非表示にする
+    ax.spines['left'].set_color('black')
+
+    # X軸のみ表示
+    ax.spines['bottom'].set_color('black')
+
+    for y in np.arange(len(date_range)):
+        ax.axhline(y, color='lightgrey', linewidth=1)
+
+    ax.invert_yaxis()
+
+    # グリッド線を表示
+    ax.grid(True, which='both', axis='x', color='lightgrey', linestyle='-', linewidth=1)
+
+    # 画像をバイナリ形式で保存し、base64エンコード
+    buffer = BytesIO()
+    plt.savefig(buffer, format="png")
+    buffer.seek(0)
+    image_base64 = base64.b64encode(buffer.getvalue()).decode()
+    plt.close(fig)
+
+    # テンプレートに画像データを渡す
+    return render(request, "calendarapp/calendar.html", {"schedule_image": image_base64, 'today':start_date, 'endday':endday})
 
