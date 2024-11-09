@@ -36,6 +36,27 @@
 
         }
 
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 0px auto;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+            vertical-align: center;
+            width: 100px;
+            height: 60px;
+        }
+
+        td{
+            height: 40px;
+        }
+        .occupied {
+            background-color: #add8e6;  /* イベントがあるセルを水色で表示 */
+        }
+
 </style>
 
 
@@ -50,7 +71,7 @@
 
 
 
-    <h1>今日から10日分のイベント ({{ today }} から {{ ten_days_later }} まで)</h1>
+    <h1>今日から10日分のイベント</h1>
     <table>
         <thead>
             <tr>
@@ -63,17 +84,31 @@
         <tbody>
             {% for day in date_range %}
                 <tr>
-                    <td>{{ day|date:"Y年m月d日" }}</td>
+                    <td>{{ day|date:"Y/m/d" }}</td>
                     {% for hour in hour_range %}
-                        <td>
+                        {% comment %}
+                        まずは該当セルにイベントがあるかチェック
+                        {% endcomment %}
+                        {% with cell_has_event=False %}
                             {% for event in events %}
                                 {% if event.start_time.date == day and event.start_time.hour == hour %}
-                                    <strong>{{ event.title }}</strong><br>
-                                    {{ event.start_time|date:"H:i" }} - {{ event.end_time|date:"H:i" }}<br>
-                                    {{ event.description }}
+                                    {% with cell_has_event=True %}
+                                    {% endwith %}
                                 {% endif %}
                             {% endfor %}
-                        </td>
+
+                            <td class="{% if cell_has_event %}occupied{% endif %}">
+                                {% if cell_has_event %}
+                                    {% for event in events %}
+                                        {% if event.start_time.date == day and event.start_time.hour == hour %}
+                                            <strong>{{ event.title }}</strong><br>
+                                            {{ event.start_time|date:"H:i" }} - {{ event.end_time|date:"H:i" }}<br>
+                                            {{ event.description }}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </td>
+                        {% endwith %}
                     {% endfor %}
                 </tr>
             {% endfor %}
