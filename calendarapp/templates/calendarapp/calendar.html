@@ -31,7 +31,7 @@
             font-size: 30px;
             font-weight: bold;
             border-left: solid 8px #51c257;
-            margin: 20px 0px 0px 20px;
+            margin: 20px 0px 20px 20px;
             padding: 0px 0px 0px 10px;
 
         }
@@ -50,6 +50,12 @@
             font-size: 22px;
             font-weight: bold;
             margin: 0px 4px;
+        }
+
+        .sentence3{
+            font-size: 20px;
+            display: flex;
+            margin: 10px 0px 0px 20px ;
         }
 
         .form-container {
@@ -102,6 +108,22 @@
       margin-bottom: 20px;
   }
 
+  .scroll_point{
+    width: 10px;
+    height: 10px;
+  }
+
+  .caution_sentence_box{
+    width: 100%;
+    display: flex;
+  }
+
+  .caution_image{
+    width: 4%;
+    height: 4%;
+    margin: auto 0px;
+  }
+
  
         
 
@@ -123,9 +145,15 @@
    
 
 
-
+    
+    <div class="scroll_point"></div>
     <div class="heading">予約申請</div>
-
+    <div class="caution_sentence_box">
+        <img src="{% static 'calendarapp/images/caution.jpg' %}" alt="インスタ" class="caution_image">
+        <div><div class="sentence3">予約の申請であり、予約を確定するものではありません</div>
+        <div class="sentence3">電話またはメールにて、症状のカウンセリングを行い、施術日時を確定させていただきます</div></div>
+    </div>
+    
     <div class="form-container">
         <form method="post">
             {% csrf_token %}
@@ -185,5 +213,16 @@
             <button type="submit" name="confirm" class="btn-submit">確認</button>
         </form>
     </div>
+
+    {% if scroll_to_error %}
+    <script>
+      window.onload = function() {
+        const errorMessage = document.querySelector('.scroll_point');
+        if (errorMessage) {
+          errorMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    </script>
+    {% endif %}
 
 {% endblock %}

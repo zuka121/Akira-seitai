@@ -47,9 +47,15 @@
     .btn-submit:hover {
         background-color: #45a049;
     }
+
+    .confirm_box{
+        width: 80%;
+        margin: auto;
+    }
 </style>
 
 <h2>予約内容の確認</h2>
+<div class="confirm_box">
 <form method="post">
     {% csrf_token %}
     
@@ -93,7 +99,8 @@
         {{ form.comment }}
     </div>
 
-    <button type="submit" class="btn-submit">確定</button>
+    <button type="submit" class="btn-submit">予約申請</button>
 </form>
+</div>
 
 {% endblock %}

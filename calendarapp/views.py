@@ -259,7 +259,8 @@ def create_view(request):
                 "today": start_date,
                 "endday": endday,
                 "form": form,
-                "errors": form.errors  # エラーを追加
+                "errors": form.errors ,
+                "scroll_to_error": True 
             })
     else:
         form = RequestForm()
