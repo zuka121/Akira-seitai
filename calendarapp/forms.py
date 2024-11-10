@@ -1,6 +1,8 @@
 from django import forms
 from .models import Request
 
+
+
 class RequestForm(forms.ModelForm):
     class Meta:
         model = Request
@@ -16,3 +18,5 @@ class RequestForm(forms.ModelForm):
             'email_confirm': forms.EmailInput(attrs={'class': 'form-input', 'placeholder': 'メールアドレスを再度入力してください'}),
             'comment': forms.Textarea(attrs={'class': 'form-input', 'placeholder': '症状について、できるだけ詳細にお書きください'}),
         }
+
+

@@ -248,12 +248,19 @@ def create_view(request):
 
     if request.method == 'POST':
         form = RequestForm(request.POST)
-        if 'confirm' in request.POST:  # 確認ボタンが押された場合
-            request.session['form_data'] = request.POST  # セッションにフォームデータを保存
-            return redirect('confirm_view')  # 確認画面へ遷移
-        elif form.is_valid():  # フォームが有効な場合
-            form.save()
-            return redirect('request_success')  # 送信後に成功画面へ
+        if form.is_valid():
+            if 'confirm' in request.POST:
+                request.session['form_data'] = request.POST  # セッションにフォームデータを保存
+                return redirect('confirm_view')  # 確認画面へ遷移
+        else:
+            # フォームが無効の場合、エラーメッセージをテンプレートに渡す
+            return render(request, "calendarapp/calendar.html", {
+                "schedule_image": image_base64,
+                "today": start_date,
+                "endday": endday,
+                "form": form,
+                "errors": form.errors  # エラーを追加
+            })
     else:
         form = RequestForm()
 

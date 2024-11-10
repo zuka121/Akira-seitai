@@ -32,8 +32,8 @@ class Request(models.Model):
 
     def clean(self):
         # 電話番号かメールアドレスのどちらか一方が必須
-        if not self.phone_number and not self.email:
-            raise ValidationError('電話番号かメールアドレスのどちらか一方を入力してください。')
+        if not self.phone_number :
+            raise ValidationError('電話番号は必須です')
 
         # メールアドレスの一致を確認
         if self.email and self.email_confirm and self.email != self.email_confirm:
