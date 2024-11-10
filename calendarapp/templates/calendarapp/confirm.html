@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}確認画面{% endblock %}
+
+{% block content %}
+<style>
+    .form-container {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .form-container h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .form-field {
+        margin-bottom: 20px;
+    }
+    .form-label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .btn-submit {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .btn-submit:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<h2>予約内容の確認</h2>
+<form method="post">
+    {% csrf_token %}
+    
+    <div>
+        <label for="{{ form.name.id_for_label }}">名前:</label>
+        {{ form.name }}  <!-- フォームの値を表示 -->
+    </div>
+    
+    <div>
+        <label for="{{ form.phone_number.id_for_label }}">電話番号:</label>
+        {{ form.phone_number }}
+    </div>
+    
+    <div>
+        <label for="{{ form.email.id_for_label }}">メールアドレス:</label>
+        {{ form.email }}
+    </div>
+    
+    <div>
+        <label for="{{ form.email_confirm.id_for_label }}">メールアドレス（確認用）:</label>
+        {{ form.email_confirm }}
+    </div>
+    
+    <div>
+        <label for="{{ form.start_time.id_for_label }}">開始時間:</label>
+        {{ form.start_time }}
+    </div>
+    
+    <div>
+        <label for="{{ form.end_time.id_for_label }}">終了時間:</label>
+        {{ form.end_time }}
+    </div>
+    
+    <div>
+        <label for="{{ form.treatment_location.id_for_label }}">治療場所:</label>
+        {{ form.treatment_location }}
+    </div>
+
+    <div>
+        <label for="{{ form.comment.id_for_label }}">コメント:</label>
+        {{ form.comment }}
+    </div>
+
+    <button type="submit" class="btn-submit">確定</button>
+</form>
+
+{% endblock %}

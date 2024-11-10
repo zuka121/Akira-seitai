@@ -165,19 +165,12 @@ def week_view(request, year, month, day):
     draw_grid(event_data)
 
 
-    # 画像をバッファに保存
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png')
-    image_png = buf.getvalue()
-    graph = base64.b64encode(image_png)
-    graph = graph.decode('utf-8')
-    buf.close()
 
     context = {
         'events': event_data,
         'start_of_week': start_of_week,
-        'end_of_week': end_of_week,
-        'table_image': graph,  # 画像データをコンテキストに追加
+        'end_of_week': end_of_week
+          # 画像データをコンテキストに追加
     }
 
     return render(request, 'calendarapp/week.html', context)
@@ -195,10 +188,6 @@ def request_create_view(request):
 
     return render(request, 'calendarapp/request_form.html', {'form': form})
 
-
-
-def request_success_view(request):
-    return render(request, 'calendarapp/request_success.html')
 
 
 
@@ -224,18 +213,13 @@ def notice_detail(request, pk):
 
 
 
-def combined_view(request):
-    # 今日の日付と表示終了日
+def create_view(request):
     start_date = datetime.today().date()
     endday = start_date + timedelta(days=9)
     
-    # 今日から10日間の日付リスト作成
     date_range = [start_date + timedelta(days=i) for i in range(10)]
-    
-    # 今日から10日間のイベントを取得
     events = Event.objects.filter(start_time__date__gte=start_date, start_time__date__lte=start_date + timedelta(days=10))
 
-    # スケジュールグリッド画像作成
     fig, ax = plt.subplots(figsize=(10, 6))
     for i, day in enumerate(date_range):
         for event in events:
@@ -262,16 +246,17 @@ def combined_view(request):
     image_base64 = base64.b64encode(buffer.getvalue()).decode()
     plt.close(fig)
 
-    # フォームの処理
     if request.method == 'POST':
         form = RequestForm(request.POST)
-        if form.is_valid():
+        if 'confirm' in request.POST:  # 確認ボタンが押された場合
+            request.session['form_data'] = request.POST  # セッションにフォームデータを保存
+            return redirect('confirm_view')  # 確認画面へ遷移
+        elif form.is_valid():  # フォームが有効な場合
             form.save()
-            return redirect('request_success')
+            return redirect('request_success')  # 送信後に成功画面へ
     else:
         form = RequestForm()
 
-    # テンプレートに画像データとフォームを渡す
     context = {
         "schedule_image": image_base64,
         "today": start_date,
@@ -279,3 +264,24 @@ def combined_view(request):
         "form": form
     }
     return render(request, "calendarapp/calendar.html", context)
+
+
+def confirm_view(request):
+    if request.method == 'POST':
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            form.save()  # データを保存
+            return redirect('request_success')  # 保存後に成功画面へ遷移
+        else:
+            print("フォームエラー:", form.errors)  # フォームのエラーメッセージを確認
+    else:
+        form_data = request.session.get('form_data', {})
+        form = RequestForm(form_data)  # セッションからフォームデータを取得
+
+    context = {
+        "form": form
+    }
+    return render(request, "calendarapp/confirm.html", context)
+
+def request_success(request):
+    return render(request, 'calendarapp/request_success.html')

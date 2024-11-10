@@ -187,7 +187,7 @@
         var scrollPosition = window.scrollY;
         var menuImage = document.getElementById("menuImage");
 
-        if (scrollPosition > 50) {
+        if (scrollPosition >= 0) {
             menuImage.src = "{% static 'calendarapp/images/logo.png' %}";
             menuImage.classList.add("scrolled-image");
         } else {
@@ -264,7 +264,7 @@
                <a href="{% url 'calendar' %}">
                <div class="end-item1">ー　予約状況</div>
                </a>
-               <a href="{% url 'request_create' %}">
+               <a href="{% url 'calendar' %}">
                 <div class="end-item1">ー　予約の申請</div>
                 </a>
                 <a href="{% url 'treatment' %}">
