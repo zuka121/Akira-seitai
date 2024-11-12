@@ -171,6 +171,34 @@
             </ul>
         </div>
         {% endif %}
+
+        
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const startTimeInput = document.getElementById("{{ form.start_time.id_for_label }}");
+        const endTimeInput = document.getElementById("{{ form.end_time.id_for_label }}");
+        
+        // 明日の日付を取得
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 2);
+        
+        // YYYY-MM-DDTHH:MM の形式に整形
+        const year = tomorrow.getFullYear();
+        const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+        const day = String(tomorrow.getDate()).padStart(2, '0');
+        const minDate = `${year}-${month}-${day}T00:00`;
+
+        // start_time と end_time の min属性を設定
+        startTimeInput.setAttribute("min", minDate);
+        endTimeInput.setAttribute("min", minDate);
+
+        // start_time が変更されたときに end_time の最小値も更新
+        startTimeInput.addEventListener("change", function() {
+            endTimeInput.setAttribute("min", startTimeInput.value);
+        });
+    });
+</script>
             
             <div class="form-field">
                 <label for="{{ form.name.id_for_label }}" class="form-label">名前</label>
@@ -224,6 +252,7 @@
           errorMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
+    
     </script>
     {% endif %}
 
