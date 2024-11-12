@@ -15,8 +15,8 @@ class Event(models.Model):
 
 class Request(models.Model):
     LOCATION_CHOICES = [
-        ('onsite', '出張'),
-        ('moca', '下津カフェMOCA'),
+        ('出張', '出張'),
+        ('下津カフェMOCA', '下津カフェMOCA'),
     ]
 
     name = models.CharField(max_length=255, verbose_name="名前")
