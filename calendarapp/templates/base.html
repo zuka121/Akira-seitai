@@ -25,12 +25,13 @@
             z-index: 1000;
             display: flex;
             border-bottom: 1.5px solid rgb(169, 169, 169);
-            justify-content: center;
+            justify-content: left;
         }
 
 
+
         .nav-image{
-            width: 200px;
+            width: 100px;
             height: auto;
             background-color: white;
             margin-right: auto;
@@ -51,10 +52,11 @@
         .nav-content{
             width: 140px;
             height: auto;
-            margin: 20px auto 0px 30px;
+            margin: 20px auto 0px auto;
             font-weight: bold;
             font-size: 18px;
-            padding: 0px auto;
+            text-align: center;
+            padding: 0px 10px;
         }
 
         .insta-logo {
@@ -191,12 +193,11 @@
         
         <a href="{% url 'detail' %}"><div class="nav-content">当院について</div></a>
         <a href="{% url 'treatment' %}"><div class="nav-content">症状と施術内容</div></a>
-        <a href="{% url 'calendar' %}"><div class="nav-content">予約の案内</div></a>
+        <a href="{% url 'calendar' %}"><div class="nav-content">予約案内</div></a>
         <a href="{% url 'profile' %}"><div class="nav-content">お問い合わせ</div></a>
         
         <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">
-              <img src="{% static 'calendarapp/images/insta-logo.png' %}" alt="インスタロゴ" class="insta-logo">
-            
+           <img src="{% static 'calendarapp/images/insta-logo.png' %}" alt="インスタロゴ" class="insta-logo">   
         </a>
         <a><img src="{% static 'calendarapp/images/line-logo.jpg' %}" alt="サイトロゴ" class="line-logo"></a>
         <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="サイトロゴ" class="denwa-logo"></a>
