@@ -102,16 +102,19 @@
       .text-overlay {
             position: absolute;
             top: 40%; /* 上からの位置 */
-            left: 30%; /* 左からの位置 */
+            left: 13%; /* 左からの位置 */
             background-color: white;
-            opacity: 0.6; 
+            opacity: 0.7; 
             color: black; /* テキストの色 */
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            font-size: 20px;
+            font-size: 23px;
             font-weight: bolder;
+            justify-content: center;
+            display: block;
         }
+
 
     
      .active-schedule-container{
@@ -121,11 +124,12 @@
 
      .active-schedule-box{
         width: 350px;
-        height: 320px;
+        height: auto;
         border: solid 2px #44a549;
         font-size: large;
         margin: 20px 15px;
         border-radius: 12px;
+        padding-bottom: 20px;
      }
 
      .intro-active{
@@ -246,6 +250,14 @@
      .moca-content2 img{
         width: 12%;
         border-radius: 6px;
+     }
+
+     .moca_image {
+        width: 70%;
+        opacity: 0.7;
+        border-radius: 6px;
+        margin: auto;
+        display: block;
      }
 
      .osirase-title{
@@ -510,7 +522,7 @@
   <div class="toppage">
      <img src="{% static 'calendarapp/images/background1.jpeg' %}" alt="トップ画像">
       <div class="text-overlay">
-         ここにインパクトのあるフレーズ(活動の信念)
+         整体は、薬や手術だけでは解決できない問題に向き合うための、もう一つの選択肢です
       </div>
      
   </div>
@@ -530,29 +542,31 @@
   </div>
 
   <div class="active-schedule-container">
-     <a href="{% url 'moca' %}">
-         <div class="notice-section">
-         <img src="{% static 'calendarapp/images/moca_image.jpeg' %}" alt="カフェモカ">
-         <div class="moca-content">
-            ご案内
-         </div>
-         <div class="moca-content1">〒649-0101</div>
-         <div class="moca-content1">和歌山県海南市下津町下津3066</div>
-         <div class="moca-content1">
-             <img src="{% static 'calendarapp/images/train.svg' %}" alt="電車">
-             <div class="moca-content1-text">JR下津駅から徒歩1分</div>
-         </div>
-         <div class="moca-content2">
-             <a href="https://www.instagram.com/seitaicafe_moca/" target="_blank">
-                 <img src="{% static 'calendarapp/images/insta_logo.jpg' %}" alt="電車">
-             </a>
-         </div>     
-     </div>
-     </a>
+    <!--<a href="{% url 'moca' %}">
+        <div class="notice-section">
+        <img src="{% static 'calendarapp/images/moca_image.jpeg' %}" alt="カフェモカ">
+        <div class="moca-content">
+           ご案内
+        </div>
+        <div class="moca-content1">〒649-0101</div>
+        <div class="moca-content1">和歌山県海南市下津町下津3066</div>
+        <div class="moca-content1">
+            <img src="{% static 'calendarapp/images/train.svg' %}" alt="電車">
+            <div class="moca-content1-text">JR下津駅から徒歩1分</div>
+        </div>
+        <div class="moca-content2">
+            <a href="https://www.instagram.com/seitaicafe_moca/" target="_blank">
+                <img src="{% static 'calendarapp/images/insta_logo.jpg' %}" alt="電車">
+            </a>
+        </div>     
+    </div>
+    </a>-->
+     
      <div class="active-schedule-box">
         <div class="title">
             整体カフェMOCA
         </div>
+        <img src="{% static 'calendarapp/images/moca_image.jpeg' %}" alt="カフェモカ" class="moca_image">
         <div class="title1">
             営業時間
         </div>
