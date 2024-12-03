@@ -5,7 +5,67 @@
 
 
 {% block content %}
+{% load static %}
+<style>
+   .text_message_container{
+      width: 100%;
+      display: flex;
+      margin-top:50px;
+   }
 
-   <div class="heading">プロフィール</div>
+   .text_message_box{
+      width: 60%;
+   }
+
+   .text_message{
+      font-size: 18px;
+      margin: 3px 80px;
+      margin-bottom: 50px;
+   }
+
+   .profile_photo{
+      width:auto;
+      height: 500px;
+   }
+
+</style>
+
+<body>
+
+   <div class="toppage">
+      <img src="{% static 'calendarapp/images/detail_1.jpg' %}" alt="トップ画像">
+         <div class="text-overlay">
+            当院からのメッセージ
+         </div>
+   </div>
+
+   <div class="directory_box">
+      <a href="{% url 'home' %}" ><div class="directory_item">アキラ整体トップ</div></a>
+      <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+      <a href="{% url 'detail' %}" ><div class="directory_item">当院について</div></a>
+      <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+      <div class="directory_item1">当院からのメッセージ</div>
+   </div>
+   
+      <div class="text_message_container">
+         <div class="text_message_box">
+            <div class="heading">ご挨拶</div>
+            <div class="text_message">
+            はじめまして、アキラ整体の畑田 明 (はただ あきら) です。<br>
+            当院は、「もう治らない」「仕方ない」と諦めかけている方や、慢性的な症状でお悩みの方の「もう一度、挑戦してみたい」という気持ちに寄り添い、一緒に新しい道を切り拓くお手伝いをしています。
+            </div>
+            <div class="heading">アキラ整体が目指すこと</div>
+            <div class="text_message">
+               当院では、筋肉、骨格、神経、内臓、硬膜といった様々な視点からアプローチし、症状の裏側に潜む原因を根本的な改善にする方法を探ります。特に、他院で「手に負えない」とされた症状や、薬に頼るしかないと諦めている状態に対して、じっくり時間をかけて向き合います。また、東洋医学の視点を取り入れることで、痛みだけでなく内臓や自律神経の健康もケアします。薬や一時的な対処法だけに頼らない、心と身体がより良い方向へと向かうサイクルを築いていきます。
+            </div>
+            <div class="heading">一番伝えたいこと</div>
+            <div class="text_message">
+               整体は、薬や手術だけでは解決できない問題に向き合うための、もう一つの選択肢です。どうか一人で抱え込まず、お気軽にご相談ください。あなたの健康を全力でサポートします！
+            </div>
+         </div>
+         <img src="{% static 'calendarapp/images/profile_photo.jpg' %}" alt="プロフィール写真" class="profile_photo">
+      </div>
+   
+</body>
 
 {% endblock %}
