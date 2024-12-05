@@ -13,7 +13,8 @@ urlpatterns = [
     path('notices/<int:pk>/', views.notice_detail, name='notice_detail'),
     path('faq/', views.faq_view, name='faq'),
     path('contact/', views.contact, name='contact'),
-    path('moca/', views.moca, name='moca'),   
+    path('moca/', views.moca, name='moca'),  
+    path('syuttyou/', views.syuttyou_view, name='syuttyou'), 
     path('confirm/', views.confirm_view, name='confirm_view'),  # 確認画面
     path('request_success/', views.request_success, name='request_success'),  
 ]

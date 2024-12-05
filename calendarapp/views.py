@@ -34,6 +34,9 @@ def detail_view(request):
 def treatment_view(request):
     return render(request, 'calendarapp/treatment.html')
 
+def syuttyou_view(request):
+    return render(request, 'calendarapp/syuttyou.html')
+
 
 
 def calendar_view(request, year=None, month=None):

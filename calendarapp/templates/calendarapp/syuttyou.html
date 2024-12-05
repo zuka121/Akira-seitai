@@ -1,29 +1,28 @@
 {% extends 'base.html' %}
 
-{% block title %}お問い合わせ{% endblock %}
+{% block title %}プロフィール{% endblock %}
 
 
 
 {% block content %}
 {% load static %}
 <body>
+
    <div class="toppage">
-      <img src="{% static 'calendarapp/images/otoiawase_2.jpg' %}" alt="トップ画像">
+      <img src="{% static 'calendarapp/images/syuttyou_1.jpeg' %}" alt="トップ画像">
        <div class="text-overlay">
-          お問い合わせ
+          出張について
        </div>
-   </div>
+  </div>
    
-   <div class="directory_box">
+  <div class="directory_box">
       <a href="{% url 'home' %}" ><div class="directory_item">アキラ整体トップ</div></a>
       <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
       <a href="{% url 'detail' %}" ><div class="directory_item">当院について</div></a>
       <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
-      <div class="directory_item1">お問い合わせ</div>
-   </div>
-
-   
-
+      <div class="directory_item1">出張について</div>
+  </div>
 </body>
+   
 
 {% endblock %}

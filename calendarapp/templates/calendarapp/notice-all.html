@@ -53,14 +53,31 @@
             margin-right: 30px;
         }
 
+    .space_detail{
+      width: 100%;
+      height: 80px;
+    }
 </style>
 
 
 <body>
-   <div class="notice-image">
-       <img src="{% static 'calendarapp/images/TopPagePhoto1.jpeg' %}" alt="お知らせ背景">
-   </div>
-   <div class="notice-title">お知らせ一覧</div>
+    <div class="toppage">
+        <img src="{% static 'calendarapp/images/osirase_2.jpeg' %}" alt="トップ画像">
+           <div class="text-overlay">
+              お知らせ一覧
+           </div>
+    </div>
+  
+    <div class="directory_box">
+        <a href="{% url 'home' %}" ><div class="directory_item">アキラ整体トップ</div></a>
+        <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+        <a href="{% url 'detail' %}" ><div class="directory_item">当院について</div></a>
+        <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+        <div class="directory_item1">お知らせ一覧</div>
+    </div>
+
+    <div class="space_detail"></div>
+
 
 
    <div class="notice-list">

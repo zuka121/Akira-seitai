@@ -5,7 +5,24 @@
 
 
 {% block content %}
+{% load static %}
+<body>
 
-   <h1>よくある質問</h1>
+   <div class="toppage">
+      <img src="{% static 'calendarapp/images/question_1.jpeg' %}" alt="トップ画像">
+       <div class="text-overlay">
+          よくある質問
+       </div>
+  </div>
+   
+  <div class="directory_box">
+      <a href="{% url 'home' %}" ><div class="directory_item">アキラ整体トップ</div></a>
+      <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+      <a href="{% url 'detail' %}" ><div class="directory_item">当院について</div></a>
+      <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+      <div class="directory_item1">よくある質問</div>
+  </div>
+</body>
+   
 
 {% endblock %}
