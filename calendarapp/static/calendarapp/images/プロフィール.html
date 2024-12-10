@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://127.0.0.1:8000/profile/ -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>プロフィール</title>
+    <style>
+
+     body {
+          margin: 0; /* マージンをリセット */
+          padding: 0; /* パディングをリセット */
+          scroll-behavior: smooth;
+        }  
+      
+       a{
+          text-decoration: none;
+          color: black;
+        }
+        /* メニューを固定するためのCSS */
+        nav {
+            position: fixed;
+            width: 100%;
+            height: 65px;
+            background-color: white;
+            z-index: 1000;
+            display: flex;
+            border-bottom: 1.5px solid rgb(169, 169, 169);
+            justify-content: left;
+        }
+
+
+
+        .nav-image{
+            width: 100px;
+            height: auto;
+            background-color: white;
+            margin-right: auto;
+        }
+      
+        #menuImage {
+           width: 180px;   
+           height: auto; 
+           position: absolute; 
+           transition: transform 0.4s ease;
+        }
+
+        .scrolled-image {
+           width: 230px;
+           margin: 5px 10px 0px 0px;
+        }
+
+        .nav-content{
+            width: 140px;
+            height: auto;
+            margin: 20px auto 0px auto;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            padding: 0px 10px;
+        }
+
+        .insta-logo {
+            width: 50px;
+            margin: 2px 10px 0px 70px;
+        }
+
+        .line-logo{
+            width: 45px;
+            height: auto;
+            margin: 7px 10px 0px 10px;
+        }
+
+        .denwa-logo{
+            width: 50px;
+            height: auto;
+            margin: 5px 30px 0px 10px;
+        }
+
+
+
+        /* ページのコンテンツ */
+        .content {
+            padding-top: 65px;  /* メニューの高さ分を確保 */
+        }
+
+        /* テーブルスタイル */
+        caption {
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #text1{
+            color:red;
+            font-size: 18px;
+        }
+
+        #text2{
+            font-size: 14px;
+        }
+
+        #text3{
+            font-weight:bold;
+        }
+
+
+
+    .last-box-line{
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, #3de445, #24a72a, #0c6810);
+        margin-top: 200px;
+        
+
+    }
+     
+     
+    .end-container{
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: rgb(187, 212, 178);
+    }
+
+    .end-content {
+        justify-content: left;
+        padding: 5px 20px;
+    }
+
+    .end-content img{
+        width: 22%;
+
+     }
+
+    .end-container1{
+        display: flex;
+        padding-top: 20px;
+     }
+
+    .end-item{
+        text-align: left;
+        margin: 10px auto;
+     }
+
+    .end-item1{
+        font-size: 20px;
+        color: black;
+        margin: 20px 0px 0px 0px;
+     }
+
+     .end-item2{
+        font-size: 24px;
+        color: black;
+        margin: 30px auto;
+        font-weight: bold;
+     }
+
+    .end-item1:hover{
+      text-decoration: underline;
+     }
+
+    .end-image1{
+        width: 22%;
+        height: auto;
+        margin: 200px 100px auto auto;
+        display: block;
+    }
+
+    .heading{
+            font-size: 30px;
+            font-weight: bold;
+            border-left: solid 8px #51c257;
+            margin: 20px 0px 20px 20px;
+            padding: 0px 0px 0px 10px;
+
+        }
+
+    .directory_box{
+      width: auto;
+      height: 30px;
+      border: solid 0px black;
+      display: flex;
+      margin: 4px 0px -4px 0px;
+   }
+
+   .directory_item{
+      font-size: 14px;
+      margin: 5px 6px auto 6px;
+      color: #38893c;
+      padding:auto;
+   }
+   .directory_item1{
+      font-size: 14px;
+      margin: auto 6px auto 6px;
+      color: #38893c;
+   }
+
+   .directory_item:hover{
+      text-decoration: underline;
+     }
+
+   .directory_img{
+      width: auto;
+      height: 15px;
+      margin: auto 2px;
+   }
+
+   .toppage img{
+        width: 100%;
+        position: relative;
+    }
+
+    .text-overlay {
+        position: absolute;
+        top: 44%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        opacity: 0.8; 
+        color: black; /* テキストの色 */
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bolder;
+        display: block;
+    }
+
+
+    </style>
+</head>
+
+
+
+<body>
+    <!-- ナビゲーションメニュー -->
+    <nav>
+        <div class="nav-image">
+           <a href="http://127.0.0.1:8000/"><img src="./プロフィール_files/logo.png" alt="サイトロゴ" class="scrolled-image"></a>
+        </div>
+        
+        <a href="http://127.0.0.1:8000/detail/"><div class="nav-content">当院について</div></a>
+        <a href="http://127.0.0.1:8000/treatment/"><div class="nav-content">症状と施術内容</div></a>
+        <a href="http://127.0.0.1:8000/calendar/"><div class="nav-content">予約案内</div></a>
+        <a href="http://127.0.0.1:8000/contact/"><div class="nav-content">お問い合わせ</div></a>
+        
+        <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">
+           <img src="./プロフィール_files/insta-logo.png" alt="インスタロゴ" class="insta-logo">   
+        </a>
+        <a><img src="./プロフィール_files/line-logo.jpg" alt="サイトロゴ" class="line-logo"></a>
+        <a><img src="./プロフィール_files/denwa-logo.png" alt="サイトロゴ" class="denwa-logo"></a>
+    </nav>
+
+    <!-- コンテンツ -->
+    <div class="content">
+        
+
+<style>
+   .text_message_container{
+      width: 100%;
+      display: flex;
+      margin-top:50px;
+   }
+
+   .text_message_box{
+      width: 60%;
+   }
+
+   .text_message{
+      font-size: 18px;
+      margin: 3px 80px;
+      margin-bottom: 50px;
+   }
+
+   .profile_photo{
+      width:auto;
+      height: 500px;
+   }
+
+</style>
+
+
+
+   <div class="toppage">
+      <img src="./プロフィール_files/detail_1.jpg" alt="トップ画像">
+         <div class="text-overlay">
+            当院からのメッセージ
+         </div>
+   </div>
+
+   <div class="directory_box">
+      <a href="http://127.0.0.1:8000/"><div class="directory_item">アキラ整体トップ</div></a>
+      <img src="./プロフィール_files/arrow3.png" alt="矢印" class="directory_img">
+      <a href="http://127.0.0.1:8000/detail/"><div class="directory_item">当院について</div></a>
+      <img src="./プロフィール_files/arrow3.png" alt="矢印" class="directory_img">
+      <div class="directory_item1">当院からのメッセージ</div>
+   </div>
+   
+      <div class="text_message_container">
+         <div class="text_message_box">
+            <div class="heading">ご挨拶</div>
+            <div class="text_message">
+            はじめまして、アキラ整体の畑田 明 (はただ あきら) です。<br>
+            当院は、「もう治らない」「仕方ない」と諦めかけている方や、慢性的な症状でお悩みの方の「もう一度、挑戦してみたい」という気持ちに寄り添い、一緒に新しい道を切り拓くお手伝いをしています。
+            </div>
+            <div class="heading">アキラ整体が目指すこと</div>
+            <div class="text_message">
+               当院では、筋肉、骨格、神経、内臓、硬膜といった様々な視点からアプローチし、症状の裏側に潜む原因を根本的な改善にする方法を探ります。特に、他院で「手に負えない」とされた症状や、薬に頼るしかないと諦めている状態に対して、じっくり時間をかけて向き合います。また、東洋医学の視点を取り入れることで、痛みだけでなく内臓や自律神経の健康もケアします。薬や一時的な対処法だけに頼らない、心と身体がより良い方向へと向かうサイクルを築いていきます。
+            </div>
+            <div class="heading">一番伝えたいこと</div>
+            <div class="text_message">
+               整体は、薬や手術だけでは解決できない問題に向き合うための、もう一つの選択肢です。どうか一人で抱え込まず、お気軽にご相談ください。あなたの健康を全力でサポートします！
+            </div>
+         </div>
+         <img src="./プロフィール_files/profile_photo.jpg" alt="プロフィール写真" class="profile_photo">
+      </div>
+   
+
+
+
+    </div>
+
+    <div class="last-box-line"></div>
+
+    <div class="end-container">
+        <div class="end-content">
+            <img src="./プロフィール_files/logo3.png" alt="ロゴ2">
+        </div>
+   
+        <div class="end-container1">
+           <div class="end-item">
+               <a href="http://127.0.0.1:8000/detail/">
+               <div class="end-item2">当院について</div>
+               </a>
+               <a href="http://127.0.0.1:8000/profile/">
+               <div class="end-item1">ー　当院からのメッセージ</div>
+               </a>
+               <a href="http://127.0.0.1:8000/profile/">
+                <div class="end-item1">ー　整体カフェMOCAについて</div>
+                </a>
+                <a href="http://127.0.0.1:8000/profile/">
+                    <div class="end-item1">ー　出張について</div>
+                    </a>
+               <a href="http://127.0.0.1:8000/contact/">
+               <div class="end-item1">ー　お問い合わせ</div>
+               </a>
+               <a href="http://127.0.0.1:8000/contact/">
+                <div class="end-item1">ー　よくある質問</div>
+                </a>
+                <a href="http://127.0.0.1:8000/notice-all/">         
+                    <div class="end-item1">ー　お知らせ一覧</div>
+                    </a>
+           </div>
+           <div class="end-item">
+               <a href="http://127.0.0.1:8000/calendar/">
+               <div class="end-item2">予約</div>
+               </a>
+               <a href="http://127.0.0.1:8000/calendar/">
+               <div class="end-item1">ー　予約状況</div>
+               </a>
+               <a href="http://127.0.0.1:8000/calendar/">
+                <div class="end-item1">ー　予約の申請</div>
+                </a>
+                <a href="http://127.0.0.1:8000/treatment/">
+                    <div class="end-item2">料金</div>
+                    </a> 
+                <a href="http://127.0.0.1:8000/treatment/">
+                    <div class="end-item2">症状と施術内容</div>
+                    </a> 
+           </div>
+           <img src="./プロフィール_files/insta_induction.png" alt="インスタ" class="end-image1">
+           
+        </div>
+        
+
+
+</div></body></html>

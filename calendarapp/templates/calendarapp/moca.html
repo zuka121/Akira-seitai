@@ -6,6 +6,29 @@
 
 {% block content %}
 {% load static %}
+<style>
+   .text_message_container_1{
+      width: 100%;
+      display: flex;
+      margin-top:50px;
+   }
+
+   .text_message_box_1{
+      width: 60%;
+   }
+
+   .text_message_1{
+      font-size: 18px;
+      margin: 3px 80px;
+      margin-bottom: 50px;
+   }
+
+   .profile_photo_1{
+      width:auto;
+      height: 500px;
+   }
+
+</style>
 <body>
 
    <div class="toppage">
@@ -22,6 +45,35 @@
       <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
       <div class="directory_item1">整体カフェMOCAについて</div>
   </div>
+
+ <div class="text_message_container_1">
+   <div class="text_message_box_1">
+      <div class="heading">整体カフェMOCAとは</div>
+      <div class="text_message_1">
+         MOCAでは、カフェのご利用に加えて整体を受けていただけるメニューをご用意しております。
+         カフェだけ、整体だけはもちろん、お得な両方のご利用もお待ちしております。
+
+
+      </div>
+      <div class="heading">コーヒーへのこだわり</div>
+      <div class="text_message_1">
+         ひと粒ずつ丁寧に手選別し、少量焙煎で鮮度にこだわった自家焙煎珈琲を提供させていただいております。
+         ぜひ、お客様のお気に入りのコーヒーを見つけてください。</br>
+         また、MOCAではカラダに優しくコーヒーを楽しんでいただくため、「お砂糖」「シロップ」「コーヒーフレッシュ」は
+         健康を意識したものを使用しております。
+
+      </div>
+      <div class="heading">最後に</div>
+      <div class="text_message_1">
+         整体カフェMOCAは、「カラダもココロも休ませる」という自分をいたわる時間を過ごしていただきたいと考えております。</br>
+         他にもモーニング、日替わり定食、軽食等もご用意していますので、是非一度足を運んでいただけると幸いです。
+
+      </div>
+   </div>
+   <img src="{% static 'calendarapp/images/moca_image_3_1.jpeg' %}" alt="moca写真" class="profile_photo_1">
+ </div>
+
+
 </body>
    
 
