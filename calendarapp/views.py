@@ -4,7 +4,7 @@ import calendar
 from datetime import datetime, timedelta
 from django.utils import timezone
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RequestForm
+from .forms import RequestForm, ContactForm
 
 
 import matplotlib.pyplot as plt
@@ -203,6 +203,20 @@ def faq_view(request):
 
 def contact(request):
     return render(request, 'calendarapp/contact.html')
+
+def contact_form(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contact_success')  # サクセスページにリダイレクト
+    else:
+        form = ContactForm()
+
+    return render(request, 'calendarapp/contact_form.html', {'form': form})
+
+def contact_success(request):
+    return render(request, 'calendarapp/contact_success.html')
 
 def moca(request):
     return render(request, 'calendarapp/moca.html')

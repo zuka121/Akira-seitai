@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}お問い合わせ{% endblock %}
+
+
+
+{% block content %}
+{% load static %}
+<style>
+   
+
+
+   .container {
+       max-width: 600px;
+       margin: 50px auto;
+       background: white;
+       padding: 20px;
+       border-radius: 5px;
+       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+       text-align: center;
+       margin-bottom: 20px;
+    }
+    .form-group {
+       margin-bottom: 15px;
+       margin-right: 15px;
+    }
+    .form-group label {
+       display: block;
+       margin-bottom: 5px;
+       font-weight: bold;
+    }
+    .form-group input,
+    .form-group textarea {
+       width: 100%;
+       padding: 10px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       font-size: 14px;
+    }
+    .form-group textarea {
+       resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+       border-color: #51c257;
+       outline: none;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #51c257;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+       background-color: #51c257;
+    }
+</style>
+<body>
+   <div class="toppage">
+      <img src="{% static 'calendarapp/images/otoiawase_2.jpg' %}" alt="トップ画像">
+       <div class="text-overlay">
+          お問い合わせフォーム
+       </div>
+   </div>
+   
+   <div class="directory_box">
+      <a href="{% url 'home' %}" ><div class="directory_item">アキラ整体トップ</div></a>
+      <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+      <a href="{% url 'detail' %}" ><div class="directory_item">当院について</div></a>
+      <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+      <a href="{% url 'contact' %}" ><div class="directory_item">お問い合わせ</div></a>
+      <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+      <div class="directory_item1">お問い合わせフォーム</div>
+   </div>
+
+
+
+   <div class="container">
+    <h1>お問い合わせフォーム</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="id_gender">性別</label>
+            {{ form.gender }}
+        </div>
+        <div>
+            <label for="id_age">年齢</label>
+            {{ form.age }}
+        </div>
+        <div>
+            <label for="id_message">ご要件</label>
+            {{ form.message }}
+        </div>
+        <button type="submit">送信</button>
+    </form>
+</div>
+
+   
+
+</body>
+
+{% endblock %}

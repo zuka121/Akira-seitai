@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Request, Notice
+from .models import Event, Request, Notice, Contact 
 
 
 class EventAdmin(admin.ModelAdmin):
@@ -23,3 +23,12 @@ class NoticeAdmin(admin.ModelAdmin):
     fields = ('title', 'content', 'date')
 
 admin.site.register(Notice, NoticeAdmin)
+
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('gender', 'age', 'message')
+    search_fields = ('gender', 'age', 'message')
+
+admin.site.register(Contact, ContactAdmin)
+

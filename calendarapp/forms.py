@@ -1,5 +1,5 @@
 from django import forms
-from .models import Request
+from .models import Request, Contact
 
 
 
@@ -19,4 +19,14 @@ class RequestForm(forms.ModelForm):
             'comment': forms.Textarea(attrs={'class': 'form-input', 'placeholder': '症状について、できるだけ詳細にお書きください'}),
         }
 
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['gender', 'age', 'message']
+        widgets = {
+            'gender': forms.Select(attrs={'class': 'form-select'}),  # 性別選択
+            'age': forms.Select(attrs={'class': 'form-select'}),     # 年齢選択
+            'message': forms.Textarea(attrs={'placeholder': 'ご要件を入力してください'}),
+        }
 

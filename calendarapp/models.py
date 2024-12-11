@@ -50,3 +50,27 @@ class Notice(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class Contact(models.Model):
+    GENDER_CHOICES = [
+        ('男性', '男性'),
+        ('女性', '女性'),
+        ('その他', 'その他'),
+    ]
+    
+    AGE_CHOICES = [
+        ('10代', '10代'),
+        ('20代', '20代'),
+        ('30代', '30代'),
+        ('40代', '40代'),
+        ('50代', '50代'),
+        ('60代以上', '60代以上'),
+    ]
+
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)  # 性別
+    age = models.CharField(max_length=10, choices=AGE_CHOICES)       # 年齢
+    message = models.TextField()                                    # 要件
+
+    def __str__(self):
+        return f"{self.gender}, {self.age}"
