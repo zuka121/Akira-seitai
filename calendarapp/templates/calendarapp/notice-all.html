@@ -81,15 +81,15 @@
 
 
    <div class="notice-list">
-    {% for notice in notices %}
-    <div class="notice-item">
-        <div class="notice-date">{{ notice.date|date:"Y/m/d" }}</div>
-        <a href="{% url 'notice_detail' notice.pk %}">
-            <div class="notice-title1">{{ notice.title }}</div>
-        </a>
-    </div>
-    {% endfor %}
-</div>
+        {% for notice in notices %}
+        <div class="notice-item">
+            <div class="notice-date">{{ notice.date|date:"Y/m/d" }}</div>
+            <a href="{% url 'notice_detail' notice.pk %}">
+                <div class="notice-title1">{{ notice.title }}</div>
+            </a>
+        </div>
+        {% endfor %}
+   </div>
 
 </body>
 

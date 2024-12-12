@@ -6,12 +6,70 @@
 
 {% block content %}
 {% load static %}
+<style>
+   body {
+       font-family: Arial, sans-serif;
+       line-height: 1.6;
+   }
+   .container {
+       width: 90%;
+       max-width: 800px;
+       margin: 0 auto;
+       padding: 20px;
+   }
+   .faq-block {
+       border: 1px solid #ddd;
+       border-radius: 5px;
+       padding: 5px;
+       margin-bottom: 10px;
+       background-color: #f9f9f9;
+       cursor: pointer;
+   }
+   .faq-block h3 {
+       margin: 0;
+   }
+   .faq-answer {
+       margin-top: 10px;
+       display: none; /* 初期状態で非表示 */
+   }
+   .faq_title{
+      display :flex;
+   }
+   .faq_ok{
+      font-weight: bold;
+      color: #51c257;
+      margin-left :10px;
+   }
+   .faq_ng{
+      font-weight: bold;
+      color: red;
+      margin-left :10px;
+   }
+
+
+
+</style>
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+       const faqBlocks = document.querySelectorAll(".faq-block");
+       faqBlocks.forEach(block => {
+           block.addEventListener("click", function() {
+               const answer = this.querySelector(".faq-answer");
+               if (answer.style.display === "none" || !answer.style.display) {
+                   answer.style.display = "block";
+               } else {
+                   answer.style.display = "none";
+               }
+           });
+       });
+   });
+</script>
 <body>
 
    <div class="toppage">
       <img src="{% static 'calendarapp/images/question_1.jpeg' %}" alt="トップ画像">
        <div class="text-overlay">
-          よくある質問
+          質問＆回答
        </div>
   </div>
    
@@ -20,8 +78,37 @@
       <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
       <a href="{% url 'detail' %}" ><div class="directory_item">当院について</div></a>
       <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
-      <div class="directory_item1">よくある質問</div>
+      <div class="directory_item1">質問＆回答</div>
   </div>
+
+  <div class="heading">質問＆回答</div>
+
+  <div class="container">
+   {% for contact in contacts %}
+       <div class="faq-block">
+               <div class="faq_title">
+                  {{ contact.gender }} {{ contact.age }} 
+                  {% if contact.answer %}
+                  <div class="faq_ok">回答済 ✔</div>
+                  {% else %}
+                  <div class="faq_ng">未回答 ✘</div>
+                  {% endif %}
+
+               </div>
+           <p><strong>Q:</strong> {{ contact.message }}</p>
+           <div class="faq-answer">
+               <p>
+                   <strong>A:</strong> 
+                   {% if contact.answer %}
+                       {{ contact.answer }}
+                   {% else %}
+                       まだ回答がありません。
+                   {% endif %}
+               </p>
+           </div>
+       </div>
+   {% endfor %}
+</div>
 </body>
    
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Event, Notice
+from .models import Event, Notice, Contact
 import calendar
 from datetime import datetime, timedelta
 from django.utils import timezone
@@ -198,8 +198,10 @@ def profile_view(request):
     return render(request, 'calendarapp/profile.html')
 
 
+
 def faq_view(request):
-    return render(request, 'calendarapp/faq.html')
+    contacts = Contact.objects.all()  
+    return render(request, 'calendarapp/faq.html', {'contacts': contacts})
 
 def contact(request):
     return render(request, 'calendarapp/contact.html')

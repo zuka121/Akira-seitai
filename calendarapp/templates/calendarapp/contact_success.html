@@ -6,8 +6,32 @@
 
 {% block content %}
 {% load static %}
+<style>
+   .success_body{
+      margin-left: 20px;
+      margin-top: 20px;
+      font-size: 18px;
+      display: flex;
+   }
+   .jump_faq{
+      font-size: 18px;
+      margin: 0px 5px;
+      font-weight: bold;
+   }
+   .jump_faq:hover{
+      color: #51c257;
+   }
+   
+</style>
 <body>
-   お問い合わせ完了しました
+   <div class="success_body">送信が完了しました</div>
+   <div class="success_body">
+      ー　質問は 
+      <a href="{% url 'faq' %}"><div class="jump_faq">質問＆回答</div></a> 
+      から確認できます
+   </div>
+   <div class="success_body">ー　回答には1~2日ほどお時間をいただいております</div>
+
 
    
 

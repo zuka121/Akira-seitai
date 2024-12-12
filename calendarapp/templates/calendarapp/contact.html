@@ -6,6 +6,31 @@
 
 {% block content %}
 {% load static %}
+<style>
+   .contents_container{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+   }
+   .contents_box{
+      width:280px;
+      height: 210px;
+      border: solid 1px black;
+      margin: 10px 20px;
+      text-align: center;
+   }
+   .contents_box img{
+      width: 100%;
+      margin-bottom: 15px;
+   }
+   .contents_box:hover{
+      opacity: 0.6;
+   }
+   .contents_box_title{
+      font-size: 20px;
+      font-weight: bold;
+   }
+</style>
 <body>
    <div class="toppage">
       <img src="{% static 'calendarapp/images/otoiawase_2.jpg' %}" alt="トップ画像">
@@ -22,7 +47,26 @@
       <div class="directory_item1">お問い合わせ</div>
    </div>
 
-   <a href="{% url 'contact_form' %}">お問い合わせフォーム</a>
+   <div class="space"></div>
+
+   <div class="contents_container">
+      <div class="contents_box">
+         <img src="{% static 'calendarapp/images/line.png' %}" alt="サムネイル1" >
+         <div class="contents_box_title">公式LINE</div>
+      </div>
+
+      <div class="contents_box">
+         <img src="{% static 'calendarapp/images/denwa.png' %}" alt="サムネイル1" >
+         <div class="contents_box_title">電話 : 00000000000</div>
+      </div>
+
+      <a href="{% url 'contact_form' %}">
+      <div class="contents_box">
+         <img src="{% static 'calendarapp/images/form.png' %}" alt="サムネイル1" >
+         <div class="contents_box_title">お問い合わせフォーム</div>
+      </div>
+      </a>
+   </div>
 
    
 

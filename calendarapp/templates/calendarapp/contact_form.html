@@ -60,6 +60,10 @@
     button:hover {
        background-color: #51c257;
     }
+    .sentence_contact_form{
+      font-size: 20px;
+      margin: 10px;
+    }
 </style>
 <body>
    <div class="toppage">
@@ -79,21 +83,27 @@
       <div class="directory_item1">お問い合わせフォーム</div>
    </div>
 
+   <div class="space"></div>
+   <div class="sentence_contact_form">ここで頂いた質問は当ホームページの<strong>質問＆回答</strong>にて回答させていただきます。</div>
+   <div class="sentence_contact_form">お急ぎの連絡や、個人的な連絡をご希望の方は、公式LINE、または0000000000までお電話ください</div>
+
+
+
 
 
    <div class="container">
     <h1>お問い合わせフォーム</h1>
     <form method="post">
         {% csrf_token %}
-        <div>
+        <div class="form-group">
             <label for="id_gender">性別</label>
             {{ form.gender }}
         </div>
-        <div>
+        <div class="form-group">
             <label for="id_age">年齢</label>
             {{ form.age }}
         </div>
-        <div>
+        <div class="form-group">
             <label for="id_message">ご要件</label>
             {{ form.message }}
         </div>

@@ -70,7 +70,8 @@ class Contact(models.Model):
 
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)  # 性別
     age = models.CharField(max_length=10, choices=AGE_CHOICES)       # 年齢
-    message = models.TextField()                                    # 要件
+    message = models.TextField()                                    
+    answer = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.gender}, {self.age}"

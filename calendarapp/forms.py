@@ -27,6 +27,6 @@ class ContactForm(forms.ModelForm):
         widgets = {
             'gender': forms.Select(attrs={'class': 'form-select'}),  # 性別選択
             'age': forms.Select(attrs={'class': 'form-select'}),     # 年齢選択
-            'message': forms.Textarea(attrs={'placeholder': 'ご要件を入力してください'}),
+            'message': forms.Textarea(attrs={'placeholder': 'お気軽に入力してください'}),
         }
 
