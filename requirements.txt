@@ -3,3 +3,4 @@ whitenoise
 gunicorn
 matplotlib
 japanize_matplotlib
+setuptools
