@@ -1,7 +1,7 @@
 <!-- calendar.html -->
 {% extends 'base.html' %}
 
-{% block title %}カレンダー{% endblock %}
+{% block title %}予約案内{% endblock %}
 
 {% block content %}
 {% load static %}
@@ -106,12 +106,20 @@
 
 
     <div class="toppage">
-      <img src="{% static 'calendarapp/images/background1.jpeg' %}" alt="トップ画像">
+      <img src="{% static 'calendarapp/images/background.jpeg' %}" alt="トップ画像">
        <div class="text-overlay">
           予約案内
-       </div>
-    
+       </div>    
     </div>
+
+    <div class="directory_box">
+        <a href="{% url 'home' %}" ><div class="directory_item">アキラ整体トップ</div></a>
+        <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
+        <div class="directory_item1">予約案内</div>
+     </div>
+
+
+
     <div class="heading">予約状況</div>
     <div class="sentence1"><div class="sentence2">{{ today|date:"m/d" }}</div>から<div class="sentence2">{{ endday|date:"m/d" }}</div>を表示しています</div>
     <img src="data:image/png;base64,{{ schedule_image }}" alt="スケジュールグリッド" class="grid">

@@ -184,6 +184,23 @@
         font-weight: bold;
         margin: 10px 30px 0px 30px;
      }
+     .title4{
+        font-size: 20px;
+        color: #38893c;
+        text-align: center;
+        font-weight: bold;
+        margin: 10px 30px 0px 30px;
+     }
+     .title5{
+        font-size: 20px;
+        color: gray;
+        text-align: center;
+        font-weight: bold;
+        margin: 10px 30px 0px 30px;
+     }
+     .title5:hover{
+        text-decoration: underline;
+     }
 
      .notice-section{
         width: 250px;
@@ -353,10 +370,11 @@
         .nav-content{
             width: 140px;
             height: auto;
-            margin: 20px auto 0px 30px;
+            margin: 20px auto 0px auto;
             font-weight: bold;
             font-size: 18px;
-            padding: 0px auto;
+            text-align: center;
+            padding: 0px 10px;
         }
 
         .insta-logo {
@@ -470,6 +488,9 @@
     .end-item1:hover{
       text-decoration: underline;
      }
+    .end-item2:hover{
+      text-decoration: underline;
+    }
 
     .end-image1{
         width: 22%;
@@ -508,7 +529,7 @@
       
       <a href="{% url 'detail' %}"><div class="nav-content">当院について</div></a>
       <a href="{% url 'treatment' %}"><div class="nav-content">症状と施術内容</div></a>
-      <a href="{% url 'calendar' %}"><div class="nav-content">予約の案内</div></a>
+      <a href="{% url 'calendar' %}"><div class="nav-content">予約案内</div></a>
       <a href="{% url 'contact' %}"><div class="nav-content">お問い合わせ</div></a>
       
       <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">
@@ -518,9 +539,9 @@
       <a><img src="{% static 'calendarapp/images/line-logo.jpg' %}" alt="サイトロゴ" class="line-logo"></a>
       <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="サイトロゴ" class="denwa-logo"></a>
   </nav>
-
+  <div class="content"></div>
   <div class="toppage">
-     <img src="{% static 'calendarapp/images/background1.jpeg' %}" alt="トップ画像">
+     <img src="{% static 'calendarapp/images/background.jpeg' %}" alt="トップ画像">
       <div class="text-overlay">
          整体は、薬や手術だけでは解決できない問題に向き合うための、もう一つの選択肢です
       </div>
@@ -566,7 +587,7 @@
         <div class="title">
             整体カフェMOCA
         </div>
-        <img src="{% static 'calendarapp/images/moca_image.jpeg' %}" alt="カフェモカ" class="moca_image">
+        <img src="{% static 'calendarapp/images/moca_image_4.jpeg' %}" alt="カフェモカ" class="moca_image">
         <div class="title1">
             営業時間
         </div>
@@ -576,8 +597,18 @@
         <div class="title1">
             営業日
         </div>
-        <div class="title3">
+        <div class="title2">
             火、木、土
+        </div>
+        <div class="title1">
+            料金
+        </div>
+        <div class="title4">
+            施術時間 30分　&yen;0000</br>
+            施術時間 60分　&yen;0000</br>
+        </div>
+        <div class="title4">
+            カフェのご利用で &yen;000 OFF
         </div>
 
      </div>
@@ -585,7 +616,8 @@
         <div class="title">
             出張診療
         </div>
-        <div class="title1">
+        <img src="{% static 'calendarapp/images/syuttyou_2.jpeg' %}" alt="出張" class="moca_image">
+        <div id="ryoukin" class="title1">
             営業時間
         </div>
         <div class="title2">
@@ -594,9 +626,18 @@
         <div class="title1">
             営業日
         </div>
-        <div id="notice" class="title3">
+        <div  class="title2">
             月、水、金、日
         </div>
+        <div class="title1">
+            料金
+        </div>
+        <div id="notice" class="title4">
+            &yen;0000 + 交通費 (地域別)
+        </div>
+        <a href="{% url 'syuttyou' %}"><div class="title5">
+            詳しくはこちら
+        </div></a>
         
      </div>
   </div>
@@ -658,7 +699,7 @@
              <a href="{% url 'calendar' %}">
               <div class="end-item1">ー　予約の申請</div>
               </a>
-              <a href="{% url 'treatment' %}">
+              <a href="{% url 'home' %}#ryoukin">
                   <div class="end-item2">料金</div>
                   </a> 
               <a href="{% url 'treatment' %}">
