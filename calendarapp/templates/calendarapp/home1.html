@@ -2,7 +2,7 @@
 <html lang="ja">
 {% load static %}
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>トップページ</title>
 
    <style>
@@ -318,11 +318,6 @@
         font-size: 18px; 
         }
 
-        body {
-          margin: 0; /* マージンをリセット */
-          padding: 0; /* パディングをリセット */
-          scroll-behavior: smooth;
-        }  
       
        a{
           text-decoration: none;
@@ -499,7 +494,7 @@
         display: none; 
         background: none;
         border: none;
-        font-size: 1.5rem;
+        font-size: 20px;
         cursor: pointer;
     }
 
@@ -541,16 +536,29 @@
         font-size: 2rem;
         cursor: pointer;
     }
-    .phone_menu{
-        font-size: 10px;
+    #menu_list{
+        width: 100%;
     }
+    .menu_items{
+        font-size: 20px;
+    }
+
 
     @media (max-width: 600px) {
         #menu-toggle-button {
          display: block; /* メニューボタンを表示 */
         }
         nav {
+            position: static !important;
+            z-index: auto !important; 
             display: none;
+            
+        }
+        .phone_menu{
+          width: 100%;
+        }
+        .content {
+            padding-top: 0px;  /* メニューの高さ分を確保 */
         }
         
     }
@@ -582,19 +590,16 @@
         // メニューボタンを押すとフルスクリーンメニューを表示
         toggleButton.addEventListener("click", () => {
             fullscreenMenu.style.display = "flex";
+            document.body.style.overflow = "hidden";
         });
 
         // ×ボタンを押すとフルスクリーンメニューを閉じる
         closeButton.addEventListener("click", () => {
             fullscreenMenu.style.display = "none";
+            document.body.style.overflow = "auto";
         });
 
-        // 背景をクリックするとフルスクリーンメニューを閉じる（オプション）
-        fullscreenMenu.addEventListener("click", (e) => {
-            if (e.target === fullscreenMenu) {
-                fullscreenMenu.style.display = "none";
-            }
-        });
+        
     });
 
 </script>
@@ -622,21 +627,18 @@
 
   <!--携帯用メニュー-->
   <div class="phone_menu">
-    <div class="nav-image">
-      <a href="/"><img id="menuImage" src="{% static 'calendarapp/images/logo2.jpg' %}" alt="サイトロゴ"></a>
-    </div>
   
     <!-- メニューボタン -->
-    <button id="menu-toggle-button" aria-label="メニューを開閉">☰</button>
+    <button id="menu-toggle-button" aria-label="メニューを開閉">☰ menu</button>
   
     <!-- フルスクリーンメニュー -->
     <div id="fullscreen-menu">
       <button id="close-menu-button" aria-label="メニューを閉じる">×</button>
-      <div id="menu-links">
-        <a href="{% url 'detail' %}">当院について</a>
-        <a href="{% url 'treatment' %}">症状と施術内容</a>
-        <a href="{% url 'calendar' %}">予約案内</a>
-        <a href="{% url 'contact' %}">お問い合わせ</a>
+      <div id="menu_list">
+        <a href="{% url 'detail' %}"><div class="menu_items">当院について</div></a>
+        <a href="{% url 'treatment' %}"><div class="menu_items">症状と施術内容</div></a>
+        <a href="{% url 'calendar' %}"><div class="menu_items">予約案内</div></a>
+        <a href="{% url 'contact' %}"><div class="menu_items">お問い合わせ</div></a>
         <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">Instagram</a>
         <a><img src="{% static 'calendarapp/images/line-logo.jpg' %}" alt="LINE"></a>
         <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="電話"></a>
