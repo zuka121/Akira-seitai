@@ -20,6 +20,10 @@ def home_view(request):
     notices = Notice.objects.all().order_by('-date')
     return render(request, 'calendarapp/home.html', {'notices': notices})
 
+def home_view1(request):
+    notices = Notice.objects.all().order_by('-date')
+    return render(request, 'calendarapp/home1.html', {'notices': notices})
+
 def notice_all(request):
     notices = Notice.objects.all().order_by('-date')
     return render(request, 'calendarapp/notice-all.html', {'notices': notices})
