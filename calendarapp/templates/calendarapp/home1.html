@@ -85,17 +85,25 @@
           font-size: 17px;
       }
 
+      .toppage{
+            position: relative;
+            width: 100%; 
+            overflow: hidden;
+        }
 
 
-      .toppage img{
-         width: 100%;
-         position: relative;
-      }
+      .toppage img{        
+            width: 100%; /* 画像を画面幅いっぱいに拡大 */
+            height: auto; /* アスペクト比を保持 */
+            aspect-ratio: 3 / 1; /* 3:1の比率を維持 */
+        }
 
       .text-overlay {
+            width: 80%;
             position: absolute;
-            top: 40%; /* 上からの位置 */
-            left: 13%; /* 左からの位置 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: white;
             opacity: 0.8; 
             color: black; /* テキストの色 */
@@ -104,8 +112,8 @@
             text-align: center;
             font-size: 23px;
             font-weight: bolder;
-            justify-content: center;
             display: block;
+            white-space: none;
         }
 
 
@@ -162,7 +170,7 @@
 
      .title2{
         font-size: 22px;
-        color: #38893c;
+        color: #3a533a;
         text-align: center;
         font-weight: bold;
         margin: 10px 30px 0px 30px;
@@ -328,7 +336,7 @@
             position: fixed;
             width: 100%;
             height: 65px;
-            background-color: white;
+            background-color: #fff5ee;
             z-index: 1000;
             display: flex;
             border-bottom: 1.5px solid rgb(169, 169, 169);
@@ -437,7 +445,7 @@
     .end-container{
         width: 100%;
         height: calc(100vh - 70px);
-        background-color: rgb(187, 212, 178);
+        background-color: #8a9a87;
     }
 
     .end-content {
@@ -505,7 +513,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.8); 
+        background: rgba(0, 0, 0, 0.85); 
         color: white;
         z-index: 1000;
         justify-content: center;
@@ -520,12 +528,6 @@
         margin: 10px 0;
         text-align: center;
     }
-
-    #fullscreen-menu img {
-        margin: 10px;
-        max-width: 50px;
-    }
-
     #close-menu-button {
         position: absolute;
         top: 20px;
@@ -536,12 +538,32 @@
         font-size: 2rem;
         cursor: pointer;
     }
-    #menu_list{
+    .menu_list{
         width: 100%;
+    }
+    .menu_list img{
+        display: block;
+        height: 50px;
+        width: auto;
+        margin: 40px auto;
     }
     .menu_items{
         font-size: 20px;
+        margin: 10px auto;
     }
+    .menu_image_container{
+        width: 80%;
+        display: flex;
+        margin: 30px auto;
+        justify-content: center;
+    }
+    .menu_image_container img{
+        display: block;
+        width: 50px;
+        height: auto;
+        margin: 0px 20px;
+    }
+    
 
 
     @media (max-width: 600px) {
@@ -559,6 +581,10 @@
         }
         .content {
             padding-top: 0px;  /* メニューの高さ分を確保 */
+        }
+        .text-overlay {
+            font-size: 12px;
+            padding: 10px;
         }
         
     }
@@ -634,14 +660,17 @@
     <!-- フルスクリーンメニュー -->
     <div id="fullscreen-menu">
       <button id="close-menu-button" aria-label="メニューを閉じる">×</button>
-      <div id="menu_list">
+      <div class="menu_list">
+        <img src="{% static 'calendarapp/images/logo_1.png' %}" alt="ロゴ">
         <a href="{% url 'detail' %}"><div class="menu_items">当院について</div></a>
         <a href="{% url 'treatment' %}"><div class="menu_items">症状と施術内容</div></a>
         <a href="{% url 'calendar' %}"><div class="menu_items">予約案内</div></a>
         <a href="{% url 'contact' %}"><div class="menu_items">お問い合わせ</div></a>
-        <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">Instagram</a>
-        <a><img src="{% static 'calendarapp/images/line-logo.jpg' %}" alt="LINE"></a>
-        <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="電話"></a>
+        <div class="menu_image_container">
+            <img src="{% static 'calendarapp/images/instagram_2.png' %}" alt="ロゴ">
+            <img src="{% static 'calendarapp/images/line_1.png' %}" alt="ロゴ">
+            <img src="{% static 'calendarapp/images/denwa_1.png' %}" alt="ロゴ">
+        </div>
       </div>
     </div>
   </div>
@@ -655,9 +684,9 @@
      <img src="{% static 'calendarapp/images/background.jpeg' %}" alt="トップ画像">
       <div class="text-overlay">
          整体は、薬や手術だけでは解決できない問題に向き合うための、もう一つの選択肢です
-      </div>
-     
+      </div>     
   </div>
+
   <a href="#notice">
      <div class="notice-box">
          <img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="notice-image">
