@@ -180,6 +180,47 @@
             text-decoration: underline;
         }
 
+        /* お知らせ */
+        .osirase-title{
+            text-align: center;
+            white-space: nowrap;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 70px 0px 0px 0px
+        }
+        .osirase-title_line{
+            width: 40px;
+            border-bottom: solid 2px #44a549;
+            margin: 10px auto;
+        }
+        .notice-list {
+            width: 80%;
+            background-color: rgb(240, 240, 240);
+            padding: 20px; 
+            margin: 10px auto;
+            justify-content: left;
+            margin-bottom: 100px;
+        }
+        .notice-item {
+            margin-bottom: 20px;
+            padding-left: 100px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: left;
+            border-bottom: dashed 1.5px gray;
+
+        }
+        .notice-date {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 30px;
+        }
+        .notice-title {
+            font-size: 18px;
+        }
+        
+
 
      .intro-active1{
         font-size: 29px;        
@@ -265,53 +306,7 @@
         display: block;
      }
 
-     .osirase-title{
-        top: 0%;
-        left: -70%;
-        white-space: nowrap;
-        font-size: 25px;
-        font-weight: bold;
-        text-align: center;
-        margin: 70px 0px 0px 0px
-     }
-
-     .osirase-title-box{
-        font-size: 25px;
-        font-weight: bold;
-        text-align: center;
-        border-bottom:solid 2px #51c257;
-        margin: 10px 600px;
-     }
-
-     .notice-list {
-            width: 80%;
-            background-color: rgb(240, 240, 240);
-            padding: 20px; 
-            margin: auto;
-            justify-content: left;
-            margin-bottom: 100px;
-        }
-     .notice-item {
-            margin-bottom: 20px;
-            padding-left: 100px;
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: left;
-            border-bottom: dashed 1.5px gray;
-
-        }
-     .notice-date {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-right: 30px;
-        }
-     .notice-title {
-            font-size: 18px;
-        }
-     .notice-content {
-        font-size: 18px; 
-        }
+     
 
       
        a{
@@ -617,8 +612,37 @@
             font-size: 10px;
             margin: 10px auto 0px auto;
         }
+        .osirase-title{
+            text-align: center;
+            white-space: nowrap;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 20px 0px 0px 0px
+        }
+        .osirase-title_line{
+            width: 20px;
+            margin: 2px auto;
+        }
+        .notice-list { 
+            justify-content: left;
+            margin-bottom: 0px;
+        }
+        .notice-item {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: left;
+            border-bottom: dashed 1.5px gray;
 
-        
+        }
+        .notice-date {
+            font-size: 12px;
+            margin-right: 20px;
+        }
+        .notice-title {
+            font-size: 10px;
+        }
     }
     @media (min-width: 601px) and (max-width: 1000px){
         .home_sentence1{
@@ -851,13 +875,12 @@
         
      </div>
   </div>
+ 
 
   <!-- お知らせ -->
   <div  class="osirase-title">お知らせ</div>
-  <div class="osirase-title-box"></div>
-
-
-    <div class="notice-list">
+  <div class="osirase-title_line"></div>
+  <div class="notice-list">
         {% for notice in notices %}
         <div class="notice-item">
             <div class="notice-date">{{ notice.date|date:"Y/m/d" }}</div>
@@ -866,7 +889,7 @@
             </a>
         </div>
         {% endfor %}
-    </div>
+   </div>
 
     <div class="last-box-line"></div>
 
