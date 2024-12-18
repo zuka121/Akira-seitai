@@ -208,7 +208,6 @@
             display: flex;
             justify-content: left;
             border-bottom: dashed 1.5px gray;
-
         }
         .notice-date {
             font-size: 18px;
@@ -220,6 +219,62 @@
             font-size: 18px;
         }
         
+        /* フッター */
+        .last-box-line{
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #3de445, #24a72a, #0c6810);
+            margin-top: 200px;
+        }
+        .end-container{
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: rgb(187, 212, 178);
+        }
+        .end-content {
+            justify-content: left;
+            padding: 5px 20px;
+        }
+        .end-content img{
+            width: 22%;
+        }
+        .end-container1{
+            display: flex;
+            padding-top: 20px;
+            width: 100%;
+        }
+        .end-item{
+            text-align: left;
+            margin: 10px auto;
+        }
+        .end-item1{
+            font-size: 20px;
+            color: black;
+            margin: 20px 0px 0px 0px;
+        }
+        .end-item1:hover{
+            text-decoration: underline;
+        }
+        .end-item2{
+            font-size: 24px;
+            color: black;
+            margin: 30px auto;
+            font-weight: bold;
+        }    
+        .end-item2:hover{
+            text-decoration: underline;
+        }
+        .end-image1{
+            width: 22%;
+            height: auto;
+            margin: 200px 100px auto auto;
+            display: block;
+        }
+        .end_insta{
+            width: 45%;
+            display: none;
+            margin: 20px;
+        }
 
 
      .intro-active1{
@@ -414,68 +469,13 @@
 
 
 
-    .last-box-line{
-        width: 100%;
-        height: 5px;
-        background: linear-gradient(to right, #3de445, #24a72a, #0c6810);
-        margin-top: 200px;
-        
-
-    }
+    
      
      
-    .end-container{
-        width: 100%;
-        height: calc(100vh - 70px);
-        background-color: #8a9a87;
-    }
+    
 
-    .end-content {
-        justify-content: left;
-        padding: 5px 20px;
-    }
 
-    .end-content img{
-        width: 22%;
-
-     }
-
-    .end-container1{
-        display: flex;
-        padding-top: 20px;
-     }
-
-    .end-item{
-        text-align: left;
-        margin: 10px auto;
-     }
-
-    .end-item1{
-        font-size: 20px;
-        color: black;
-        margin: 20px 0px 0px 0px;
-     }
-
-     .end-item2{
-        font-size: 24px;
-        color: black;
-        margin: 30px auto;
-        font-weight: bold;
-     }
-
-    .end-item1:hover{
-      text-decoration: underline;
-     }
-    .end-item2:hover{
-      text-decoration: underline;
-    }
-
-    .end-image1{
-        width: 22%;
-        height: auto;
-        margin: 200px 100px auto auto;
-        display: block;
-    }
+    
 
 
     /* 携帯用メニュー */
@@ -643,6 +643,51 @@
         .notice-title {
             font-size: 10px;
         }
+        .last-box-line{
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #3de445, #24a72a, #0c6810);
+            margin-top: 50px;
+        }
+        .end-container{
+            width: 100%;
+            height: auto;
+            background-color: rgb(187, 212, 178);
+        }
+        .end-content img{
+            width: 40%;
+        }
+        .end-container1{
+            padding-top: 0px;
+        }
+        .end-item{
+            text-align: left;
+            margin: 10px auto;
+            width: 40%;
+        }
+        .end-item1{
+            font-size: 10px;
+            color: black;
+            margin: 10px 0px 0px 0px;
+        }
+        .end-item1:hover{
+            text-decoration: underline;
+        }
+        .end-item2{
+            font-size: 14px;
+            color: black;
+            margin: 10px auto;
+            font-weight: bold;
+        }    
+        .end-item2:hover{
+            text-decoration: underline;
+        }
+        .end-image1{
+            display: none;
+        }
+        .end_insta{
+            display: block;
+        }
     }
     @media (min-width: 601px) and (max-width: 1000px){
         .home_sentence1{
@@ -745,204 +790,180 @@
       <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="サイトロゴ" class="denwa-logo"></a>
   </nav>
 
-  <!--携帯用メニュー-->
-  <div class="phone_menu">
-  
-    <!-- メニューボタン -->
-    <button id="menu-toggle-button" aria-label="メニューを開閉">☰ menu</button>
-  
-    <!-- フルスクリーンメニュー -->
-    <div id="fullscreen-menu">
-      <button id="close-menu-button" aria-label="メニューを閉じる">×</button>
-      <div class="menu_list">
-        <img src="{% static 'calendarapp/images/logo_1.png' %}" alt="ロゴ">
-        <a href="{% url 'detail' %}"><div class="menu_items">当院について</div></a>
-        <a href="{% url 'treatment' %}"><div class="menu_items">症状と施術内容</div></a>
-        <a href="{% url 'calendar' %}"><div class="menu_items">予約案内</div></a>
-        <a href="{% url 'contact' %}"><div class="menu_items">お問い合わせ</div></a>
-        <div class="menu_image_container">
-            <img src="{% static 'calendarapp/images/instagram_2.png' %}" alt="ロゴ">
-            <img src="{% static 'calendarapp/images/line_1.png' %}" alt="ロゴ">
-            <img src="{% static 'calendarapp/images/denwa_1.png' %}" alt="ロゴ">
+    <!--携帯用メニュー-->
+    <div class="phone_menu">  
+        <!-- メニューボタン -->
+        <button id="menu-toggle-button" aria-label="メニューを開閉">☰ menu</button>
+    
+        <!-- フルスクリーンメニュー -->
+        <div id="fullscreen-menu">
+            <button id="close-menu-button" aria-label="メニューを閉じる">×</button>
+            <div class="menu_list">
+                <img src="{% static 'calendarapp/images/logo_1.png' %}" alt="ロゴ">
+                <a href="{% url 'detail' %}"><div class="menu_items">当院について</div></a>
+                <a href="{% url 'treatment' %}"><div class="menu_items">症状と施術内容</div></a>
+                <a href="{% url 'calendar' %}"><div class="menu_items">予約案内</div></a>
+                <a href="{% url 'contact' %}"><div class="menu_items">お問い合わせ</div></a>
+                <div class="menu_image_container">
+                    <img src="{% static 'calendarapp/images/instagram_2.png' %}" alt="ロゴ">
+                    <img src="{% static 'calendarapp/images/line_1.png' %}" alt="ロゴ">
+                    <img src="{% static 'calendarapp/images/denwa_1.png' %}" alt="ロゴ">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
 
 
 
-  <!-- ヘッダー画像 -->
-  <div class="content"></div>
-  <div class="toppage">
-     <img src="{% static 'calendarapp/images/background.jpeg' %}" alt="トップ画像">
-      <div class="text-overlay">
-         整体は、薬や手術だけでは解決できない問題に向き合うための、もう一つの選択肢です
-      </div>     
-  </div>
-
-
-  <!-- お知らせを確認する -->
-  <a href="#notice">
-     <div class="notice-box">
-            <img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="notice-image">
-            <div class="osirase">お知らせを確認する</div>
-      </div>
-  </a>
-
-  <!-- トップ　文章１ -->
-  <div class="home_sentence1">
-     当院では、<span class="home_sentence1_bold">整体カフェMOCA</span>での施術と<span class="home_sentence1_bold">出張</span>での施術をご用意しています
-  </div>
-
-  <!-- サービス案内 -->
-  <div class="active-schedule-container">
-    <!--<a href="{% url 'moca' %}">
-        <div class="notice-section">
-        <img src="{% static 'calendarapp/images/moca_image.jpeg' %}" alt="カフェモカ">
-        <div class="moca-content">
-           ご案内
-        </div>
-        <div class="moca-content1">〒649-0101</div>
-        <div class="moca-content1">和歌山県海南市下津町下津3066</div>
-        <div class="moca-content1">
-            <img src="{% static 'calendarapp/images/train.svg' %}" alt="電車">
-            <div class="moca-content1-text">JR下津駅から徒歩1分</div>
-        </div>
-        <div class="moca-content2">
-            <a href="https://www.instagram.com/seitaicafe_moca/" target="_blank">
-                <img src="{% static 'calendarapp/images/insta_logo.jpg' %}" alt="電車">
-            </a>
+    <!-- ヘッダー画像 -->
+    <div class="content"></div>
+    <div class="toppage">
+        <img src="{% static 'calendarapp/images/background.jpeg' %}" alt="トップ画像">
+        <div class="text-overlay">
+            整体は、薬や手術だけでは解決できない問題に向き合うための、もう一つの選択肢です
         </div>     
     </div>
-    </a>-->
-    
-     <div class="active-schedule-box">
-        <div class="title">
-            整体カフェMOCA
-        </div>
-        <img src="{% static 'calendarapp/images/moca_image_4.jpeg' %}" alt="カフェモカ" class="moca_image">
-        <div class="title1">
-            営業時間
-        </div>
-        <div class="title2">
-            10:00 ~ 16:00
-        </div>
-        <div class="title1">
-            営業日
-        </div>
-        <div class="title2">
-            火、木、土
-        </div>
-        <div class="title1">
-            料金
-        </div>
-        <div class="title3">
-            施術時間 30分　&yen;0000</br>
-            施術時間 60分　&yen;0000</br>
-        </div>
-        <div class="title3">
-            カフェのご利用で &yen;000 OFF
-        </div>
 
-     </div>
-     <div class="active-schedule-box">
-        <div class="title">
-            出張診療
+
+    <!-- お知らせを確認する -->
+    <a href="#notice">
+        <div class="notice-box">
+                <img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="notice-image">
+                <div class="osirase">お知らせを確認する</div>
         </div>
-        <img src="{% static 'calendarapp/images/syuttyou_2.jpeg' %}" alt="出張" class="moca_image">
-        <div id="ryoukin" class="title1">
-            営業時間
+    </a>
+
+    <!-- トップ　文章１ -->
+    <div class="home_sentence1">
+        当院では、<span class="home_sentence1_bold">整体カフェMOCA</span>での施術と<span class="home_sentence1_bold">出張</span>での施術をご用意しています
+    </div>
+
+    <!-- サービス案内 -->
+    <div class="active-schedule-container">
+        <!--<a href="{% url 'moca' %}">
+            <div class="notice-section">
+            <img src="{% static 'calendarapp/images/moca_image.jpeg' %}" alt="カフェモカ">
+            <div class="moca-content">
+            ご案内
+            </div>
+            <div class="moca-content1">〒649-0101</div>
+            <div class="moca-content1">和歌山県海南市下津町下津3066</div>
+            <div class="moca-content1">
+                <img src="{% static 'calendarapp/images/train.svg' %}" alt="電車">
+                <div class="moca-content1-text">JR下津駅から徒歩1分</div>
+            </div>
+            <div class="moca-content2">
+                <a href="https://www.instagram.com/seitaicafe_moca/" target="_blank">
+                    <img src="{% static 'calendarapp/images/insta_logo.jpg' %}" alt="電車">
+                </a>
+            </div>     
         </div>
-        <div class="title2">
-            ご要望に合わせて
-        </div>
-        <div class="title1">
-            営業日
-        </div>
-        <div  class="title2">
-            月、水、金、日
-        </div>
-        <div class="title1">
-            料金
-        </div>
-        <div id="notice" class="title3">
-            &yen;0000 + 交通費 (地域別)
-        </div>
-        <a href="{% url 'syuttyou' %}"><div class="title4">
-            詳しくはこちら
-        </div></a>
+        </a>-->
         
-     </div>
-  </div>
+        <div class="active-schedule-box">
+            <div class="title">
+                整体カフェMOCA
+            </div>
+            <img src="{% static 'calendarapp/images/moca_image_4.jpeg' %}" alt="カフェモカ" class="moca_image">
+            <div class="title1">
+                営業時間
+            </div>
+            <div class="title2">
+                10:00 ~ 16:00
+            </div>
+            <div class="title1">
+                営業日
+            </div>
+            <div class="title2">
+                火、木、土
+            </div>
+            <div class="title1">
+                料金
+            </div>
+            <div class="title3">
+                施術時間 30分　&yen;0000</br>
+                施術時間 60分　&yen;0000</br>
+            </div>
+            <div class="title3">
+                カフェのご利用で &yen;000 OFF
+            </div>
+
+        </div>
+        <div class="active-schedule-box">
+            <div class="title">
+                出張診療
+            </div>
+            <img src="{% static 'calendarapp/images/syuttyou_2.jpeg' %}" alt="出張" class="moca_image">
+            <div id="ryoukin" class="title1">
+                営業時間
+            </div>
+            <div class="title2">
+                ご要望に合わせて
+            </div>
+            <div class="title1">
+                営業日
+            </div>
+            <div  class="title2">
+                月、水、金、日
+            </div>
+            <div class="title1">
+                料金
+            </div>
+            <div id="notice" class="title3">
+                &yen;0000 + 交通費 (地域別)
+            </div>
+            <a href="{% url 'syuttyou' %}"><div class="title4">
+                詳しくはこちら
+            </div></a>
+            
+        </div>
+    </div>
  
 
-  <!-- お知らせ -->
-  <div  class="osirase-title">お知らせ</div>
-  <div class="osirase-title_line"></div>
-  <div class="notice-list">
-        {% for notice in notices %}
-        <div class="notice-item">
-            <div class="notice-date">{{ notice.date|date:"Y/m/d" }}</div>
-            <a href="{% url 'notice_detail' notice.pk %}">
-                <div class="notice-title">{{ notice.title }}</div>
-            </a>
-        </div>
-        {% endfor %}
-   </div>
+    <!-- お知らせ -->
+    <div  class="osirase-title">お知らせ</div>
+    <div class="osirase-title_line"></div>
+    <div class="notice-list">
+            {% for notice in notices %}
+            <div class="notice-item">
+                <div class="notice-date">{{ notice.date|date:"Y/m/d" }}</div>
+                <a href="{% url 'notice_detail' notice.pk %}">
+                    <div class="notice-title">{{ notice.title }}</div>
+                </a>
+            </div>
+            {% endfor %}
+    </div>
 
+
+    <!-- フッター -->
     <div class="last-box-line"></div>
-
-
     <div class="end-container">
       <div class="end-content">
           <img src="{% static 'calendarapp/images/logo3.png' %}" alt="ロゴ2">
       </div>
  
       <div class="end-container1">
-         <div class="end-item">
-             <a href="{% url 'detail' %}">
-             <div class="end-item2">当院について</div>
-             </a>
-             <a href="{% url 'profile' %}">
-             <div class="end-item1">ー　プロフィール</div>
-             </a>
-             <a href="{% url 'profile' %}">
-              <div class="end-item1">ー　整体カフェMOCAについて</div>
-              </a>
-              <a href="{% url 'profile' %}">
-                  <div class="end-item1">ー　出張について</div>
-                  </a>
-             <a href="{% url 'contact' %}">
-             <div class="end-item1">ー　お問い合わせ</div>
-             </a>
-             <a href="{% url 'faq' %}">
-              <div class="end-item1">ー　よくある質問</div>
-              </a>
-              <a href="{% url 'notice_all' %}">         
-                  <div class="end-item1">ー　お知らせ一覧</div>
-                  </a>
-         </div>
-         <div class="end-item">
-             <a href="{% url 'calendar' %}">
-             <div class="end-item2">予約</div>
-             </a>
-             <a href="{% url 'calendar' %}">
-             <div class="end-item1">ー　予約状況</div>
-             </a>
-             <a href="{% url 'calendar' %}">
-              <div class="end-item1">ー　予約の申請</div>
-              </a>
-              <a href="{% url 'home' %}#ryoukin">
-                  <div class="end-item2">料金</div>
-                  </a> 
-              <a href="{% url 'treatment' %}">
-                  <div class="end-item2">症状と施術内容</div>
-                  </a> 
-         </div>
-         <img src="{% static 'calendarapp/images/insta_induction.png' %}" alt="インスタ" class="end-image1">
-         
-      </div>
+            <div class="end-item">
+                <a href="{% url 'detail' %}"><div class="end-item2">当院について</div></a>
+                <a href="{% url 'profile' %}"><div class="end-item1">ー　プロフィール</div></a>
+                <a href="{% url 'profile' %}"><div class="end-item1">ー　整体カフェMOCAについて</div></a>
+                <a href="{% url 'profile' %}"><div class="end-item1">ー　出張について</div></a>
+                <a href="{% url 'contact' %}"><div class="end-item1">ー　お問い合わせ</div></a>
+                <a href="{% url 'faq' %}"><div class="end-item1">ー　よくある質問</div></a>
+                <a href="{% url 'notice_all' %}"><div class="end-item1">ー　お知らせ一覧</div></a>
+            </div>
+            <div class="end-item">
+                <a href="{% url 'calendar' %}"><div class="end-item2">予約</div></a>
+                <a href="{% url 'calendar' %}"><div class="end-item1">ー　予約状況</div></a>
+                <a href="{% url 'calendar' %}"><div class="end-item1">ー　予約の申請</div></a>
+                <a href="{% url 'home' %}#ryoukin"><div class="end-item2">料金</div></a> 
+                <a href="{% url 'treatment' %}"><div class="end-item2">症状と施術内容</div></a> 
+                <img src="{% static 'calendarapp/images/insta_induction.png' %}" alt="インスタ" class="end_insta">
+            </div>
+            <img src="{% static 'calendarapp/images/insta_induction.png' %}" alt="インスタ" class="end-image1">
+        </div>
+    </div>
       
 </body>
 </html>
