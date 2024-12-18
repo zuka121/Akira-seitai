@@ -121,21 +121,64 @@
         }
 
 
-    
-     .active-schedule-container{
-        display: flex;
-        justify-content: center;
-     }
-
-     .active-schedule-box{
-        width: 350px;
-        height: auto;
-        border: solid 2px #44a549;
-        font-size: large;
-        margin: 20px 15px;
-        border-radius: 12px;
-        padding-bottom: 20px;
-     }
+        /* サービス案内 */
+        .active-schedule-container{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .active-schedule-box{
+            width: 40%;
+            height: auto;
+            border: solid 2px #44a549;
+            font-size: large;
+            margin: 20px 15px;
+            border-radius: 12px;
+            padding-bottom: 20px;
+        }
+        .title{
+            font-size: 22px;
+            color: white;
+            background-color: #51c257;
+            border-radius: 30px;
+            text-align: center;
+            padding: 10px;
+            margin: 10px 50px;
+        }
+        .title1{
+            font-size: 18px;
+            color: black;
+            text-align: left;
+            font-weight: bold;
+            margin: 20px 30px;
+        }
+        .title2{
+            font-size: 22px;
+            color: #3a533a;
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 30px 0px 30px;
+            padding-bottom: 20px;
+            border-bottom: solid 1.5px rgba(128, 128, 128, 0.53);
+        }
+        .title3{
+            font-size: 22px;
+            color: #3a533a;
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 30px 0px 30px;
+            padding-bottom: 20px;
+        }
+        .title4{
+            font-size: 20px;
+            color: gray;
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 30px 0px 30px;
+        }
+        .title4:hover{
+            text-decoration: underline;
+        }
 
 
      .intro-active1{
@@ -146,49 +189,6 @@
 
      }
 
-     .title{
-        font-size: 22px;
-        color: white;
-        background-color: #51c257;
-        border-radius: 30px;
-        text-align: center;
-        padding: 10px;
-        margin: 10px 50px;
-     }
-
-     .title1{
-        font-size: 18px;
-        color: black;
-        text-align: left;
-        font-weight: bold;
-        margin: 20px 30px;
-     }
-
-
-     .title2{
-        font-size: 22px;
-        color: #3a533a;
-        text-align: center;
-        font-weight: bold;
-        margin: 10px 30px 0px 30px;
-        padding-bottom: 20px;
-        border-bottom: solid 1.5px rgba(128, 128, 128, 0.53);
-     }
-
-     .title3{
-        font-size: 22px;
-        color: #38893c;
-        text-align: center;
-        font-weight: bold;
-        margin: 10px 30px 0px 30px;
-     }
-     .title4{
-        font-size: 20px;
-        color: #38893c;
-        text-align: center;
-        font-weight: bold;
-        margin: 10px 30px 0px 30px;
-     }
      .title5{
         font-size: 20px;
         color: gray;
@@ -598,6 +598,35 @@
         .home_sentence1_bold{
             font-size: 12px;
         }
+        .active-schedule-box{
+            padding-bottom: 10px;
+        }
+        .title{
+            font-size: 12px;
+            border-radius: 20px;
+            text-align: center;
+            padding: 6px;
+            margin: 10px 10px;
+        }
+        .title1{
+            font-size: 12px;
+            margin: 10px 10px;
+        }
+        .title2{
+            font-size: 12px;
+            margin: 10px 10px 0px 10px;
+            padding-bottom: 10px;
+            border-bottom: solid 1.5px rgba(128, 128, 128, 0.53);
+        }
+        .title3{
+            font-size: 10px;
+            margin: 10px auto 0px auto;
+            padding-bottom: 10px;
+        }
+        .title4{
+            font-size: 10px;
+            margin: 10px auto 0px auto;
+        }
 
         
     }
@@ -724,6 +753,7 @@
      当院では、<span class="home_sentence1_bold">整体カフェMOCA</span>での施術と<span class="home_sentence1_bold">出張</span>での施術をご用意しています
   </div>
 
+  <!-- サービス案内 -->
   <div class="active-schedule-container">
     <!--<a href="{% url 'moca' %}">
         <div class="notice-section">
@@ -744,7 +774,7 @@
         </div>     
     </div>
     </a>-->
-     
+    
      <div class="active-schedule-box">
         <div class="title">
             整体カフェMOCA
@@ -765,11 +795,11 @@
         <div class="title1">
             料金
         </div>
-        <div class="title4">
+        <div class="title3">
             施術時間 30分　&yen;0000</br>
             施術時間 60分　&yen;0000</br>
         </div>
-        <div class="title4">
+        <div class="title3">
             カフェのご利用で &yen;000 OFF
         </div>
 
@@ -794,10 +824,10 @@
         <div class="title1">
             料金
         </div>
-        <div id="notice" class="title4">
+        <div id="notice" class="title3">
             &yen;0000 + 交通費 (地域別)
         </div>
-        <a href="{% url 'syuttyou' %}"><div class="title5">
+        <a href="{% url 'syuttyou' %}"><div class="title4">
             詳しくはこちら
         </div></a>
         
