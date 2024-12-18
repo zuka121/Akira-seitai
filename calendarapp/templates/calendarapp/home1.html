@@ -17,43 +17,7 @@
         text-decoration: none;
         color: black;
       }
-
-
-      .notice-box {
-          display: flex;
-          width: 100%; /* お知らせボックスの幅 */
-          height: 60px; /* お知らせボックスの高さ */
-          justify-content: center;
-          background: rgb(240, 240, 240);
-          margin: -7px auto 50px auto;
-      }
-
-      .notice-image {
-         transition: transform 0.3s ease;
-         width: 30px;
-         height: 15px;
-         margin-top: 20px;
-         margin-right: 10px;
-      }
-
-      .notice-box:hover .notice-image{
-         transform: translateY(10px);
-      }
-
-
-      .osirase{
-         font-weight: bold;
-         text-decoration: none;
-         color: black;
-         padding: 15px 0px;
-         font-size: 18px;
-      }
-
-      .notice-box:hover .osirase {
-         color: #51c257; /* ホバー時の文字色 */
-      }
-
-      
+    
       
 
       .scrolling-container {
@@ -85,20 +49,18 @@
           font-size: 17px;
       }
 
-      .toppage{
+        /* ヘッダー画像 */
+        .toppage{
             position: relative;
             width: 100%; 
             overflow: hidden;
         }
-
-
-      .toppage img{        
-            width: 100%; /* 画像を画面幅いっぱいに拡大 */
-            height: auto; /* アスペクト比を保持 */
-            aspect-ratio: 3 / 1; /* 3:1の比率を維持 */
+        .toppage img{        
+            width: 100%; 
+            height: auto; 
+            aspect-ratio: 3 / 1; 
         }
-
-      .text-overlay {
+        .text-overlay {
             width: 80%;
             position: absolute;
             top: 50%;
@@ -106,7 +68,7 @@
             transform: translate(-50%, -50%);
             background-color: white;
             opacity: 0.8; 
-            color: black; /* テキストの色 */
+            color: black;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -114,6 +76,35 @@
             font-weight: bolder;
             display: block;
             white-space: none;
+        }
+
+        /* お知らせを確認する */
+        .notice-box {
+            display: flex;
+            width: 100%;
+            height: auto; 
+            justify-content: center;
+            background: rgb(240, 240, 240);
+            margin: -7px auto 50px auto;
+        }
+        .notice-image {
+            transition: transform 0.3s ease;
+            width: 30px;
+            height: 15px;
+            margin: auto 10px;
+        }
+        .notice-box:hover .notice-image{
+            transform: translateY(10px);
+        }
+        .osirase{
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+            padding: 15px 0px;
+            font-size: 18px;
+        }
+        .notice-box:hover .osirase {
+            color: #51c257; 
         }
 
 
@@ -586,6 +577,14 @@
             font-size: 12px;
             padding: 10px;
         }
+        .osirase{
+            padding: 7px 0px;
+            font-size: 14px;
+        }
+        .notice-image {
+            width: 20px;
+            height: auto;
+        }
         
     }
 
@@ -689,7 +688,7 @@
 
   <a href="#notice">
      <div class="notice-box">
-         <img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="notice-image">
+            <img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="notice-image">
             <div class="osirase">お知らせを確認する</div>
       </div>
   </a>
