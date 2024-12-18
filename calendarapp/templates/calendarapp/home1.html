@@ -107,6 +107,19 @@
             color: #51c257; 
         }
 
+        /* トップ 文章1 */
+        .home_sentence1{
+            font-size: 25px;
+            text-align: center;
+            color: black;
+            margin: 50px auto 10px auto;
+        }
+        .home_sentence1_bold{
+            font-size: 27px;
+            font-weight: bold;
+            color: #44a549;
+        }
+
 
     
      .active-schedule-container{
@@ -124,13 +137,6 @@
         padding-bottom: 20px;
      }
 
-     .intro-active{
-        display: flex;
-        font-size: 25px;
-        justify-content: center;
-        color: black;
-        margin: 50px auto 10px auto;
-     }
 
      .intro-active1{
         font-size: 29px;        
@@ -585,7 +591,25 @@
             width: 20px;
             height: auto;
         }
+        .home_sentence1{
+            font-size: 10px;
+            margin: 30px auto 10px auto;
+        }
+        .home_sentence1_bold{
+            font-size: 12px;
+        }
+
         
+    }
+    @media (min-width: 601px) and (max-width: 1000px){
+        .home_sentence1{
+            font-size: 16px;
+            margin: 40px auto 10px auto;
+        }
+        .home_sentence1_bold{
+            font-size: 18px;
+        }
+
     }
 
 </style>
@@ -677,7 +701,7 @@
 
 
 
-
+  <!-- ヘッダー画像 -->
   <div class="content"></div>
   <div class="toppage">
      <img src="{% static 'calendarapp/images/background.jpeg' %}" alt="トップ画像">
@@ -686,6 +710,8 @@
       </div>     
   </div>
 
+
+  <!-- お知らせを確認する -->
   <a href="#notice">
      <div class="notice-box">
             <img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="notice-image">
@@ -693,12 +719,9 @@
       </div>
   </a>
 
-  <div class="intro-active">
-     当院では、
-     <div class="intro-active1">整体カフェMOCA</div>
-     での施術と
-     <div class="intro-active1">出張</div>
-     での施術をご用意しています
+  <!-- トップ　文章１ -->
+  <div class="home_sentence1">
+     当院では、<span class="home_sentence1_bold">整体カフェMOCA</span>での施術と<span class="home_sentence1_bold">出張</span>での施術をご用意しています
   </div>
 
   <div class="active-schedule-container">
