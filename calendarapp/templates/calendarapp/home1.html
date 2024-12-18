@@ -48,6 +48,44 @@
           padding-top: 10px;
           font-size: 17px;
       }
+        /* 固定メニュー */
+        .menu_fixed {
+            position: fixed;
+            width: 100%;
+            height: 65px;
+            background-color: white;
+            z-index: 1000;
+            display: flex;
+            border-bottom: 2.5px solid rgb(169, 169, 169);
+            justify-content: space-between;
+        }      
+        #menuImage {
+           width: 180px;   
+           height: auto; 
+           transition: transform 0.4s ease;
+           display: block;
+           margin: 10px auto 0px 30px;
+        }
+        .scrolled-image {
+           transform: scale(1.3);
+           margin: 20px 0px 0px 30px;
+        }
+        .right_container{
+            display: flex;
+        }
+        .nav-content{
+            width: 140px;
+            height: auto;
+            margin: 20px 0px 0px 0px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            padding: 0px 5px;
+        }
+        .logo_image{
+            width: 50px;
+            margin: 5px 5px;
+        }
 
         /* ヘッダー画像 */
         .toppage{
@@ -369,49 +407,6 @@
           text-decoration: none;
           color: black;
         }
-        /* メニューを固定するためのCSS */
-        .menu_fixed {
-            position: fixed;
-            width: 100%;
-            height: 65px;
-            background-color: white;
-            z-index: 1000;
-            display: flex;
-            border-bottom: 2.5px solid rgb(169, 169, 169);
-            justify-content: space-between;
-        }
-
-      
-        #menuImage {
-           width: 180px;   
-           height: auto; 
-           transition: transform 0.4s ease;
-           display: block;
-           margin: 10px auto 0px 30px;
-        }
-
-        .scrolled-image {
-           transform: scale(1.3);
-           margin: 20px 0px 0px 30px;
-        }
-        .right_container{
-            display: flex;
-        }
-
-        .nav-content{
-            width: 140px;
-            height: auto;
-            margin: 20px 0px 0px 0px;
-            font-weight: bold;
-            font-size: 18px;
-            text-align: center;
-            padding: 0px 5px;
-        }
-
-        .logo_image{
-            width: 50px;
-            margin: 5px 5px;
-        }
 
 
 
@@ -538,11 +533,10 @@
         #menu-toggle-button {
          display: block; /* メニューボタンを表示 */
         }
-        nav {
+        .menu_fixed {
             position: static !important;
             z-index: auto !important; 
-            display: none;
-            
+            display: none;            
         }
         .phone_menu{
           width: 100%;
@@ -676,6 +670,25 @@
         }
     }
     @media (min-width: 601px) and (max-width: 1000px){
+        #menu-toggle-button {
+         display: block; /* メニューボタンを表示 */
+         font-size: 24px;
+        }
+        .menu_fixed {
+            position: static !important;
+            z-index: auto !important; 
+            display: none;            
+        }
+        .phone_menu{
+          width: 100%;
+        }
+        .content {
+            padding-top: 0px;  /* メニューの高さ分を確保 */
+        }
+        .text-overlay {
+            font-size: 18px;
+            padding: 10px;
+        }
         .home_sentence1{
             font-size: 16px;
             margin: 40px auto 10px auto;
@@ -710,6 +723,84 @@
         .title4{
             font-size: 16px;
             margin: 10px auto 0px auto;
+        }
+        .osirase-title{
+            text-align: center;
+            white-space: nowrap;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0px 0px 0px
+        }
+        .osirase-title_line{
+            width: 30px;
+            margin: 2px auto;
+        }
+        .notice-list { 
+            justify-content: left;
+            margin-bottom: 0px;
+        }
+        .notice-item {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: left;
+            border-bottom: dashed 1.5px gray;
+
+        }
+        .notice-date {
+            font-size: 16px;
+            margin-right: 20px;
+        }
+        .notice-title {
+            font-size: 14px;
+        }
+        .last-box-line{
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #3de445, #24a72a, #0c6810);
+            margin-top: 50px;
+        }
+        .end-container{
+            width: 100%;
+            height: auto;
+            background-color: rgb(187, 212, 178);
+        }
+        .end-content img{
+            width: 40%;
+        }
+        .end-container1{
+            padding-top: 0px;
+        }
+        .end-item{
+            text-align: left;
+            margin: 10px auto;
+            width: 40%;
+        }
+        .end-item1{
+            font-size: 16px;
+            color: black;
+            margin: 10px 0px 0px 0px;
+        }
+        .end-item1:hover{
+            text-decoration: underline;
+        }
+        .end-item2{
+            font-size: 18px;
+            color: black;
+            margin: 10px auto;
+            font-weight: bold;
+        }    
+        .end-item2:hover{
+            text-decoration: underline;
+        }
+        .end-image1{
+            display: none;
+        }
+        .end_insta{
+            display: block;
+            width: 50%;
+            margin: 40px;
         }
 
     }
