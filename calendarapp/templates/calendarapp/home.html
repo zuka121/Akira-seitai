@@ -457,6 +457,7 @@
         border: none;
         font-size: 20px;
         cursor: pointer;
+        color: black;
     }
 
     #fullscreen-menu {
@@ -837,32 +838,30 @@
 </script>
 
 
- <body>
-
-        <div class="menu_fixed">
-            <a href="/">
-                <img id="menuImage" src="{% static 'calendarapp/images/logo2.jpg' %}" alt="サイトロゴ" >
-            </a>
-            <div class="right_container">
-                <a href="{% url 'detail' %}">
-                    <div class="nav-content">当院について</div>
-                </a>
-                <a href="{% url 'treatment' %}">
-                    <div class="nav-content">症状と施術内容</div>
-                </a>
-                <a href="{% url 'calendar' %}">
-                    <div class="nav-content">予約案内</div>
-                </a>
-                <a href="{% url 'contact' %}">
-                    <div class="nav-content">お問い合わせ</div>
-                </a>      
-                <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">
-                    <img src="{% static 'calendarapp/images/insta-logo.png' %}" alt="インスタ" class="logo_image"> 
-                </a>
-                <a><img src="{% static 'calendarapp/images/line-logo.jpg' %}" alt="ライン" class="logo_image"></a>
-                <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="電話" class="logo_image"></a>
-            </div>
-        </div>
+<body>
+    <div class="menu_fixed">
+        <a href="/">
+            <img id="menuImage" src="{% static 'calendarapp/images/logo2.jpg' %}" alt="サイトロゴ" >
+        </a>
+        <a href="{% url 'detail' %}">
+            <div class="nav-content">当院について</div>
+        </a>
+        <a href="{% url 'treatment' %}">
+            <div class="nav-content">症状と施術内容</div>
+        </a>
+        <a href="{% url 'calendar' %}">
+            <div class="nav-content">予約案内</div>
+        </a>
+        <a href="{% url 'contact' %}">
+            <div class="nav-content">お問い合わせ</div>
+        </a>      
+        <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">
+            <img src="{% static 'calendarapp/images/insta-logo.png' %}" alt="インスタ" class="logo_image"> 
+        </a>
+        <a><img src="{% static 'calendarapp/images/line-logo.jpg' %}" alt="ライン" class="logo_image"></a>
+        <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="電話" class="logo_image"></a>
+        
+    </div>
 
     <!--携帯用メニュー-->
     <div class="phone_menu">  

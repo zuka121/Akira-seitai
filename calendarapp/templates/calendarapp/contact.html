@@ -13,8 +13,8 @@
       justify-content: center;
    }
    .contents_box{
-      width:280px;
-      height: 210px;
+      width:300px;
+      height: 230px;
       border: solid 1px black;
       margin: 10px 20px;
       text-align: center;
@@ -29,6 +29,40 @@
    .contents_box_title{
       font-size: 20px;
       font-weight: bold;
+   }
+
+
+
+   @media (max-width: 600px){
+      .contents_box{
+         width: 110px;
+         height: 83px;
+         border: solid 1px black;
+         margin: 5px 5px;
+      }
+      .contents_box img{
+         margin-bottom: 5px;
+      }
+      .contents_box_title{
+         font-size: 10px;
+         font-weight: bold;
+      }
+
+   }
+   @media (min-width: 601px) and (max-width: 1000px){
+      .contents_box{
+         width: 180px;
+         height: 135px;
+         border: solid 1px black;
+         margin: 5px 5px;
+      }
+      .contents_box img{
+         margin-bottom: 5px;
+      }
+      .contents_box_title{
+         font-size: 16px;
+         font-weight: bold;
+      }
    }
 </style>
 <body>

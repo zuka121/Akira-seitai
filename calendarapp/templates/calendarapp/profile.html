@@ -24,8 +24,35 @@
    }
 
    .profile_photo{
-      width:auto;
       height: 500px;
+      margin-top: 60px;
+   }
+
+
+   @media (max-width: 600px){
+      .text_message{
+         font-size: 10px;
+         margin: 3px 14px;
+         margin-bottom: 20px;
+      }
+      .profile_photo{
+         height: 180px;
+         margin-top: 30px;
+      }
+
+   }
+
+   @media (min-width: 601px) and (max-width: 1000px){
+      .text_message{
+         font-size: 12px;
+         margin: 3px 25px;
+         margin-bottom: 20px;
+      }
+      .profile_photo{
+         height: 300px;
+         margin-top: 30px;
+      }
+
    }
 
 </style>
