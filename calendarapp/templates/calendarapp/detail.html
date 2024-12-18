@@ -13,15 +13,14 @@
       justify-content: center;
    }
    .contents_box{
-      width:280px;
-      height: 210px;
+      width: 300px;
+      height: auto; 
       border: solid 1px black;
       margin: 10px 20px;
       text-align: center;
    }
    .contents_box img{
       width: 100%;
-      margin-bottom: 15px;
    }
    .contents_box:hover{
       opacity: 0.6;
@@ -29,6 +28,7 @@
    .contents_box_title{
       font-size: 20px;
       font-weight: bold;
+      margin: 10px auto;
    }
 
 
@@ -58,8 +58,7 @@
       <a href="{% url 'profile' %}" >
          <div class="contents_box">
             <img src="{% static 'calendarapp/images/profile_photo_1.JPG' %}" alt="サムネイル1" >
-            <div class="contents_box_title">当院からのメッセージ</div>
-   
+            <div class="contents_box_title">当院からのメッセージ</div>   
          </div>
       </a>
       <a href="{% url 'moca' %}" >

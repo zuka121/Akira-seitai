@@ -2,7 +2,7 @@
 <html lang="ja">
 {% load static %}
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}カレンダー{% endblock %}</title>
     <style>
 
@@ -16,64 +16,71 @@
           text-decoration: none;
           color: black;
         }
-        /* メニューを固定するためのCSS */
-        nav {
+
+
+
+        /* 固定メニュー */
+        .menu_fixed {
             position: fixed;
             width: 100%;
             height: 65px;
             background-color: white;
             z-index: 1000;
             display: flex;
-            border-bottom: 1.5px solid rgb(169, 169, 169);
-            justify-content: left;
+            border-bottom: 2.5px solid rgb(169, 169, 169);
+            justify-content: space-between;
+        }      
+        .menuImage_1 {
+           width: 230px; 
+           display: block;
+           margin: 2px auto 0px 0px;
         }
-
-
-
-        .nav-image{
-            width: 100px;
-            height: auto;
-            background-color: white;
-            margin-right: auto;
+        .right_container{
+            display: flex;
         }
-      
-        #menuImage {
-           width: 180px;   
-           height: auto; 
-           position: absolute; 
-           transition: transform 0.4s ease;
-        }
-
-        .scrolled-image {
-           width: 230px;
-           margin: 5px 10px 0px 0px;
-        }
-
         .nav-content{
             width: 140px;
             height: auto;
-            margin: 20px auto 0px auto;
+            margin: 20px 0px 0px 0px;
             font-weight: bold;
             font-size: 18px;
             text-align: center;
-            padding: 0px 10px;
+            padding: 0px 5px;
         }
-
-        .insta-logo {
+        .logo_image{
             width: 50px;
-            margin: 2px 10px 0px 70px;
+            margin: 5px 5px;
         }
 
-        .line-logo{
-            width: 45px;
-            height: auto;
-            margin: 7px 10px 0px 10px;
-        }
 
-        .denwa-logo{
-            width: 50px;
-            height: auto;
-            margin: 5px 30px 0px 10px;
+
+        /* ヘッダー画像 */
+        .toppage{
+            position: relative;
+            width: 100%; 
+            overflow: hidden;
+        }
+        .toppage img{        
+            width: 100%; 
+            height: auto; 
+            aspect-ratio: 3 / 1; 
+        }
+        .text-overlay {
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            opacity: 0.8; 
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 23px;
+            font-weight: bolder;
+            display: block;
+            white-space: none;
         }
 
 
@@ -118,68 +125,63 @@
 
 
 
+    /* フッター */
     .last-box-line{
-        width: 100%;
-        height: 5px;
-        background: linear-gradient(to right, #3de445, #24a72a, #0c6810);
-        margin-top: 200px;
-        
-
-    }
-     
-     
-    .end-container{
-        width: 100%;
-        height: calc(100vh - 70px);
-        background-color: rgb(187, 212, 178);
-    }
-
-    .end-content {
-        justify-content: left;
-        padding: 5px 20px;
-    }
-
-    .end-content img{
-        width: 22%;
-
-     }
-
-    .end-container1{
-        display: flex;
-        padding-top: 20px;
-     }
-
-    .end-item{
-        text-align: left;
-        margin: 10px auto;
-     }
-
-    .end-item1{
-        font-size: 20px;
-        color: black;
-        margin: 20px 0px 0px 0px;
-     }
-
-     .end-item2{
-        font-size: 24px;
-        color: black;
-        margin: 30px auto;
-        font-weight: bold;
-     }
-
-    .end-item1:hover{
-      text-decoration: underline;
-     }
-     .end-item2:hover{
-      text-decoration: underline;
-     }
-
-    .end-image1{
-        width: 22%;
-        height: auto;
-        margin: 200px 100px auto auto;
-        display: block;
-    }
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #3de445, #24a72a, #0c6810);
+            margin-top: 200px;
+        }
+        .end-container{
+            width: 100%;
+            height: auto;
+            background-color: rgb(187, 212, 178);
+            padding-bottom: 30px;
+        }
+        .end-content {
+            justify-content: left;
+            padding: 5px 20px;
+        }
+        .end-content img{
+            width: 22%;
+        }
+        .end-container1{
+            display: flex;
+            padding-top: 20px;
+            width: 100%;
+        }
+        .end-item{
+            text-align: left;
+            margin: 10px auto;
+        }
+        .end-item1{
+            font-size: 20px;
+            color: black;
+            margin: 20px 0px 0px 0px;
+        }
+        .end-item1:hover{
+            text-decoration: underline;
+        }
+        .end-item2{
+            font-size: 24px;
+            color: black;
+            margin: 30px auto;
+            font-weight: bold;
+        }    
+        .end-item2:hover{
+            text-decoration: underline;
+        }
+        .end-image1{
+            width: 22%;
+            height: auto;
+            margin: 200px 100px auto auto;
+            display: block;
+        }
+        .end_insta{
+            width: 45%;
+            display: none;
+            margin: 20px;
+        }
 
     .heading{
             font-size: 30px;
@@ -219,56 +221,321 @@
       height: 15px;
       margin: auto 2px;
    }
-
-   .toppage img{
-        width: 100%;
-        position: relative;
-    }
-
-    .text-overlay {
-        position: absolute;
-        top: 44%;
-        left:50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        opacity: 0.8; 
-        color: black; /* テキストの色 */
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        font-size: 30px;
-        font-weight: bolder;
-        display: block;
-    }
+        
     .space{
       width: 100%;
       height: 50px;
    }
+   /* 携帯用メニュー */
+   #menu-toggle-button {
+        display: none; 
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    #fullscreen-menu {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85); 
+        color: white;
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #fullscreen-menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        margin: 10px 0;
+        text-align: center;
+    }
+    #close-menu-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    .menu_list{
+        width: 100%;
+    }
+    .menu_list img{
+        display: block;
+        height: 50px;
+        width: auto;
+        margin: 40px auto;
+    }
+    .menu_items{
+        font-size: 20px;
+        margin: 10px auto;
+    }
+    .menu_image_container{
+        width: 80%;
+        display: flex;
+        margin: 30px auto;
+        justify-content: center;
+    }
+    .menu_image_container img{
+        display: block;
+        width: 50px;
+        height: auto;
+        margin: 0px 20px;
+    }
+    
+
+
+    @media (max-width: 600px) {
+        #menu-toggle-button {
+         display: block; /* メニューボタンを表示 */
+        }
+        .menu_fixed {
+            position: static !important;
+            z-index: auto !important; 
+            display: none;            
+        }
+        .phone_menu{
+          width: 100%;
+        }
+        .content {
+            padding-top: 0px;  /* メニューの高さ分を確保 */
+        }
+        .text-overlay {
+            font-size: 12px;
+            padding: 10px;
+        }
+        .osirase{
+            padding: 7px 0px;
+            font-size: 14px;
+        }
+        .last-box-line{
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #3de445, #24a72a, #0c6810);
+            margin-top: 50px;
+        }
+        .end-container{
+            width: 100%;
+            height: auto;
+            background-color: rgb(187, 212, 178);
+        }
+        .end-content img{
+            width: 40%;
+        }
+        .end-container1{
+            padding-top: 0px;
+        }
+        .end-item{
+            text-align: left;
+            margin: 10px auto;
+            width: 40%;
+        }
+        .end-item1{
+            font-size: 10px;
+            color: black;
+            margin: 10px 0px 0px 0px;
+        }
+        .end-item1:hover{
+            text-decoration: underline;
+        }
+        .end-item2{
+            font-size: 14px;
+            color: black;
+            margin: 10px auto;
+            font-weight: bold;
+        }    
+        .end-item2:hover{
+            text-decoration: underline;
+        }
+        .end-image1{
+            display: none;
+        }
+        .end_insta{
+            display: block;
+        }
+
+
+        .directory_box{
+            width: auto;
+            height: 20px;
+            border: solid 0px black;
+            display: flex;
+            margin: 0px 0px -4px 0px;
+        }
+        .directory_item{
+            font-size: 10px;
+            margin: 3px 4px auto 4px;
+            color: #38893c;
+        }
+        .directory_item1{
+            font-size: 10px;
+            margin: auto 4px auto 4px;
+            color: #38893c;
+        }
+        .directory_item:hover{
+            text-decoration: underline;
+        }
+        .directory_img{
+            width: auto;
+            height: 10px;
+            margin: auto 2px;
+        }
+    }
+    @media (min-width: 601px) and (max-width: 1000px){
+        #menu-toggle-button {
+         display: block; /* メニューボタンを表示 */
+         font-size: 24px;
+        }
+        .menu_fixed {
+            position: static !important;
+            z-index: auto !important; 
+            display: none;            
+        }
+        .phone_menu{
+          width: 100%;
+        }
+        .content {
+            padding-top: 0px;  /* メニューの高さ分を確保 */
+        }
+        .text-overlay {
+            font-size: 18px;
+            padding: 10px;
+        }
+        .last-box-line{
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #3de445, #24a72a, #0c6810);
+            margin-top: 50px;
+        }
+        .end-container{
+            width: 100%;
+            height: auto;
+            background-color: rgb(187, 212, 178);
+        }
+        .end-content img{
+            width: 40%;
+        }
+        .end-container1{
+            padding-top: 0px;
+        }
+        .end-item{
+            text-align: left;
+            margin: 10px auto;
+            width: 40%;
+        }
+        .end-item1{
+            font-size: 16px;
+            color: black;
+            margin: 10px 0px 0px 0px;
+        }
+        .end-item1:hover{
+            text-decoration: underline;
+        }
+        .end-item2{
+            font-size: 18px;
+            color: black;
+            margin: 10px auto;
+            font-weight: bold;
+        }    
+        .end-item2:hover{
+            text-decoration: underline;
+        }
+        .end-image1{
+            display: none;
+        }
+        .end_insta{
+            display: block;
+            width: 50%;
+            margin: 40px;
+        }
+
+    }
 
 
     </style>
 </head>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.getElementById("menu-toggle-button");
+        const fullscreenMenu = document.getElementById("fullscreen-menu");
+        const closeButton = document.getElementById("close-menu-button");
+
+        // メニューボタンを押すとフルスクリーンメニューを表示
+        toggleButton.addEventListener("click", () => {
+            fullscreenMenu.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
+
+        // ×ボタンを押すとフルスクリーンメニューを閉じる
+        closeButton.addEventListener("click", () => {
+            fullscreenMenu.style.display = "none";
+            document.body.style.overflow = "auto";
+        });
+
+        
+    });
+</script>
 
 
 
 <body>
-    <!-- ナビゲーションメニュー -->
-    <nav>
-        <div class="nav-image">
-           <a href="/"><img src="{% static 'calendarapp/images/logo.png' %}" alt="サイトロゴ" class="scrolled-image"></a>
+        <div class="menu_fixed">
+            <a href="/">
+                <img  src="{% static 'calendarapp/images/logo.png' %}" alt="サイトロゴ" class="menuImage_1">
+            </a>
+            <div class="right_container">
+                <a href="{% url 'detail' %}">
+                    <div class="nav-content">当院について</div>
+                </a>
+                <a href="{% url 'treatment' %}">
+                    <div class="nav-content">症状と施術内容</div>
+                </a>
+                <a href="{% url 'calendar' %}">
+                    <div class="nav-content">予約案内</div>
+                </a>
+                <a href="{% url 'contact' %}">
+                    <div class="nav-content">お問い合わせ</div>
+                </a>      
+                <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">
+                    <img src="{% static 'calendarapp/images/insta-logo.png' %}" alt="インスタ" class="logo_image"> 
+                </a>
+                <a><img src="{% static 'calendarapp/images/line-logo.jpg' %}" alt="ライン" class="logo_image"></a>
+                <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="電話" class="logo_image"></a>
+            </div>
         </div>
-        
-        <a href="{% url 'detail' %}"><div class="nav-content">当院について</div></a>
-        <a href="{% url 'treatment' %}"><div class="nav-content">症状と施術内容</div></a>
-        <a href="{% url 'calendar' %}"><div class="nav-content">予約案内</div></a>
-        <a href="{% url 'contact' %}"><div class="nav-content">お問い合わせ</div></a>
-        
-        <a href="https://www.instagram.com/aaa___aia2001/" target="_blank">
-           <img src="{% static 'calendarapp/images/insta-logo.png' %}" alt="インスタロゴ" class="insta-logo">   
-        </a>
-        <a><img src="{% static 'calendarapp/images/line-logo.jpg' %}" alt="サイトロゴ" class="line-logo"></a>
-        <a><img src="{% static 'calendarapp/images/denwa-logo.png' %}" alt="サイトロゴ" class="denwa-logo"></a>
-    </nav>
+
+    <!--携帯用メニュー-->
+    <div class="phone_menu">  
+        <!-- メニューボタン -->
+        <button id="menu-toggle-button" aria-label="メニューを開閉">☰ menu</button>
+    
+        <!-- フルスクリーンメニュー -->
+        <div id="fullscreen-menu">
+            <button id="close-menu-button" aria-label="メニューを閉じる">×</button>
+            <div class="menu_list">
+                <a href="/"><img src="{% static 'calendarapp/images/logo_1.png' %}" alt="ロゴ"></a>
+                <a href="{% url 'detail' %}"><div class="menu_items">当院について</div></a>
+                <a href="{% url 'treatment' %}"><div class="menu_items">症状と施術内容</div></a>
+                <a href="{% url 'calendar' %}"><div class="menu_items">予約案内</div></a>
+                <a href="{% url 'contact' %}"><div class="menu_items">お問い合わせ</div></a>
+                <div class="menu_image_container">
+                    <img src="{% static 'calendarapp/images/instagram_2.png' %}" alt="ロゴ">
+                    <img src="{% static 'calendarapp/images/line_1.png' %}" alt="ロゴ">
+                    <img src="{% static 'calendarapp/images/denwa_1.png' %}" alt="ロゴ">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- コンテンツ -->
     <div class="content">
@@ -323,6 +590,7 @@
                 <a href="{% url 'treatment' %}">
                     <div class="end-item2">症状と施術内容</div>
                     </a> 
+                <img src="{% static 'calendarapp/images/insta_induction.png' %}" alt="インスタ" class="end_insta">
            </div>
            <img src="{% static 'calendarapp/images/insta_induction.png' %}" alt="インスタ" class="end-image1">
            
