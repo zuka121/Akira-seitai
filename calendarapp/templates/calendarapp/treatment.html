@@ -8,26 +8,25 @@
 {% load static %}
 <style>
    .treatment_container{ 
-      width: 80%;
+      width: 90%;
       display: flex;
       margin: auto;
       justify-content: center;
       background-color: #c8dfcd75;
       gap: 20px;
-      padding:20px 0px 20px 0px;
+      padding:20px 10px 20px 10px;
    }
    .treatment_container_2{ 
-      width: 80%;
+      width: 90%;
       display: flex;
       margin: auto;
       justify-content: center;
       background-color: #c8dfcd75;
       gap: 20px;
-      padding:0px 0px 20px 0px;
+      padding:0px 10px 20px 10px;
    }
    .treatment_container_1{ 
-      width: 231px;
-      height: 77;    
+      width: 210px;  
       display: flex; 
       border: solid 0px black; 
       background-color: white;
@@ -35,6 +34,7 @@
    .treatment_container_1 img{
       width: 70px;
       justify-content: left;
+      margin: auto 0px;
    }
    .treatment_container_1_title{
       font-size: 22px;
@@ -72,6 +72,102 @@
    .treatment_title{
       font-size: 22px;
       font-weight: bold;
+   }
+
+
+   /* 携帯用 */
+   .symptom_container{
+      display: none;
+      width: 90%;
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      background-color: #c8dfcd75;
+      gap: 10px;
+      padding:0px 0px 0px 0px;
+   }
+   .symptom_container_1{
+      display: none;
+      width: 90%;
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      background-color: #c8dfcd75;
+      gap: 10px;
+      padding:0px 0px 0px 0px;
+   }
+   .symptom_item{
+      display: none;       
+      width: 160px; 
+      display: flex; 
+      border: solid 0px black; 
+      background-color: white;
+   }
+   .symptom_item img{
+      display: none;
+      width: 52px;
+      justify-content: left;
+   }
+   .symptom_item_title{
+      display: none;
+      font-size: 18px;
+      font-weight: bold;
+      margin: auto;
+   }
+
+
+   @media (max-width: 600px){
+      .treatment_container{
+         display: none;
+      }
+      .treatment_container_1{
+         display: none;
+      }
+      .treatment_container_2{
+         display: none;
+      }
+      .symptom_container{
+         display: block;
+         width: 90%;
+         display: flex;
+         margin: auto;
+         justify-content: center;
+         background-color: #c8dfcd75;
+         gap: 10px;
+         padding:10px 0px 10px 0px;
+         margin-top: 20px;
+      }
+      .symptom_container_1{
+         display: block;
+         width: 90%;
+         display: flex;
+         margin: auto;
+         justify-content: center;
+         background-color: #c8dfcd75;
+         gap: 10px;
+         padding:0px 0px 10px 0px;
+      }
+      .symptom_item{
+         display: block;       
+         width: 150px; 
+         display: flex; 
+         border: solid 0px black; 
+         background-color: white;
+      }
+      .symptom_item img{
+         display: block;
+         width: 52px;
+         justify-content: left;
+         margin: auto 0px;
+      }
+      .symptom_item_title{
+         display: block;
+         font-size: 14px;
+         font-weight: bold;
+         margin: auto;
+      }
+
+
    }
 
    
@@ -127,6 +223,51 @@
          <div class="treatment_container_1_title">手術前、後の</br>リハビリ</div>         
       </div>      
    </div>
+
+
+   <!-- 携帯用 -->
+   <div class="symptom_container">
+      <div class="symptom_item">
+         <img src="{% static 'calendarapp/images/youtuu.png' %}" alt="腰痛" >
+         <div class="symptom_item_title">腰痛</div>         
+      </div>
+      <div class="symptom_item">
+         <img src="{% static 'calendarapp/images/kata.png' %}" alt="肩こり" >
+         <div class="symptom_item_title">肩・首</div>         
+      </div>
+   </div>
+   <div class="symptom_container_1">
+      <div class="symptom_item">
+         <img src="{% static 'calendarapp/images/jiritusinkei.png' %}" alt="自律神経症状" >
+         <div class="symptom_item_title">自律神経症状</div>         
+      </div>
+      <div class="symptom_item">
+         <img src="{% static 'calendarapp/images/zutuu.png' %}" alt="頭痛" >
+         <div class="symptom_item_title">頭痛・めまい</div>         
+      </div>
+   </div>
+   <div class="symptom_container_1">
+      <div class="symptom_item">
+         <img src="{% static 'calendarapp/images/sango.png' %}" alt="産後" >
+         <div class="symptom_item_title">産後</div>         
+      </div>
+      <div class="symptom_item">
+         <img src="{% static 'calendarapp/images/sisei.png' %}" alt="姿勢" >
+         <div class="symptom_item_title">姿勢</div>         
+      </div>
+   </div>
+   <div class="symptom_container_1">
+      <div class="symptom_item">
+         <img src="{% static 'calendarapp/images/jiko.png' %}" alt="事故" >
+         <div class="symptom_item_title">交通事故</div>         
+      </div>
+      <div class="symptom_item">
+         <img src="{% static 'calendarapp/images/rihabiri.png' %}" alt="リハビリ" >
+         <div class="symptom_item_title">手術前、後の</br>リハビリ</div>         
+      </div>
+   </div>
+
+
    <div class="sentence">病院に行くほどではないが不調が続く方、疲れが取れない方の原因を一緒に探しています。</div>
    <div class="sentence">また、病院へ行こうとお考えの方は一度当院へお越しください。全力でサポートします！</div>
 
