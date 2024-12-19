@@ -2,6 +2,9 @@
 <html lang="ja">
 {% load static %}
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>トップページ</title>
 
@@ -10,7 +13,7 @@
           margin: 0; /* マージンをリセット */
           padding: 0;           
           scroll-behavior: smooth;
-          font-family: Arial, sans-serif;
+          font-family: "Zen Kaku Gothic New", serif;
       }  
       
       a{
@@ -99,6 +102,7 @@
             aspect-ratio: 3 / 1; 
         }
         .text-overlay {
+            font-family: "Klee One", serif;
             width: 80%;
             position: absolute;
             top: 50%;
@@ -114,6 +118,9 @@
             font-weight: bolder;
             display: block;
             white-space: none;
+        }
+        .kaigyou{
+            display: none;
         }
 
         /* お知らせを確認する */
@@ -173,6 +180,7 @@
             margin: 20px 15px;
             border-radius: 12px;
             padding-bottom: 20px;
+            background-color: #c8dfcd3d;
         }
         .title{
             font-size: 22px;
@@ -188,7 +196,7 @@
             color: black;
             text-align: left;
             font-weight: bold;
-            margin: 20px 30px;
+            margin: 20px 0px 20px 60px;
         }
         .title2{
             font-size: 22px;
@@ -267,7 +275,7 @@
         .end-container{
             width: 100%;
             height: auto;
-            background-color: rgb(187, 212, 178);
+            background-color: #a1bda76d;
             padding-bottom: 30px;
         }
         .end-content {
@@ -538,10 +546,17 @@
         .text-overlay {
             font-size: 12px;
             padding: 10px;
+            line-height: 0.8;
         }
+        .kaigyou{
+            display: block;
+        }
+
+
+
         .osirase{
             padding: 7px 0px;
-            font-size: 14px;
+            font-size: 12px;
         }
         .notice-image {
             width: 20px;
@@ -565,8 +580,8 @@
             margin: 10px 10px;
         }
         .title1{
-            font-size: 12px;
-            margin: 10px 10px;
+            font-size: 10px;
+            margin: 15px 0px 15px 15px;
         }
         .title2{
             font-size: 12px;
@@ -623,7 +638,6 @@
         .end-container{
             width: 100%;
             height: auto;
-            background-color: rgb(187, 212, 178);
         }
         .end-content img{
             width: 40%;
@@ -679,7 +693,24 @@
         .text-overlay {
             font-size: 18px;
             padding: 10px;
+            line-height: 1;
         }
+        .kaigyou{
+            display: block;
+        }
+
+
+        .osirase{
+            padding: 7px 0px;
+            font-size: 14px;
+        }
+        .notice-image {
+            width: 24px;
+            height: auto;
+        }
+
+
+
         .home_sentence1{
             font-size: 16px;
             margin: 40px auto 10px auto;
@@ -697,8 +728,8 @@
             margin: 10px 30px;
         }
         .title1{
-            font-size: 16px;
-            margin: 10px 10px;
+            font-size: 14px;
+            margin: 15px 0px 15px 20px;
         }
         .title2{
             font-size: 18px;
@@ -755,7 +786,6 @@
         .end-container{
             width: 100%;
             height: auto;
-            background-color: rgb(187, 212, 178);
         }
         .end-content img{
             width: 40%;
@@ -894,7 +924,7 @@
     <div class="toppage">
         <img src="{% static 'calendarapp/images/background.jpeg' %}" alt="トップ画像">
         <div class="text-overlay">
-            整体は、薬や手術だけでは解決できない問題に向き合うための、もう一つの選択肢です
+            整体は薬や手術だけでは解決できない問題に<span class="kaigyou"></br></span>向き合うための、もう一つの選択肢です
         </div>     
     </div>
 
