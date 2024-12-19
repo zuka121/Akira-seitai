@@ -836,10 +836,10 @@
        var menuImage = document.getElementById("menuImage");
 
        if (scrollPosition >= 0) {
-           menuImage.src = "{% static 'calendarapp/images/logo.png' %}";
+           menuImage.src = "{% static 'calendarapp/images/logo_2.png' %}";
            menuImage.classList.add("scrolled-image");
        } else {
-           menuImage.src = "{% static 'calendarapp/images/logo2.jpg' %}";
+           menuImage.src = "{% static 'calendarapp/images/logo_5.jpg' %}";
            menuImage.classList.remove("scrolled-image");
        }
    });
@@ -871,7 +871,7 @@
 <body>
     <div class="menu_fixed">
         <a href="/">
-            <img id="menuImage" src="{% static 'calendarapp/images/logo2.jpg' %}" alt="サイトロゴ" >
+            <img id="menuImage" src="{% static 'calendarapp/images/logo_5.jpg' %}" alt="サイトロゴ" >
         </a>
         <a href="{% url 'detail' %}">
             <div class="nav-content">当院について</div>
@@ -902,7 +902,7 @@
         <div id="fullscreen-menu">
             <button id="close-menu-button" aria-label="メニューを閉じる">×</button>
             <div class="menu_list">
-                <a href="/"><img src="{% static 'calendarapp/images/logo_1.png' %}" alt="ロゴ"></a>
+                <a href="/"><img src="{% static 'calendarapp/images/logo_3.png' %}" alt="ロゴ"></a>
                 <a href="{% url 'detail' %}"><div class="menu_items">当院について</div></a>
                 <a href="{% url 'treatment' %}"><div class="menu_items">症状と施術内容</div></a>
                 <a href="{% url 'calendar' %}"><div class="menu_items">予約案内</div></a>
@@ -1043,7 +1043,7 @@
     <div class="last-box-line"></div>
     <div class="end-container">
       <div class="end-content">
-          <img src="{% static 'calendarapp/images/logo3.png' %}" alt="ロゴ2">
+          <img src="{% static 'calendarapp/images/logo_2.png' %}" alt="ロゴ2">
       </div>
  
       <div class="end-container1">

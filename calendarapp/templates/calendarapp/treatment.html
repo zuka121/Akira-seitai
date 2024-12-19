@@ -7,15 +7,39 @@
 {% block content %}
 {% load static %}
 <style>
-   .treatment_container{
+   .treatment_container{ 
       width: 80%;
       display: flex;
       margin: auto;
       justify-content: center;
+      background-color: #c8dfcd75;
+      gap: 20px;
+      padding:20px 0px 20px 0px;
    }
-   .treatment_container_1{
-      width: 25%;
-      font-size: 20px;
+   .treatment_container_2{ 
+      width: 80%;
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      background-color: #c8dfcd75;
+      gap: 20px;
+      padding:0px 0px 20px 0px;
+   }
+   .treatment_container_1{ 
+      width: 231px;
+      height: 77;    
+      display: flex; 
+      border: solid 0px black; 
+      background-color: white;
+   }
+   .treatment_container_1 img{
+      width: 70px;
+      justify-content: left;
+   }
+   .treatment_container_1_title{
+      font-size: 22px;
+      font-weight: bold;
+      margin: auto;
    }
    .sentence{
       margin: 25px 0px;
@@ -36,13 +60,18 @@
       border-radius: 5px;
       margin-bottom: 10px;
       margin: auto;
+      text-align: center;
    }
    .treatment_container2_1_img{
       display: block;
       width: auto;
-      height: 25px;
+      height: 21px;
       margin: 15px auto 15px auto;
 
+   }
+   .treatment_title{
+      font-size: 22px;
+      font-weight: bold;
    }
 
    
@@ -66,46 +95,56 @@
    <div class="heading">症状</div>
    <div class="treatment_container">
       <div class="treatment_container_1">
-         ・肩こり</br>
-         ・腰痛</br>
-         ・頭痛</br>
-         ・めまい</br>
-         ・耳鳴り</br>
-         ・糖尿</br>
-         ・高血圧</br>
-         ・胃下垂</br>
+         <img src="{% static 'calendarapp/images/youtuu.png' %}" alt="腰痛" >
+         <div class="treatment_container_1_title">腰痛</div>         
+      </div><div class="treatment_container_1">
+         <img src="{% static 'calendarapp/images/kata.png' %}" alt="肩こり" >
+         <div class="treatment_container_1_title">肩・首</div>         
       </div>
-
       <div class="treatment_container_1">
-         ・妊娠中の背中や腰の痛み</br>
-         ・ひどい生理痛</br>
-         ・産後の不調</br>
-         ・睡眠障害</br>
-         ・雨の日の頭痛や耳鳴り</br>
-         ・手術後の不調</br>
-         ・交通事故後の不調</br>
-         ・側湾症</br>
-         
+         <img src="{% static 'calendarapp/images/jiritusinkei.png' %}" alt="自律神経" >
+         <div class="treatment_container_1_title">自律神経症状</div>         
       </div>
-      
+      <div class="treatment_container_1">
+         <img src="{% static 'calendarapp/images/zutuu.png' %}" alt="頭痛" >
+         <div class="treatment_container_1_title">頭痛・めまい</div>         
+      </div>      
    </div>
-   <div class="sentence">病院に行くほどではないが不調が続く方、疲れが取れない方の原因を一緒に探しています</div>
+   <div class="treatment_container_2">
+      <div class="treatment_container_1">
+         <img src="{% static 'calendarapp/images/sango.png' %}" alt="産後" >
+         <div class="treatment_container_1_title">産後</div>         
+      </div><div class="treatment_container_1">
+         <img src="{% static 'calendarapp/images/sisei.png' %}" alt="姿勢" >
+         <div class="treatment_container_1_title">姿勢</div>         
+      </div>
+      <div class="treatment_container_1">
+         <img src="{% static 'calendarapp/images/jiko.png' %}" alt="交通事故" >
+         <div class="treatment_container_1_title">交通事故</div>         
+      </div>
+      <div class="treatment_container_1">
+         <img src="{% static 'calendarapp/images/rihabiri.png' %}" alt="リハビリ" >
+         <div class="treatment_container_1_title">手術前、後の</br>リハビリ</div>         
+      </div>      
+   </div>
+   <div class="sentence">病院に行くほどではないが不調が続く方、疲れが取れない方の原因を一緒に探しています。</div>
+   <div class="sentence">また、病院へ行こうとお考えの方は一度当院へお越しください。全力でサポートします！</div>
 
    <div class="heading">施術内容</div>
       <div class="treatment_container2_1">
-         <strong>カウンセリング</strong> --- 症状をカルテに入力
+         <span class="treatment_title">＜ カウンセリング ＞</span></br> 症状をカルテに入力
       </div>
       <div><img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="treatment_container2_1_img"></div>
       <div class="treatment_container2_1">
-         <strong>検査</strong> --- 実際に筋肉の反応を見て、治療方針を決定
+         <span class="treatment_title">＜ 検査 ＞</span></br> 実際に身体の反応を見て、治療方針を決定
       </div>
       <img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="treatment_container2_1_img">
       <div class="treatment_container2_1">
-         <strong>施術</strong> --- 治療方針のもと、施術します
+         <span class="treatment_title">＜ 施術 ＞</span></br> 治療方針のもと、施術します
       </div>
       <img src="{% static 'calendarapp/images/arrow1.png' %}" alt="矢印" class="treatment_container2_1_img">
       <div class="treatment_container2_1">
-         <strong>施術後カウンセリング</strong> --- 状態に応じて、次回以降の相談をします
+         <span class="treatment_title">＜ 施術後カウンセリング ＞</span></br> 状態に応じて、次回以降の相談をします
       </div>
 </body>
 {% endblock %}
