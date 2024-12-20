@@ -7,10 +7,6 @@
 {% block content %}
 {% load static %}
 <style>
-   body {
-       font-family: Arial, sans-serif;
-       line-height: 1.6;
-   }
    .container {
        width: 90%;
        max-width: 800px;
@@ -45,12 +41,71 @@
       color: red;
       margin-left :10px;
    }
+   .situmon_kaitou{
+        font-size: 18px;
+    }
+
+
+
    .faq_body{
       margin-left: 60px;
       margin-top: 20px;
       font-size: 18px;
-      display: flex;
    }
+   
+
+
+
+    @media (max-width: 600px){
+        .faq_body{
+            margin-left: 20px;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+        .faq_title{
+            display :flex;
+            font-size: 13px;
+        }
+        .faq_ok{
+            font-weight: bold;
+            color: #51c257;
+            margin-left :10px;
+        }
+        .faq_ng{
+            font-weight: bold;
+            color: red;
+            margin-left :10px;
+        }
+        .situmon_kaitou{
+            font-size: 13px;
+            margin-top: 10px;
+        }
+    }
+    @media (min-width: 601px) and (max-width: 1000px){
+        .faq_body{
+            margin-left: 20px;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+        .faq_title{
+            display :flex;
+            font-size: 15px;
+        }
+        .faq_ok{
+            font-weight: bold;
+            color: #51c257;
+            margin-left :10px;
+        }
+        .faq_ng{
+            font-weight: bold;
+            color: red;
+            margin-left :10px;
+        }
+        .situmon_kaitou{
+            font-size: 15px;
+            margin-top: 10px;
+        }
+    }
 
 
 
@@ -90,32 +145,31 @@
   <div class="heading">質問＆回答</div>
   <div class="faq_body">回答済みの質問をクリックすれば、回答が表示されます</div>
 
-  <div class="container">
-   {% for contact in contacts %}
+    <div class="container">
+        {% for contact in contacts %}
        <div class="faq-block">
-               <div class="faq_title">
-                  {{ contact.gender }} {{ contact.age }} 
-                  {% if contact.answer %}
-                  <div class="faq_ok">回答済 ✔</div>
-                  {% else %}
-                  <div class="faq_ng">未回答 ✘</div>
-                  {% endif %}
-
-               </div>
-           <p><strong>Q:</strong> {{ contact.message }}</p>
-           <div class="faq-answer">
-               <p>
-                   <strong>A:</strong> 
-                   {% if contact.answer %}
-                       {{ contact.answer }}
-                   {% else %}
-                       まだ回答がありません。
-                   {% endif %}
-               </p>
-           </div>
+                <div class="faq_title">
+                    {{ contact.gender }} {{ contact.age }} 
+                    {% if contact.answer %}
+                    <div class="faq_ok">回答済 ✔</div>
+                    {% else %}
+                    <div class="faq_ng">未回答 ✘</div>
+                    {% endif %}
+                </div>
+                <div class="situmon_kaitou"><strong>Q:</strong> {{ contact.message }}</div>
+                <div class="faq-answer">
+                    <div class="situmon_kaitou">
+                        <strong>A:</strong> 
+                        {% if contact.answer %}
+                            {{ contact.answer }}
+                        {% else %}
+                            まだ回答がありません。
+                        {% endif %}
+                    </div>
+                </div>
        </div>
-   {% endfor %}
-</div>
+        {% endfor %}
+    </div>
 </body>
    
 
