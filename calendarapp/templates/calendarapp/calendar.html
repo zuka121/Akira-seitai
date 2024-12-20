@@ -9,36 +9,32 @@
 
 
 
-        .grid{
-            display: block;
-            margin: 0px auto 0px auto;
-        }
+    .grid{
+        display: block;
+        width: 90%;
+        margin: 0px auto 0px auto;
+    }
 
-        .sentence1{
-            font-size: 20px;
-            display: flex;
-            margin: 20px 0px 0px 60px ;
-        }
-        .sentence2{
-            font-size: 22px;
-            font-weight: bold;
-            margin: 0px 4px;
-        }
+    .sentence1{
+        font-size: 20px;
+        margin: 20px 0px 0px 60px ;
+    }
+    
 
-        .sentence3{
-            font-size: 20px;
-            display: flex;
-            margin: 10px 0px 0px 20px ;
-        }
+    .sentence3{
+        font-size: 20px;
+        display: flex;
+        margin: 10px 0px 0px 20px ;
+    }
 
-        .form-container {
+    .form-container {
         max-width: 500px;
         margin: 20px auto;
         padding: 20px;
         background-color: #f9f9f9;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+        }
     .form-container h2 {
         font-size: 24px;
         font-weight: bold;
@@ -79,23 +75,38 @@
       color: red;
       font-size: 16px;
       margin-bottom: 20px;
-  }
+    }
 
-  .scroll_point{
-    width: 10px;
-    height: 10px;
-  }
+    .scroll_point{
+        width: 10px;
+        height: 10px;
+    }
 
-  .caution_sentence_box{
-    width: 100%;
-    display: flex;
-  }
+    .caution_sentence_box{
+        width: 100%;
+        display: flex;
+    }
 
-  .caution_image{
-    width: 4%;
-    height: 4%;
-    margin: auto 0px auto 10px;
-  }
+    .caution_image{
+        width: 4%;
+        height: 4%;
+        margin: auto 0px auto 10px;
+    }
+
+    @media (max-width: 600px){
+        .sentence1{
+            font-size: 14px;
+            margin: 10px 0px 0px 20px ;
+        }
+
+    }
+    @media (min-width: 601px) and (max-width: 1000px){
+        .sentence1{
+            font-size: 16px;
+            margin: 10px 0px 0px 25px ;
+        }
+
+    }
 
  
         
@@ -121,13 +132,12 @@
 
 
     <div class="heading">予約状況</div>
-    <div class="sentence1"><div class="sentence2">{{ today|date:"m/d" }}</div>から<div class="sentence2">{{ endday|date:"m/d" }}</div>を表示しています</div>
+    <div class="sentence1"><strong> {{ today|date:"m/d" }} </strong>から<strong> {{ endday|date:"m/d" }} </strong>を表示しています</div>
     <img src="data:image/png;base64,{{ schedule_image }}" alt="スケジュールグリッド" class="grid">
    
 
 
-    
-    
+    <!--    
     <div class="heading">予約申請</div>
     <div class="scroll_point"></div>
     <div class="caution_sentence_box">
@@ -237,5 +247,6 @@
     
     </script>
     {% endif %}
+    -->
 
 {% endblock %}
