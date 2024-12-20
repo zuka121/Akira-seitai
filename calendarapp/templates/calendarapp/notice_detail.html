@@ -9,49 +9,106 @@
         width: 100%;
     }
 
-    .notice-title{
-        font-size: 32px;
-        font-weight: bold;
-        border-left: solid 6px #44a549;
-        padding-left: 10px;
-        margin: 10px 10px;
-    }
 
     .notice-title1{
         font-size: 26px;
         font-weight: bold;
-        margin: 30px 30px 0px 30px;
+        margin: 10px 30px 0px 30px;
     }
 
     .notice-box{
         width: 70%;
         background-color: rgb(240, 240, 240);
+        margin: 0px auto;
+        padding: 5px 0px;
     }
     .notice-date{
         font-size: 16px;
         color: gray;
         margin-left: 30px;
     }
-
     .notice-contents{
         font-size: 18px;
         margin: 20px 30px;
+    }
+    .notice-contents_1{
+        font-size: 18px;
+        margin: 20px 30px;
+        color: #44a549;
+    }
+    .notice-contents_1:hover{
+        text-decoration: underline;
+    }
+
+
+
+    @media (max-width: 600px){
+        .notice-box{
+            width: 80%;
+            background-color: rgb(240, 240, 240);
+            margin: 10px auto;
+            padding: 5px 0px;
+        }
+        .notice-title1{
+            font-size: 14px;
+            font-weight: bold;
+            margin: 10px 0px 0px 10px;
+        }
+        .notice-date{
+            font-size: 12px;
+            color: gray;
+            margin-left: 10px;
+        }
+        .notice-contents{
+            font-size: 11px;
+            margin: 10px 10px;
+        }
+        .notice-contents_1{
+            font-size: 11px;
+            margin: 10px 10px;
+        }
+    }
+    @media (min-width: 601px) and (max-width: 1000px){
+        .notice-box{
+            width: 80%;
+            background-color: rgb(240, 240, 240);
+            margin: 10px auto;
+            padding: 5px 0px;
+        }
+        .notice-title1{
+            font-size: 14px;
+            font-weight: bold;
+            margin: 10px 0px 0px 10px;
+        }
+        .notice-date{
+            font-size: 12px;
+            color: gray;
+            margin-left: 10px;
+        }
+        .notice-contents{
+            font-size: 11px;
+            margin: 10px 10px;
+        }
+        .notice-contents_1{
+            font-size: 11px;
+            margin: 10px 10px;
+        }      
     }
 
 </style>
     
 <body>
     <div class="notice-image">
-        <img src="{% static 'calendarapp/images/TopPagePhoto1.jpeg' %}" alt="お知らせ背景">
+        <img src="{% static 'calendarapp/images/osirase_2.jpeg' %}" alt="お知らせ背景">
     </div>
-    <div class="notice-title">お知らせ</div>
+    <div class="heading">お知らせ</div>
 
     <div class="notice-box">
     <div class="notice-title1">{{ notice.title }}</div>
     <div class="notice-date"> {{ notice.date|date:"Y/m/d" }}</div>
     <div class="notice-contents">{{ notice.content }}</div>
 
-    <a href="{% url 'notice_all' %}" ><div class="notice-contents">お知らせ一覧に戻る</div></a>
+    <a href="{% url 'notice_all' %}" ><div class="notice-contents_1">お知らせ一覧へ</div></a>
     </div>
 
 </body>

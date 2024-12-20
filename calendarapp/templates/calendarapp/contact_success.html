@@ -14,23 +14,45 @@
       display: flex;
    }
    .jump_faq{
-      font-size: 18px;
-      margin: 0px 5px;
+      color: #44a549;
       font-weight: bold;
    }
    .jump_faq:hover{
-      color: #51c257;
+      text-decoration: underline;
    }
+
+
+   @media (max-width: 600px){
+      .success_body{
+         margin-left: 10px;
+         margin-top: 10px;
+         font-size: 12px;
+         display: flex;
+      }
+      .space{
+         height: 100px;
+      }
+   }
+    @media (min-width: 601px) and (max-width: 1000px){
+      .success_body{
+         margin-left: 10px;
+         margin-top: 10px;
+         font-size: 16px;
+         display: flex;
+      }
+      .space{
+         height: 100px;
+      }
+    }
    
 </style>
 <body>
    <div class="success_body">送信が完了しました</div>
    <div class="success_body">
-      ー　質問は 
-      <a href="{% url 'faq' %}"><div class="jump_faq">質問＆回答</div></a> 
-      から確認できます
+      ー　質問は <a href="{% url 'faq' %}"><span class="jump_faq">質問＆回答</span></a> ページから確認できます
    </div>
    <div class="success_body">ー　回答には1~2日ほどお時間をいただいております</div>
+   <div class="space"></div>
 
 
    

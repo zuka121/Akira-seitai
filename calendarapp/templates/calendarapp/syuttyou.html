@@ -6,6 +6,148 @@
 
 {% block content %}
 {% load static %}
+<style>
+   .sentence_syttyou{
+      font-size: 18px;
+      margin: 10px;
+   }
+   .syuttyou_container{
+      display: flex;
+      width: 100%;
+      gap: 10px;
+      margin: 20px auto;
+      justify-content: center;
+      align-items: center;
+
+   }
+   .syuttyou_container img{
+      height: 400px;
+      display: block;
+   }
+   .tiikimei img{
+      height: 400px;
+      display: block;
+   }
+   .hannrei_box{
+      width: 200px;
+      height: 230px;
+      margin-left: 30px;
+      border: 1.5px dashed black;
+   }
+   .syuttyou_item{
+      font-size: 18px;
+      margin: 10px ;
+   }
+   .green{
+      font-size: 16px;
+      font-weight: bold;
+      color: green;
+   }
+   .blue{
+      font-size: 16px;
+      font-weight: bold;
+      color: rgb(14, 167, 227);
+   }
+   .red{
+      font-size: 16px;
+      font-weight: bold;
+      color: red;
+   }
+
+
+   @media (max-width: 600px){
+      .sentence_syttyou{
+         font-size: 13px;
+         margin: 10px;
+      }
+      .syuttyou_container{
+         margin: 30px auto;
+         
+         justify-content: center;
+         align-items: center;
+
+      }
+      .syuttyou_container img{
+         height: 200px;
+         display: block;
+      }
+      .tiikimei img{
+         height: 400px;
+         display: none;
+      }
+      .hannrei_box{
+         width: 120px;
+         height: 180px;
+         margin-left: 10px;
+         border: 1.5px dashed black;
+      }
+      .syuttyou_item{
+         font-size: 14px;
+         margin: 10px ;
+      }
+      .green{
+         font-size: 12px;
+         font-weight: bold;
+         color: green;
+      }
+      .blue{
+         font-size: 12px;
+         font-weight: bold;
+         color: rgb(14, 167, 227);
+      }
+      .red{
+         font-size: 12px;
+         font-weight: bold;
+         color: red;
+      }
+   }
+   @media (min-width: 601px) and (max-width: 1000px){
+      .sentence_syttyou{
+         font-size: 13px;
+         margin: 10px;
+      }
+      .syuttyou_container{
+         margin: 30px auto;
+         
+         justify-content: center;
+         align-items: center;
+
+      }
+      .syuttyou_container img{
+         height: 250px;
+         display: block;
+      }
+      .tiikimei img{
+         height: 400px;
+         display: none;
+      }
+      .hannrei_box{
+         width: 120px;
+         height: 180px;
+         margin-left: 10px;
+         border: 1.5px dashed black;
+      }
+      .syuttyou_item{
+         font-size: 14px;
+         margin: 10px ;
+      }
+      .green{
+         font-size: 12px;
+         font-weight: bold;
+         color: green;
+      }
+      .blue{
+         font-size: 12px;
+         font-weight: bold;
+         color: rgb(14, 167, 227);
+      }
+      .red{
+         font-size: 12px;
+         font-weight: bold;
+         color: red;
+      }
+   }
+</style>
 <body>
 
    <div class="toppage">
@@ -22,6 +164,21 @@
       <img src="{% static 'calendarapp/images/arrow3.png' %}" alt="矢印" class="directory_img">
       <div class="directory_item1">出張について</div>
   </div>
+
+  <div class="sentence_syttyou">
+      出張診療では一律 &yen;4000 の診察費と出張費 (地域別) を頂いております。</br>
+      地域別の費用は以下で確認お願いいたします。
+  </div>
+  <div class="syuttyou_container">
+      <img src="{% static 'calendarapp/images/wakayama.png' %}" alt="色付き">
+      <div class="tiikimei"><img src="{% static 'calendarapp/images/wakayama_1.png' %}" alt="地域名"></div>
+      <div class="hannrei_box">
+         <div class="syuttyou_item"><span class="green">緑色 (有田市・有田川町・湯浅町)</span></br>&yen;500</div>
+         <div class="syuttyou_item"><span class="blue">青色 (海南市)</span></br>&yen;1000</div>
+         <div class="syuttyou_item"><span class="red">赤色 (和歌山市)</span></br>&yen;2000</div>
+      </div>
+  </div>
+  <div class="space"></div>
 </body>
    
 
